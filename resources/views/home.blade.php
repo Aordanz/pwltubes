@@ -63,7 +63,7 @@
   <div class="max-w-[1200px] mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
     <div class="relative">
       <div class="absolute top-1/2 left-1/2 -translate-x-3/4 -translate-y-1/2 w-[calc(100%-5rem)] aspect-square bg-gradient-to-r from-[#eeb5c4] via-[#beb0e1] to-[#7ed6d8] rounded-full -z-10"></div>
-<img src="{{ asset('images/holy.jpg') }}" alt="about" class="max-w-[550px] mx-auto" />
+<img src="{{ asset('images/MEM.jpg') }}" alt="about" class="max-w-[550px] mx-auto" />
     </div>
     <div>
       <h2 class="text-3xl font-bold leading-tight relative z-10">
