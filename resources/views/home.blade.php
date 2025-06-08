@@ -21,11 +21,11 @@
   <div class="max-w-[1200px] mx-auto px-4 grid md:grid-cols-2 items-center gap-8">
     <div class="text-center md:text-left">
       <h1 class="text-5xl font-extrabold italic text-[#38bdf8] leading-tight relative">
-        HIDUP SEHAT UNTUK HIDUP BAHAGIA
+        HIDUP SEHAT UNTUK HIDUP BAHAGIA 
         <span class="absolute -top-20 -left-20 text-[8rem] font-extrabold text-black/5 leading-[10rem] hidden md:block">
         </span>
       </h1>
-      <h2 class="text-4xl font-extrabold italic text-[#0f172a] mt-6">KESEHATAN ADALAH PRIORITAS</h2>
+      <h2 class="text-4xl font-extrabold italic text-[#0f172a] mt-6">KESEHATAN ADALAH PRIORITAS BAGI SEMUA ORANG</h2>
       <p class="text-[#475569] mt-4">
         Jaga tubuh dan pikiran Anda dengan pendekatan menyeluruh—nutrisi seimbang, aktivitas fisik rutin, dan dukungan mental.
       </p>
