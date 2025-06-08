@@ -21,7 +21,7 @@
   <div class="max-w-[1200px] mx-auto px-4 grid md:grid-cols-2 items-center gap-8">
     <div class="text-center md:text-left">
       <h1 class="text-5xl font-extrabold italic text-[#38bdf8] leading-tight relative">
-        HIDUP SEHAT UNTUK HIDUP BAHAGIA
+        HIDUP SEHAT UNTUK HIDUP BAHAGIA JAYA
         <span class="absolute -top-20 -left-20 text-[8rem] font-extrabold text-black/5 leading-[10rem] hidden md:block">
         </span>
       </h1>
