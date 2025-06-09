@@ -102,7 +102,7 @@
       <div class="space-y-2">
         <span class="text-2xl font-extrabold text-white/75">02</span>
         <h4 class="text-xl font-semibold">Yoga</h4>
-        <p class="text-[#94a3b8]">Melakukan Hidup Sehat.</p>
+        <p class="text-[#94a3b8]">Melakukan hidup sehat sangat penting bagi kalangan lansia.</p>
       </div>
       <div class="space-y-2">
         <span class="text-2xl font-extrabold text-white/75">03</span>
