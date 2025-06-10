@@ -34,7 +34,7 @@
       </div>
     </div>
     <div>
-      <img src="C:\Users\USER\laravel12\laravel12\laravel12\WhatsApp Image 2025-05-16 at 15.11.21_a094be11.jpg" alt="header" class="mx-auto max-w-[320px] rounded-xl shadow-lg" />
+      <img src="{{ asset('images/logo.jpg') }}" alt="header" class="mx-auto max-w-[320px] rounded-xl shadow-lg" />
     </div>
   </div>
 </header>
@@ -44,7 +44,7 @@
   <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
     <div class="relative" data-aos="fade-right">
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-green-100 rounded-full -z-10 blur-2xl"></div>
-      <img src="{{ asset('images/gambarsehat.jpg') }}" alt="about" class="rounded-lg shadow-xl mx-auto" />
+      <img src="{{ asset('images/sakit.jpg') }}" alt="about" class="rounded-lg shadow-xl mx-auto" />
     </div>
     <div data-aos="fade-left">
       <h2 class="text-3xl font-bold text-[#065f46]">Mengapa Kesehatan Itu Penting?</h2>
