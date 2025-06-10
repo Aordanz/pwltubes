@@ -21,11 +21,19 @@
   <div class="max-w-[1200px] mx-auto px-4 grid md:grid-cols-2 items-center gap-8">
     <div class="text-center md:text-left">
       <h1 class="text-5xl font-extrabold italic text-[#38bdf8] leading-tight relative">
+<<<<<<< HEAD
         HIDUP SEHAT UNTUK HIDUP BAHAGIA 
         <span class="absolute -top-20 -left-20 text-[8rem] font-extrabold text-black/5 leading-[10rem] hidden md:block">
         </span>
       </h1>
       <h2 class="text-4xl font-extrabold italic text-[#0f172a] mt-6">KESEHATAN ADALAH PRIORITAS BAGI SEMUA ORANG</h2>
+=======
+        HIDUP SEHAT UNTUK HIDUP BAHAGIA
+        <span class="absolute -top-20 -left-20 text-[8rem] font-extrabold text-black/5 leading-[10rem] hidden md:block">
+        </span>
+      </h1>
+      <h2 class="text-4xl font-extrabold italic text-[#0f172a] mt-6">KESEHATAN ADALAH PRIORITAS</h2>
+>>>>>>> 4742db0d9712dee86baca97ed1a5d1fdc98769da
       <p class="text-[#475569] mt-4">
         Jaga tubuh dan pikiran Anda dengan pendekatan menyeluruh—nutrisi seimbang, aktivitas fisik rutin, dan dukungan mental.
       </p>
@@ -34,7 +42,11 @@
       </div>
     </div>
     <div>
+<<<<<<< HEAD
       <img src="C:\Users\USER\laravel12\laravel12\laravel12\WhatsApp Image 2025-05-16 at 15.11.21_a094be11.jpg" alt="header" class="mx-auto max-w-[320px] rounded-xl shadow-lg" />
+=======
+      <img src="{{ asset('images/logo.jpg') }}" alt="header" class="mx-auto max-w-[320px] rounded-xl shadow-lg" />
+>>>>>>> 4742db0d9712dee86baca97ed1a5d1fdc98769da
     </div>
   </div>
 </header>
@@ -44,7 +56,11 @@
   <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
     <div class="relative" data-aos="fade-right">
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-green-100 rounded-full -z-10 blur-2xl"></div>
+<<<<<<< HEAD
       <img src="{{ asset('images/gambarsehat.jpg') }}" alt="about" class="rounded-lg shadow-xl mx-auto" />
+=======
+      <img src="{{ asset('images/sakit.jpg') }}" alt="about" class="rounded-lg shadow-xl mx-auto" />
+>>>>>>> 4742db0d9712dee86baca97ed1a5d1fdc98769da
     </div>
     <div data-aos="fade-left">
       <h2 class="text-3xl font-bold text-[#065f46]">Mengapa Kesehatan Itu Penting?</h2>
@@ -164,4 +180,8 @@
 
 </body>
 </html>
+<<<<<<< HEAD
 @endsectionw
+=======
+@endsection
+>>>>>>> 4742db0d9712dee86baca97ed1a5d1fdc98769da
