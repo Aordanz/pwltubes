@@ -20,31 +20,31 @@
 <header id="home" class="pt-32 pb-20 bg-[#e2e8f0]">
   <div class="max-w-[1200px] mx-auto px-4 grid md:grid-cols-2 items-center gap-8">
     <div class="text-center md:text-left">
-      <h1 class="text-5xl font-extrabold italic text-[#38bdf8] leading-tight relative">
-        HIDUP SEHAT UNTUK HIDUP BAHAGIA
+      <h1 class="text-5xl font-extrabold italic text-[#d6abd8] leading-tight relative">
+        DON'T STOP TILL YOUR SUCCESS!
         <span class="absolute -top-20 -left-20 text-[8rem] font-extrabold text-black/5 leading-[10rem] hidden md:block">
         </span>
       </h1>
-      <h2 class="text-4xl font-extrabold italic text-[#0f172a] mt-6">KESEHATAN ADALAH PRIORITAS</h2>
-      <p class="text-[#475569] mt-4">
-        Jaga tubuh dan pikiran Anda dengan pendekatan menyeluruh—nutrisi seimbang, aktivitas fisik rutin, dan dukungan mental.
+      <h2 class="text-4xl font-extrabold italic text-[#020617] mt-6">GET FIT TO HAPPY</h2>
+      <p class="text-[#94a3b8] mt-4">
+        Unlock your full potential with our expert training and state-of-the-art facilities.
       </p>
       <div class="mt-6">
         <button class="bg-[#0f172a] hover:bg-[#38bdf8] text-white px-6 py-3 rounded">Pelajari Lebih Lanjut</button>
       </div>
     </div>
     <div>
-      <img src="{{ asset('images/logo.jpg') }}" alt="header" class="mx-auto max-w-[320px] rounded-xl shadow-lg" />
+      <img src="/assets/MEM2.jpg" alt="header" class="mx-auto max-w-[300px]" />
     </div>
   </div>
 </header>
 
 <!-- About Section -->
-<section id="about" class="py-20 bg-white">
-  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
-    <div class="relative" data-aos="fade-right">
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-green-100 rounded-full -z-10 blur-2xl"></div>
-      <img src="{{ asset('images/sakit.jpg') }}" alt="about" class="rounded-lg shadow-xl mx-auto" />
+<section id="about" class="py-20 overflow-hidden">
+  <div class="max-w-[1200px] mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+    <div class="relative">
+      <div class="absolute top-1/2 left-1/2 -translate-x-3/4 -translate-y-1/2 w-[calc(100%-5rem)] aspect-square bg-gradient-to-r from-[#eeb5c4] via-[#beb0e1] to-[#7ed6d8] rounded-full -z-10"></div>
+<img src="{{ asset('images/holy.jpg') }}" alt="about" class="max-w-[550px] mx-auto" />
     </div>
     <div data-aos="fade-left">
       <h2 class="text-3xl font-bold text-[#065f46]">Mengapa Kesehatan Itu Penting?</h2>

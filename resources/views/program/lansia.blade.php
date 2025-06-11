@@ -96,13 +96,13 @@
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
       <div class="space-y-2">
         <span class="text-2xl font-extrabold text-white/75">01</span>
-        <h4 class="text-xl font-semibold">Fitness Training</h4>
-        <p class="text-[#94a3b8]">Build strength and endurance with our targeted training programs.</p>
+        <h4 class="text-xl font-semibold">Fitness</h4>
+        <p class="text-[#94a3b8]">Train Hard or Go Home.</p>
       </div>
       <div class="space-y-2">
         <span class="text-2xl font-extrabold text-white/75">02</span>
         <h4 class="text-xl font-semibold">Yoga</h4>
-        <p class="text-[#94a3b8]">Improve flexibility and mental clarity in every session.</p>
+        <p class="text-[#94a3b8]">Melakukan hidup sehat sangat penting bagi kalangan lansia karena dengan melakukan yoga.</p>
       </div>
       <div class="space-y-2">
         <span class="text-2xl font-extrabold text-white/75">03</span>
