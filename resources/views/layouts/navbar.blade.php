@@ -1,11 +1,10 @@
-<<<<<<< HEAD
 <nav class="bg-gray-900 text-white shadow-md">
     <nav class="fixed top-0 left-0 w-full z-50 bg-[#020617]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16 items-center">
            
-<!-- KIRI: Logo & Menu -->
-            <div class="flex items-center space-x-6">
+        <!-- KIRI: Logo & Menu -->
+            <div class="flex items-center text-white space-x-6">
                 <a href="{{ route('home') }}" class="text-xl font-bold text-indigo-400 hover:text-indigo-300">Simpus Medical</a>
                 <a href="{{ route('about') }}" class="hover:text-indigo-300">About</a>
 
@@ -79,16 +78,4 @@
             @endguest
         </div>
     </div>
-<<<<<<< HEAD
 </nav>
-=======
-
-    <!-- Script Toggle -->
-    <script>
-        document.getElementById('menu-toggle').addEventListener('click', function () {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-    </script>
-</nav>
->>>>>>> 4742db0d9712dee86baca97ed1a5d1fdc98769da

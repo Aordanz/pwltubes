@@ -180,8 +180,4 @@
 
 </body>
 </html>
-<<<<<<< HEAD
 @endsectionw
-=======
-@endsection
->>>>>>> 4742db0d9712dee86baca97ed1a5d1fdc98769da
