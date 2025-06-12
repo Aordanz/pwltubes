@@ -1,13 +1,12 @@
 Anggota kelompok
-1.Joy Christian Barus
-2.Jordan Michael Amadeo Hutahaean 
-3.Holy Sola Fide Sianipar
-4.Hiskia Prawira Tarigan
-5.Yeremia Nicolas Purba
+1. Joy Christian Barus
+2. Jordan Michael Amadeo Hutahaean 
+3. Holy Sola Fide Sianipar
+4. Hiskia Prawira Tarigan
+5. Yeremia Nicolas Purba
 
-Deskripsi Singkat Apilikasi
-Tujuan Kelompok kami membuat web ini adalah untuk memberi tahu
-pungguna tentang kesehatan mereka. Didalam Web ini  juga terdapat tips dan trik untuk hidup sehat. Tujuannya agar semua orang bisa lebih menjaga kesehatan tubuh mereka.
+Deskripsi Singkat Aplikasi
+Tujuan Kelompok kami membuat web ini adalah untuk memberi tahu pengguna tentang kesehatan mereka. Didalam Web ini  juga terdapat tips dan trik untuk hidup sehat. Tujuannya agar semua orang bisa lebih menjaga kesehatan tubuh mereka.
 
 Teknologi yang dipakai
 -Laravel 12
