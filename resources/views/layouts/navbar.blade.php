@@ -4,8 +4,8 @@
            
         <!-- KIRI: Logo & Menu -->
             <div class="flex items-center text-white space-x-6">
-                <a href="{{ route('home') }}" class="text-xl font-bold text-indigo-400 hover:text-indigo-300">Simpus Medical</a>
-                <a href="{{ route('about') }}" class="hover:text-indigo-300">About</a>
+                <h3 class="text-xl font-bold text-indigo-400 hover:text-indigo-300">Simpus Medical</h3> 
+                <a href="#about" class="hover:text-indigo-300">About</a>
 
                 <!-- Dropdown Konsultasi Online -->
                 <div class="relative group">
