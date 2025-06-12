@@ -27,15 +27,16 @@
       </h1>
       <h2 class="text-4xl font-extrabold italic text-[#0f172a] mt-6">KESEHATAN ADALAH PRIORITAS BAGI SEMUA ORANG</h2>
       <p class="text-[#475569] mt-4">
-        Jaga tubuh dan pikiran Anda dengan pendekatan menyeluruh—nutrisi seimbang, aktivitas fisik rutin, dan dukungan mental.
-      </p>
+        Hidup sehat merupakan tanggung jawab diri kita bagaimana kita merawat tubuh dan pikiran kita serta menjaga kesehatan tubuh kita.
+        </p>
+        
       <div class="mt-6">
         <button class="bg-[#0f172a] hover:bg-[#38bdf8] text-white px-6 py-3 rounded">Pelajari Lebih Lanjut</button>
       </div>
     </div>
     <div>
-      <img src="C:\Users\USER\laravel12\laravel12\laravel12\WhatsApp Image 2025-05-16 at 15.11.21_a094be11.jpg" alt="header" class="mx-auto max-w-[320px] rounded-xl shadow-lg" />
-    </div>
+      <img src="{{ asset('images/logo_simpus.png') }}" alt="header" class="float-right -mt-2 max-w-[400px] rounded-xl" />
+   </div>
   </div>
 </header>
 
@@ -44,16 +45,18 @@
   <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
     <div class="relative" data-aos="fade-right">
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-green-100 rounded-full -z-10 blur-2xl"></div>
-      <img src="{{ asset('images/gambarsehat.jpg') }}" alt="about" class="rounded-lg shadow-xl mx-auto" />
+      <img src="{{ asset('images/gayahidup.jpg') }}" alt="about" class="rounded-lg mx-auto mr-50" />
+
     </div>
     <div data-aos="fade-left">
       <h2 class="text-3xl font-bold text-[#065f46]">Mengapa Kesehatan Itu Penting?</h2>
       <p class="mt-4 text-gray-600">
-        Kesehatan adalah fondasi kehidupan yang bahagia dan produktif. Kami berkomitmen membantu Anda hidup lebih sehat.
+        Kesehatan merupakan salah satu aspek paling penting dalam kehidupan manusia karena tanpa kesehatan yang baik, berbagai aktivitas dan tujuan hidup menjadi sulit untuk dicapai. Tubuh yang sehat memungkinkan kita untuk menjalani rutinitas sehari-hari dengan energi dan semangat, serta berfungsi optimal dalam menjalankan pekerjaan, berinteraksi sosial, dan menikmati waktu luang. 
       </p>
       <p class="mt-3 text-gray-600">
-        Dapatkan edukasi, bimbingan, dan layanan kesehatan terbaik di satu platform.
+        Selain itu, kesehatan yang baik juga mendukung produktivitas, membantu mengurangi stres, dan meningkatkan kualitas hidup secara keseluruhan. Dengan kesehatan yang terjaga, seseorang lebih mampu untuk menghadapi tantangan dan tekanan yang ada dalam kehidupan.
       </p>
+      <h4 class="text-2xl font-extrabold italic text-[#0f172a] mt-6">MAKA DARI ITU MARI JOIN BERSAMA KAMI MEMBANGUN HIDUP YANG SEHAT</h4>
       <button class="mt-6 bg-[#065f46] hover:bg-[#34d399] text-white px-6 py-3 rounded shadow-md transition">
         Gabung Sekarang
       </button>
@@ -125,7 +128,7 @@
     <!-- Logo & Copyright -->
     <div>
       <img src="/assets/logo-light.png" alt="Logo" class="mb-6 w-40" />
-      <p class="text-[#94a3b8] text-sm">© 2025 HealthPoint. All rights reserved.</p>
+      <p class="text-[#94a3b8] text-sm">© 2025 SimpusMedical. Kelompok4.</p>
     </div>
 
     <!-- Navigasi -->
