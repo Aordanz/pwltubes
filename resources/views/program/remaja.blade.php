@@ -1,11 +1,10 @@
 @extends('layouts.layout')
 
-@section('title', 'Kesehatan Remaja')
+@section('title', 'Program Remaja')
 
 @section('content')
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>{{ $title ?? 'MyApp' }}</title>
@@ -15,8 +14,27 @@
 </head>
 
 <body class="bg-gray-100 font-sans">
+<!-- Navbar -->
+<!-- <nav class="fixed top-0 left-0 w-full z-50 bg-[#020617] shadow">
+  <div class="max-w-[1200px] mx-auto px-4 py-4 flex items-center justify-between">
+    <div class="max-w-[175px]">
+      <img src="/assets/logo-light.png" alt="logo" class="block" />
+    </div>
+    <div class="text-white text-2xl cursor-pointer md:hidden">
+      <i class="ri-menu-line" id="menu-btn"></i>
+    </div>
+    <ul id="nav-links" class="hidden md:flex gap-6 text-white font-semibold">
+      <li><a href="#home" class="hover:text-[#42c8c9]">Home</a></li>
+      <li><a href="#about" class="hover:text-[#42c8c9]">About</a></li>
+      <li><a href="#service" class="hover:text-[#42c8c9]">Services</a></li>
+      <li><a href="#class" class="hover:text-[#42c8c9]">Classes</a></li>
+      <li><a href="#contact" class="hover:text-[#42c8c9]">Blog</a></li>
+      <li><a href="{{ route('login') }}" class="text-blue-500 hover:underline">Login</a></li>
+      <li><a href="{{ route('register') }}" class="hover:text-[#42c8c9]">Register</a></li>
+    </ul>
+  </div>
+</nav> -->
 
- 
 <!-- Header Section -->
 <header id="home" class="pt-32 pb-20 bg-[#e2e8f0]">
   <div class="max-w-[1200px] mx-auto px-4 grid md:grid-cols-2 items-center gap-8">
@@ -35,7 +53,7 @@
       </div>
     </div>
     <div>
-      <img src="C:\Users\USER\laravel12\laravel12\laravel12\WhatsApp Image 2025-05-16 at 15.11.21_a094be11.jpg" alt="header" class="mx-auto max-w-[320px] rounded-xl shadow-lg" />
+      <img src="{{ asset('images/logo_simpus.png') }}" alt="header" class="mx-auto max-w-[320px] rounded-xl shadow-lg" />
     </div>
   </div>
 </header>
@@ -45,7 +63,7 @@
   <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
     <div class="relative" data-aos="fade-right">
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-green-100 rounded-full -z-10 blur-2xl"></div>
-      <img src="{{ asset('images/gambarsehat.jpg') }}" alt="about" class="rounded-lg shadow-xl mx-auto" />
+      <img src="{{ asset('images/gayahidup.jpg') }}" alt="about" class="rounded-lg shadow-xl mx-auto" />
     </div>
     <div data-aos="fade-left">
       <h2 class="text-3xl font-bold text-[#065f46]">Mengapa Kesehatan Itu Penting?</h2>
@@ -58,6 +76,76 @@
       <button class="mt-6 bg-[#065f46] hover:bg-[#34d399] text-white px-6 py-3 rounded shadow-md transition">
         Gabung Sekarang
       </button>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section id="service" class="py-20 bg-[#020617] text-white">
+  <div class="max-w-[1200px] mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold leading-tight relative">
+      Manfaat Gaya Hidup Sehat Bagi Remaja
+      <span class="absolute -top-12 text-[6rem] font-extrabold leading-[6rem] text-white/10"></span>
+    </h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+      <div class="space-y-2">
+        <span class="text-2xl font-extrabold text-white/75">01</span>
+        <h4 class="text-xl font-semibold">Meningkatkan Kesehatan Fisik</h4>
+        <p class="text-[#94a3b8]">Hidup sehat membantu remaja menjadi lebih percaya diri dan mandiri menghadapi tantangan hidup.</p>
+      </div>
+      <div class="space-y-2">
+        <span class="text-2xl font-extrabold text-white/75">02</span>
+        <h4 class="text-xl font-semibold">Fokus & Prestasi Akademik</h4>
+        <p class="text-[#94a3b8]">Pola makan sehat, olahraga, dan tidur cukup meningkatkan kemampuan belajar dan fokus.</p>
+      </div>
+      <div class="space-y-2">
+        <span class="text-2xl font-extrabold text-white/75">03</span>
+        <h4 class="text-xl font-semibold">Cegah Penyakit Sejak Dini</h4>
+        <p class="text-[#94a3b8]">Menurunkan risiko penyakit kronis dengan gaya hidup aktif dan sehat sejak muda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Popular Classes -->
+<section id="class" class="py-20 bg-gray-50 text-black">
+  <div class="max-w-[1200px] mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12">Kalender Aktivitas 30 Hari</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+
+      <!-- Contoh Hari ke-1 -->
+      @foreach($activities as $index => $activity)
+        <div class="border p-5 rounded-lg shadow hover:shadow-lg transition 
+                    {{ ($index + 1) % 4 == 0 ? 'bg-red-100' : 'bg-white' }}">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-sm font-semibold text-gray-500">Hari ke-{{ $index + 1 }}</span>
+            <span class="bg-teal-100 text-teal-700 text-xs px-2 py-1 rounded-full">
+              {{-- Jika indeks adalah kelipatan 4 (rest day), tampilkan Rest Day --}}
+              @if(($index + 1) % 4 == 0)
+                Rest Day
+              @else
+                {{ $activity }}
+              @endif
+            </span>
+          </div>
+          
+          {{-- Jika hari adalah rest day, tampilkan gambar yang sesuai --}}
+          <img src="{{ ($index + 1) % 4 == 0 ? 'https://source.unsplash.com/400x250/?rest,day' : 'https://source.unsplash.com/400x250/?exercise,day' }}" class="rounded mb-3" alt="Aktivitas Hari {{ $index + 1 }}">
+          
+          {{-- Deskripsi hari --}}
+          <p class="text-gray-700 text-sm">
+            @if(($index + 1) % 4 == 0)
+              Hari ke-{{ $index + 1 }} adalah Rest Day.
+            @else
+              Aktivitas yang harus dilakukan hari ke-{{ $index + 1 }}: {{ $activity }}.
+            @endif
+          </p>
+        </div>
+      @endforeach
+
+      <!-- dan seterusnya sampai Hari ke-30 -->
+      <!-- Pseudo-loop selesai -->
     </div>
   </div>
 </section>
@@ -109,4 +197,3 @@
 </body>
 </html>
 @endsection
-
