@@ -6,7 +6,7 @@
             <div class="flex items-center space-x-8">
                 <a href="{{ route('home') }}" class="text-2xl font-bold text-indigo-400 hover:text-indigo-300">Simpus Medical</a>
                 <div class="hidden md:flex space-x-6">
-                    <a href="{{ route('about') }}" class="hover:text-indigo-300 transition duration-150 text-white">About</a>
+                    <a href="#about" class="hover:text-indigo-300 transition duration-150 text-white">About</a>
                     <a href="#" class="hover:text-indigo-300 transition duration-150 text-white">Konsultasi</a>
                 </div>
             </div>
