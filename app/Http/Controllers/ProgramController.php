@@ -9,7 +9,7 @@ class ProgramController extends Controller
     public function remaja()
     {
         $activities = [
-            'Point', 'Peregangan Rutin', 'Latihan Kardio', 'Jalan Santai', 'Yoga',
+            'Point Up', 'Peregangan Rutin', 'Latihan Kardio', 'Jalan Santai', 'Yoga',
             'Push-Up', 'Plank', 'Skipping', 'Mountain Climber', 'Jogging',
             'Zumba', 'Stretching', 'Strength Training', 'Core Workout', 'Cycling',
             'Dance', 'Swimming', 'Hiking', 'Tai Chi', 'Pilates',
@@ -28,4 +28,5 @@ class ProgramController extends Controller
     {
         return view('program.lansia');
     }
+    
 }

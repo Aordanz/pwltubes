@@ -47,36 +47,31 @@
 
             <!-- Tambahkan dropdown Role -->
             <div>
-                <label for="role" class="block mb-1 font-semibold">Role</label>
-                <select name="role" id="role" required
+                <label for="jenis_kelamin" class="block mb-1 font-semibold">Jenis Kelamin</label>
+                <select name="jenis_kelamin" id="jenis_kelamin" required
                     class="w-full rounded border-gray-300 text-gray-900 p-2">
-                    <option value="user" {{ old('role') == 'user' ? 'selected' : '' }}>User</option>
-                    <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
+                    <option value="laki-laki" {{ old('jenis_kelamin') == 'laki-laki' ? 'selected' : '' }}>Laki-Laki</option>
+                    <option value="perempuan" {{ old('jenis_kelamin') == 'perempuan' ? 'selected' : '' }}>Perempuan</option>
                 </select>
             </div>
 
             <!-- Field Usia, tampil jika role user -->
-            <div id="usia-field" style="display: {{ old('role') == 'admin' ? 'none' : 'block' }};">
-                <label for="usia" class="block mb-1 font-semibold">Rentang Usia</label>
-                <input type="number" name="usia" id="usia" placeholder="Masukkan usia"
-                    value="{{ old('usia') }}"
-                    class="w-full rounded border-gray-300 p-2 text-gray-900" />
-            </div>
+           <div>
+    <label for="age_category" class="block mb-1 font-semibold">Rentang Usia</label>
+    <select name="age_category" id="age_category" required
+        class="w-full rounded border-gray-300 text-gray-900 p-2">
+        <option value="" disabled selected>Pilih rentang usia</option>
+        <option value="remaja" {{ old('age_category') == 'remaja' ? 'selected' : '' }}>Remaja (13-25)</option>
+        <option value="dewasa" {{ old('age_category') == 'dewasa' ? 'selected' : '' }}>Dewasa (26-49)</option>
+        <option value="lansia" {{ old('age_category') == 'lansia' ? 'selected' : '' }}>Lansia (50+)</option>
+    </select>
+</div>
 
-            <button type="submit"
-                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold p-3 rounded">Register</button>
-        </form>
-    </div>
+<button type="submit"
+    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold p-3 rounded">Register</button>
+</form>
+</div>
 
-    <script>
-        document.getElementById('role').addEventListener('change', function () {
-            var usiaField = document.getElementById('usia-field');
-            if (this.value === 'admin') {
-                usiaField.style.display = 'none';
-            } else {
-                usiaField.style.display = 'block';
-            }
-        });
-    </script>
+>
 </body>
 </html>

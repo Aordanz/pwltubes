@@ -19,21 +19,25 @@ class RegisterController extends Controller
     // Proses register
     public function register(Request $request)
     {
-        $request->validate([
+           $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'role' => ['required', 'in:user,admin'],
-            'usia' => [$request->role === 'user' ? 'required' : 'nullable', 'integer', 'min:1', 'max:150'],
-        ]);
+            'jenis_kelamin' => ['required', 'in:laki-laki,perempuan'],
+            'age_category' => ['required', 'in:remaja,dewasa,lansia'],
+            ]);
 
-        $user = User::create([
+                
+
+                $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => $request->role,
-            'usia' => $request->role === 'user' ? $request->usia : null,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'age_category' => $request->age_category,
         ]);
+
+        
 
         Auth::login($user);
 
