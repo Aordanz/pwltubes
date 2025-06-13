@@ -21,11 +21,13 @@
   <div class="max-w-[1200px] mx-auto px-4 grid md:grid-cols-2 items-center gap-8">
     <div class="text-center md:text-left">
       <h1 class="text-5xl font-extrabold italic text-[#38bdf8] leading-tight relative">
+
         HIDUP SEHAT UNTUK HIDUP BAHAGIA 
         <span class="absolute -top-20 -left-20 text-[8rem] font-extrabold text-black/5 leading-[10rem] hidden md:block">
         </span>
       </h1>
       <h2 class="text-4xl font-extrabold italic text-[#0f172a] mt-6">KESEHATAN ADALAH PRIORITAS BAGI SEMUA ORANG</h2>
+
       <p class="text-[#475569] mt-4">
         Hidup sehat merupakan tanggung jawab diri kita bagaimana kita merawat tubuh dan pikiran kita serta menjaga kesehatan tubuh kita.
         </p>
@@ -35,8 +37,12 @@
       </div>
     </div>
     <div>
+
       <img src="{{ asset('images/logo_simpus.png') }}" alt="header" class="float-right -mt-2 max-w-[400px] rounded-xl" />
    </div>
+
+    </div>
+
   </div>
 </header>
 
@@ -48,7 +54,11 @@
   <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
     <div class="relative" data-aos="fade-right">
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-green-100 rounded-full -z-10 blur-2xl"></div>
+
       <img src="{{ asset('images/gayahidup.jpg') }}" alt="about" class="rounded-lg mx-auto mr-50" />
+
+
+
     </div>
     <div data-aos="fade-left">
       <h2 class="text-3xl font-bold text-white">Mengapa Kesehatan Itu Penting?</h2>
@@ -172,4 +182,4 @@
 
 </body>
 </html>
-@endsection
+@endsectionw
