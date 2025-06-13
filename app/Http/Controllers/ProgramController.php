@@ -14,7 +14,7 @@ class ProgramController extends Controller
             'Senam Pagi', '', 'Sepedaan', 'Latihan Otot', 'Jalan Sehat',
             '', 'Belajar', 'Lari', 'Berenang', 'Belajar',
             '', 'Membantu Orang Tua', 'Skill Baru', 'Latihan Otot', '',
-            'Senam Pagi', 'Belajar', '', 'Membantu Orang Tua', 'Latihan Otot', 'Refleksi Diri'
+            'Senam Pagi', 'Belajar Baik', '', 'Membantu Orang Tua', 'Latihan Otot', 'Refleksi Diri'
         ];
         $statusLatihan = session('latihan_terpenuhi.remaja', []);
 
