@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ProgramController;
@@ -61,3 +62,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/activity/{id}', [ActivityController::class, 'show'])->name('activity.show');
     Route::get('/activity/{id}', [ActivityController::class, 'show'])->name('activity.show');
 });
+
+Route::post('/program/{kategori}/terpenuhi', function (Request $request, $kategori) {
+    $hari = $request->input('hari');
+    $status = session("latihan_terpenuhi.$kategori", []);
+    $status[$hari] = true;
+    session(["latihan_terpenuhi.$kategori" => $status]);
+
+    return redirect()->route('program.' . $kategori);
+})->name('program.terpenuhi');

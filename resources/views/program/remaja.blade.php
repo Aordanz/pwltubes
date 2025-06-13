@@ -119,20 +119,32 @@
 
       <!-- Contoh Hari ke-1 -->
       @foreach($activities as $index => $activity)
-  <a href="{{ route('activity.show', ['id' => $index + 1]) }}" class="block">
-    <div class="border p-5 rounded-lg shadow hover:shadow-lg transition 
+<a href="{{ route('activity.show', ['id' => $index + 1]) }}" class="block">
+    <div class="relative border p-5 rounded-lg shadow hover:shadow-lg transition 
                 {{ ($index + 1) % 4 == 0 ? 'bg-red-100' : 'bg-white' }}">
-      <div class="flex justify-between items-center mb-2">
-        <span class="text-sm font-semibold text-gray-500">Hari ke-{{ $index + 1 }}</span>
-        <span class="bg-teal-100 text-teal-700 text-xs px-2 py-1 rounded-full">
-          {{-- Jika indeks adalah kelipatan 4 (rest day), tampilkan Rest Day --}}
-          @if(($index + 1) % 4 == 0)
-            Rest Day
-          @else
-            {{ $activity }}
-          @endif
-        </span>
-      </div>
+
+        {{-- Kotak ceklis di kanan atas --}}
+        <form method="POST" action="{{ route('program.terpenuhi', ['kategori' => 'remaja']) }}" class="absolute top-2 right-2">
+            @csrf
+            <input type="hidden" name="hari" value="{{ $index + 1 }}">
+            <input type="checkbox"
+                   onchange="this.form.submit()"
+                   {{ (isset($statusLatihan[$index + 1]) && $statusLatihan[$index + 1]) ? 'checked disabled' : '' }}
+                   class="w-5 h-5 text-green-600 border-gray-300 rounded focus:ring-0 cursor-pointer">
+        </form>
+
+        <div class="flex justify-between items-center mb-2">
+            <span class="text-sm font-semibold text-gray-500">Hari ke-{{ $index + 1 }}</span>
+            <span class="bg-teal-100 text-teal-700 text-xs px-2 py-1 rounded-full">
+                @if(($index + 1) % 4 == 0)
+                    Rest Day
+                @else
+                    {{ $activity }}
+                @endif
+            </span>
+        </div>
+        {{-- Gambar + Deskripsi bisa tetap di bawah --}}
+
       
       {{-- Jika hari adalah rest day, tampilkan gambar yang sesuai --}}
       <img src="{{ ($index + 1) % 4 == 0 ? 'https://source.unsplash.com/400x250/?rest,day' : 'https://source.unsplash.com/400x250/?exercise,day' }}" class="rounded mb-3" alt="Aktivitas Hari {{ $index + 1 }}">
