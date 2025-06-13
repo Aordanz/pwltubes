@@ -1,3 +1,4 @@
+
     <div class="w-full bg-black px-4 sm:px-6 lg:px-8 ">
         <div class="flex justify-between items-center  h-24 ">
             <!-- Logo dan Navigasi -->
@@ -58,6 +59,4 @@
             @endguest
         </div>
     </div>
-
 </nav>
-

@@ -49,7 +49,6 @@
 </header>
 
 <!-- About Section -->
-
 <section id="about" class="py-20 bg-gradient-to-r from-[#1e3a8a] via-[#3b82f6] to-[#38bdf8] relative">
   <!-- Lingkaran putih di setengah latar belakang -->
   <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-[600px] h-[600px] bg-white rounded-full opacity-20 -z-10"></div>
@@ -78,6 +77,7 @@
   </div>
 </section>
 
+<!-- Include AOS script -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init();
