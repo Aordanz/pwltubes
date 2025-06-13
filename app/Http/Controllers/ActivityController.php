@@ -11,9 +11,12 @@ class ActivityController extends Controller
     {
         // Data aktivitas, bisa Anda sesuaikan dengan kebutuhan
         $activities = [
-            'Yoga', 'Jogging', 'Push-up', 'Rest Day', 
-            'Cycling', 'Swimming', 'Rest Day', 'Running', 
-            'Stretching', 'Rest Day' // dan seterusnya
+            'Kesehatan ', 'Peregangan Rutin', 'Latihan Kardio', 'Istirahat', 'Yoga',
+            'Latihan Otot ', 'Belajar', 'Istirahat', 'Latihan Otot', 'Jogging',
+            'Senam Pagi', 'Istirahat', 'Sepedaan', 'Latihan Otot', 'Jalan Sehat',
+            'Istirahat', 'Belajar', 'Lari', 'Berenang', 'Istirahat',
+            'Latihan Otot', 'Membantu Orang Tua', 'Skill Baru', 'Istirahat', 'Lari',
+            'Senam Pagi', 'Belajar', 'Istirahat', 'Membantu Orang Tua', 'Latihan Otot', 'Refleksi Diri' // dan seterusnya
         ];
 
         // Memastikan ID yang diterima valid

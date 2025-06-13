@@ -175,7 +175,7 @@
     <!-- Logo & Copyright -->
     <div>
       <img src="/assets/logo-light.png" alt="Logo" class="mb-6 w-40" />
-      <p class="text-[#94a3b8] text-sm">© 2025 HealthPoint. All rights reserved.</p>
+      <p class="text-[#94a3b8] text-sm">© 2025 SimpusMedical. Kelompok4.</p>
     </div>
 
     <!-- Navigasi -->

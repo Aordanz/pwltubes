@@ -9,12 +9,12 @@ class ProgramController extends Controller
     public function remaja()
     {
         $activities = [
-            'Kesehatan ', 'Peregangan Rutin', 'Latihan Kardio', 'Jalan Santai', 'Yoga',
-            'Latihan Otot Lengan', 'Meditasi', 'Latihan Bahu', 'Latihan Kardio', 'Jogging',
-            'Jalan Sehat', 'Stretching', 'Refleksi', 'Core Workout', 'Cycling',
-            'Dance', 'Swimming', 'Hiking', 'Tai Chi', 'Pilates',
-            'Boxing', 'Squats', 'Lunges', 'Bodyweight Exercise', 'Jumping Jacks',
-            'Crunches', 'Jump Rope', 'Burpees', 'Running', 'Weightlifting', 'Resistance Bands'
+            'Kesehatan ', 'Peregangan Rutin', 'Latihan Kardio', '', 'Yoga',
+            'Latihan Otot ', 'Belajar', '', 'Latihan Otot', 'Jogging',
+            'Senam Pagi', '', 'Sepedaan', 'Latihan Otot', 'Jalan Sehat',
+            '', 'Belajar', 'Lari', 'Berenang', 'Belajar',
+            '', 'Membantu Orang Tua', 'Skill Baru', 'Latihan Otot', '',
+            'Senam Pagi', 'Belajar', '', 'Membantu Orang Tua', 'Latihan Otot', 'Refleksi Diri'
         ];
         $statusLatihan = session('latihan_terpenuhi.remaja', []);
 
