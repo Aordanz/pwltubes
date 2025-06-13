@@ -25,6 +25,10 @@
 <nav class="fixed top-0 left-0 right-0 z-50 bg-[#020617] text-white shadow-lg">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
+
+    <div class="w-full bg-black px-4 sm:px-6 lg:px-8 ">
+        <div class="flex justify-between items-center  h-24 ">
+
             <!-- Logo dan Navigasi -->
             <div class="flex items-center space-x-8">
                 <a href="{{ route('home') }}" class="text-2xl font-bold text-indigo-400 hover:text-indigo-300">Simpus Medical</a>
@@ -94,4 +98,5 @@
             menu.classList.toggle('hidden');
         });
     </script>
+
 </nav>
