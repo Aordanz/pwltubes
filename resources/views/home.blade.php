@@ -47,7 +47,10 @@
 </header>
 
 <!-- About Section -->
-<section id="about" class="py-20 bg-white">
+<section id="about" class="py-20 bg-gradient-to-r from-[#1e3a8a] via-[#3b82f6] to-[#38bdf8] relative">
+  <!-- Lingkaran putih di setengah latar belakang -->
+  <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-[600px] h-[600px] bg-white rounded-full opacity-20 -z-10"></div>
+
   <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
     <div class="relative" data-aos="fade-right">
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-green-100 rounded-full -z-10 blur-2xl"></div>
@@ -58,20 +61,23 @@
 
     </div>
     <div data-aos="fade-left">
-      <h2 class="text-3xl font-bold text-[#065f46]">Mengapa Kesehatan Itu Penting?</h2>
-      <p class="mt-4 text-gray-600">
+      <h2 class="text-3xl font-bold text-white">Mengapa Kesehatan Itu Penting?</h2>
+      <p class="mt-4 text-gray-200">
         Kesehatan merupakan salah satu aspek paling penting dalam kehidupan manusia karena tanpa kesehatan yang baik, berbagai aktivitas dan tujuan hidup menjadi sulit untuk dicapai. Tubuh yang sehat memungkinkan kita untuk menjalani rutinitas sehari-hari dengan energi dan semangat, serta berfungsi optimal dalam menjalankan pekerjaan, berinteraksi sosial, dan menikmati waktu luang. 
       </p>
-      <p class="mt-3 text-gray-600">
+      <p class="mt-3 text-gray-200">
         Selain itu, kesehatan yang baik juga mendukung produktivitas, membantu mengurangi stres, dan meningkatkan kualitas hidup secara keseluruhan. Dengan kesehatan yang terjaga, seseorang lebih mampu untuk menghadapi tantangan dan tekanan yang ada dalam kehidupan.
       </p>
-      <h4 class="text-2xl font-extrabold italic text-[#0f172a] mt-6">MAKA DARI ITU MARI JOIN BERSAMA KAMI MEMBANGUN HIDUP YANG SEHAT</h4>
-      <button class="mt-6 bg-[#065f46] hover:bg-[#34d399] text-white px-6 py-3 rounded shadow-md transition">
+      <h4 class="text-2xl font-extrabold italic text-[#e5e7eb] mt-6">MAKA DARI ITU MARI JOIN BERSAMA KAMI MEMBANGUN HIDUP YANG SEHAT</h4>
+      <button class="mt-6 bg-[#34d399] hover:bg-[#065f46] text-white px-6 py-3 rounded shadow-md transition">
         Gabung Sekarang
       </button>
     </div>
   </div>
 </section>
+
+
+
 
 <!-- Include AOS script -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -176,4 +182,4 @@
 
 </body>
 </html>
-@endsectionw
+@endsection
