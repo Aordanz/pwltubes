@@ -20,6 +20,7 @@
 <header id="home" class="pt-32 pb-20 bg-[#e2e8f0]">
   <div class="max-w-[1200px] mx-auto px-4 grid md:grid-cols-2 items-center gap-8">
     <div class="text-center md:text-left">
+
       <h1 class="text-5xl font-extrabold italic text-[#38bdf8] leading-tight relative">
 
         HIDUP SEHAT UNTUK HIDUP BAHAGIA 
@@ -37,6 +38,7 @@
       </div>
     </div>
     <div>
+
 
       <img src="{{ asset('images/logo_simpus.png') }}" alt="header" class="float-right -mt-2 max-w-[400px] rounded-xl" />
    </div>
@@ -58,7 +60,6 @@
       <img src="{{ asset('images/gayahidup.jpg') }}" alt="about" class="rounded-lg mx-auto mr-50" />
 
 
-
     </div>
     <div data-aos="fade-left">
       <h2 class="text-3xl font-bold text-white">Mengapa Kesehatan Itu Penting?</h2>
@@ -76,65 +77,11 @@
   </div>
 </section>
 
-
-
-
 <!-- Include AOS script -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init();
 </script>
-
-<!-- Services Section -->
-<!-- <section id="service" class="py-20 bg-[#0f172a] text-white">
-  <div class="max-w-[1200px] mx-auto px-4">
-    <h2 class="text-3xl font-bold leading-tight relative">
-      Layanan Kesehatan Kami
-      <span class="absolute -top-12 text-[6rem] font-extrabold leading-[6rem] text-white/10">Our Services</span>
-    </h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-      <div class="space-y-2">
-        <span class="text-2xl font-extrabold text-white/75">01</span>
-        <h4 class="text-xl font-semibold">Konsultasi Gizi & Diet</h4>
-        <p class="text-[#94a3b8]">Dapatkan panduan nutrisi yang sesuai untuk menjaga berat badan ideal dan energi harian.</p>
-      </div>
-      <div class="space-y-2">
-        <span class="text-2xl font-extrabold text-white/75">02</span>
-        <h4 class="text-xl font-semibold">Pemeriksaan Rutin</h4>
-        <p class="text-[#94a3b8]">Cek kesehatan berkala untuk deteksi dini tekanan darah, kolesterol, dan diabetes.</p>
-      </div>
-      <div class="space-y-2">
-        <span class="text-2xl font-extrabold text-white/75">03</span>
-        <h4 class="text-xl font-semibold">Kesehatan Mental</h4>
-        <p class="text-[#94a3b8]">Program mindfulness, terapi stres, dan sesi konseling pribadi tersedia untuk Anda.</p>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-<!-- Popular Classes -->
-<!-- <section id="class" class="py-20 bg-gray-50">
-  <div class="max-w-[1200px] mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-12">Kegiatan Sehat Populer</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="border p-6 rounded-lg shadow hover:shadow-xl transition bg-white">
-        <img src="https://source.unsplash.com/400x250/?yoga,adult" class="rounded mb-4" alt="Yoga"/>
-        <h2 class="font-bold text-xl mb-2 text-blue-700">Yoga & Relaksasi</h2>
-        <p class="mb-4 text-gray-700">Tingkatkan fleksibilitas, kekuatan otot, dan kesehatan mental melalui yoga rutin.</p>
-      </div>
-      <div class="border p-6 rounded-lg shadow hover:shadow-xl transition bg-white">
-        <img src="https://source.unsplash.com/400x250/?jogging,adult" class="rounded mb-4" alt="Jogging"/>
-        <h2 class="font-bold text-xl mb-2 text-blue-700">Jogging Pagi</h2>
-        <p class="mb-4 text-gray-700">Membantu menjaga kebugaran jantung dan meningkatkan daya tahan tubuh.</p>
-      </div>
-      <div class="border p-6 rounded-lg shadow hover:shadow-xl transition bg-white">
-        <img src="https://source.unsplash.com/400x250/?healthy-food" class="rounded mb-4" alt="Makanan Sehat"/>
-        <h2 class="font-bold text-xl mb-2 text-blue-700">Workshop Nutrisi</h2>
-        <p class="mb-4 text-gray-700">Pelajari cara menyiapkan makanan sehat dan bergizi seimbang setiap hari.</p>
-      </div>
-    </div>
-  </div>
-</section> -->
 
 <!-- Footer -->
 <footer class="bg-[#0f172a] text-white py-12 px-4 sm:px-6 lg:px-8">
