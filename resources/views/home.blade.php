@@ -20,103 +20,68 @@
 <header id="home" class="pt-32 pb-20 bg-[#e2e8f0]">
   <div class="max-w-[1200px] mx-auto px-4 grid md:grid-cols-2 items-center gap-8">
     <div class="text-center md:text-left">
-      <h1 class="text-5xl font-extrabold italic text-[#d6abd8] leading-tight relative">
-        DON'T STOP TILL YOUR SUCCESS!
+
+      <h1 class="text-5xl font-extrabold italic text-[#38bdf8] leading-tight relative">
+
+        HIDUP SEHAT UNTUK HIDUP BAHAGIA 
         <span class="absolute -top-20 -left-20 text-[8rem] font-extrabold text-black/5 leading-[10rem] hidden md:block">
         </span>
       </h1>
-      <h2 class="text-4xl font-extrabold italic text-[#020617] mt-6">GET FIT TO HAPPY</h2>
-      <p class="text-[#94a3b8] mt-4">
-        Unlock your full potential with our expert training and state-of-the-art facilities.
-      </p>
+      <h2 class="text-4xl font-extrabold italic text-[#0f172a] mt-6">KESEHATAN ADALAH PRIORITAS BAGI SEMUA ORANG</h2>
+
+      <p class="text-[#475569] mt-4">
+        Hidup sehat merupakan tanggung jawab diri kita bagaimana kita merawat tubuh dan pikiran kita serta menjaga kesehatan tubuh kita.
+        </p>
+        
       <div class="mt-6">
         <button class="bg-[#0f172a] hover:bg-[#38bdf8] text-white px-6 py-3 rounded">Pelajari Lebih Lanjut</button>
       </div>
     </div>
     <div>
-      <img src="/assets/MEM2.jpg" alt="header" class="mx-auto max-w-[300px]" />
+
+
+      <img src="{{ asset('images/logo_simpus.png') }}" alt="header" class="float-right -mt-2 max-w-[400px] rounded-xl" />
+   </div>
+
     </div>
+
   </div>
 </header>
 
 <!-- About Section -->
-<section id="about" class="py-20 overflow-hidden">
-  <div class="max-w-[1200px] mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
-    <div class="relative">
-      <div class="absolute top-1/2 left-1/2 -translate-x-3/4 -translate-y-1/2 w-[calc(100%-5rem)] aspect-square bg-gradient-to-r from-[#eeb5c4] via-[#beb0e1] to-[#7ed6d8] rounded-full -z-10"></div>
-<img src="{{ asset('images/holy.jpg') }}" alt="about" class="max-w-[550px] mx-auto" />
+
+<section id="about" class="py-20 bg-gradient-to-r from-[#1e3a8a] via-[#3b82f6] to-[#38bdf8] relative">
+  <!-- Lingkaran putih di setengah latar belakang -->
+  <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-[600px] h-[600px] bg-white rounded-full opacity-20 -z-10"></div>
+
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+    <div class="relative" data-aos="fade-right">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-green-100 rounded-full -z-10 blur-2xl"></div>
+
+      <img src="{{ asset('images/gayahidup.jpg') }}" alt="about" class="rounded-lg mx-auto mr-50" />
+
+
     </div>
     <div data-aos="fade-left">
-      <h2 class="text-3xl font-bold text-[#065f46]">Mengapa Kesehatan Itu Penting?</h2>
-      <p class="mt-4 text-gray-600">
-        Kesehatan adalah fondasi kehidupan yang bahagia dan produktif. Kami berkomitmen membantu Anda hidup lebih sehat.
+      <h2 class="text-3xl font-bold text-white">Mengapa Kesehatan Itu Penting?</h2>
+      <p class="mt-4 text-gray-200">
+        Kesehatan merupakan salah satu aspek paling penting dalam kehidupan manusia karena tanpa kesehatan yang baik, berbagai aktivitas dan tujuan hidup menjadi sulit untuk dicapai. Tubuh yang sehat memungkinkan kita untuk menjalani rutinitas sehari-hari dengan energi dan semangat, serta berfungsi optimal dalam menjalankan pekerjaan, berinteraksi sosial, dan menikmati waktu luang. 
       </p>
-      <p class="mt-3 text-gray-600">
-        Dapatkan edukasi, bimbingan, dan layanan kesehatan terbaik di satu platform.
+      <p class="mt-3 text-gray-200">
+        Selain itu, kesehatan yang baik juga mendukung produktivitas, membantu mengurangi stres, dan meningkatkan kualitas hidup secara keseluruhan. Dengan kesehatan yang terjaga, seseorang lebih mampu untuk menghadapi tantangan dan tekanan yang ada dalam kehidupan.
       </p>
-      <button class="mt-6 bg-[#065f46] hover:bg-[#34d399] text-white px-6 py-3 rounded shadow-md transition">
+      <h4 class="text-2xl font-extrabold italic text-[#e5e7eb] mt-6">MAKA DARI ITU MARI JOIN BERSAMA KAMI MEMBANGUN HIDUP YANG SEHAT</h4>
+      <button class="mt-6 bg-[#34d399] hover:bg-[#065f46] text-white px-6 py-3 rounded shadow-md transition">
         Gabung Sekarang
       </button>
     </div>
   </div>
 </section>
 
-<!-- Include AOS script -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init();
 </script>
-
-<!-- Services Section -->
-<!-- <section id="service" class="py-20 bg-[#0f172a] text-white">
-  <div class="max-w-[1200px] mx-auto px-4">
-    <h2 class="text-3xl font-bold leading-tight relative">
-      Layanan Kesehatan Kami
-      <span class="absolute -top-12 text-[6rem] font-extrabold leading-[6rem] text-white/10">Our Services</span>
-    </h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-      <div class="space-y-2">
-        <span class="text-2xl font-extrabold text-white/75">01</span>
-        <h4 class="text-xl font-semibold">Konsultasi Gizi & Diet</h4>
-        <p class="text-[#94a3b8]">Dapatkan panduan nutrisi yang sesuai untuk menjaga berat badan ideal dan energi harian.</p>
-      </div>
-      <div class="space-y-2">
-        <span class="text-2xl font-extrabold text-white/75">02</span>
-        <h4 class="text-xl font-semibold">Pemeriksaan Rutin</h4>
-        <p class="text-[#94a3b8]">Cek kesehatan berkala untuk deteksi dini tekanan darah, kolesterol, dan diabetes.</p>
-      </div>
-      <div class="space-y-2">
-        <span class="text-2xl font-extrabold text-white/75">03</span>
-        <h4 class="text-xl font-semibold">Kesehatan Mental</h4>
-        <p class="text-[#94a3b8]">Program mindfulness, terapi stres, dan sesi konseling pribadi tersedia untuk Anda.</p>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-<!-- Popular Classes -->
-<!-- <section id="class" class="py-20 bg-gray-50">
-  <div class="max-w-[1200px] mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-12">Kegiatan Sehat Populer</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="border p-6 rounded-lg shadow hover:shadow-xl transition bg-white">
-        <img src="https://source.unsplash.com/400x250/?yoga,adult" class="rounded mb-4" alt="Yoga"/>
-        <h2 class="font-bold text-xl mb-2 text-blue-700">Yoga & Relaksasi</h2>
-        <p class="mb-4 text-gray-700">Tingkatkan fleksibilitas, kekuatan otot, dan kesehatan mental melalui yoga rutin.</p>
-      </div>
-      <div class="border p-6 rounded-lg shadow hover:shadow-xl transition bg-white">
-        <img src="https://source.unsplash.com/400x250/?jogging,adult" class="rounded mb-4" alt="Jogging"/>
-        <h2 class="font-bold text-xl mb-2 text-blue-700">Jogging Pagi</h2>
-        <p class="mb-4 text-gray-700">Membantu menjaga kebugaran jantung dan meningkatkan daya tahan tubuh.</p>
-      </div>
-      <div class="border p-6 rounded-lg shadow hover:shadow-xl transition bg-white">
-        <img src="https://source.unsplash.com/400x250/?healthy-food" class="rounded mb-4" alt="Makanan Sehat"/>
-        <h2 class="font-bold text-xl mb-2 text-blue-700">Workshop Nutrisi</h2>
-        <p class="mb-4 text-gray-700">Pelajari cara menyiapkan makanan sehat dan bergizi seimbang setiap hari.</p>
-      </div>
-    </div>
-  </div>
-</section> -->
 
 <!-- Footer -->
 <footer class="bg-[#0f172a] text-white py-12 px-4 sm:px-6 lg:px-8">
@@ -125,7 +90,7 @@
     <!-- Logo & Copyright -->
     <div>
       <img src="/assets/logo-light.png" alt="Logo" class="mb-6 w-40" />
-      <p class="text-[#94a3b8] text-sm">© 2025 HealthPoint. All rights reserved.</p>
+      <p class="text-[#94a3b8] text-sm">© 2025 SimpusMedical. Kelompok4.</p>
     </div>
 
     <!-- Navigasi -->

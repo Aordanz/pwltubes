@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ProgramController;
-use App\Http\Controllers\ChatController;  // Pastikan kamu sudah buat ChatController
+use App\Http\Controllers\ChatController;
+use App\Http\Controllers\ActivityController;  // Pastikan kamu sudah buat ChatController
 
 // Halaman utama dan halaman statis (bisa diganti dengan controller jika perlu)
 Route::get('/', function () {
@@ -37,6 +38,9 @@ Route::middleware('auth')->group(function () {
         switch ($user->age_category) {
             case 'remaja':
                 return redirect()->route('program.remaja');
+                
+    
+
             case 'dewasa':
                 return redirect()->route('program.dewasa');
             case 'lansia':
@@ -54,4 +58,6 @@ Route::middleware('auth')->group(function () {
     // Fitur chat antara admin dan user (belum implementasi detail)
     Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
     Route::post('/chat/send', [ChatController::class, 'sendMessage'])->name('chat.send');
+    Route::get('/activity/{id}', [ActivityController::class, 'show'])->name('activity.show');
+    Route::get('/activity/{id}', [ActivityController::class, 'show'])->name('activity.show');
 });

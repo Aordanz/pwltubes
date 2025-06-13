@@ -8,7 +8,15 @@ class ProgramController extends Controller
 {
     public function remaja()
     {
-        return view('program.remaja');
+        $activities = [
+            'Point Up', 'Peregangan Rutin', 'Latihan Kardio', 'Jalan Santai', 'Yoga',
+            'Push-Up', 'Plank', 'Skipping', 'Mountain Climber', 'Jogging',
+            'Zumba', 'Stretching', 'Strength Training', 'Core Workout', 'Cycling',
+            'Dance', 'Swimming', 'Hiking', 'Tai Chi', 'Pilates',
+            'Boxing', 'Squats', 'Lunges', 'Bodyweight Exercise', 'Jumping Jacks',
+            'Crunches', 'Jump Rope', 'Burpees', 'Running', 'Weightlifting', 'Resistance Bands'
+        ];
+        return view('program.remaja', compact('activities'));
     }
 
     public function dewasa()
@@ -20,4 +28,5 @@ class ProgramController extends Controller
     {
         return view('program.lansia');
     }
+    
 }
