@@ -31,3 +31,5 @@ class ActivityController extends Controller
         return view('activity.show', compact('activity', 'id'));
     }
 }
+
+

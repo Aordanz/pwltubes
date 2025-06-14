@@ -13,7 +13,7 @@ class ProgramController extends Controller
             'Latihan Otot ', 'Belajar', '', 'Latihan Otot', 'Jogging',
             'Senam Pagi', '', 'Sepedaan', 'Latihan Otot', 'Jalan Sehat',
             '', 'Belajar', 'Lari', 'Berenang', 'Belajar',
-            '', 'Membantu Orang Tua', 'Skill Baru', 'Latihan Otot', '',
+            'Latihan Otot', 'Membantu Orang Tua', 'Skill Baru', 'Latihan Otot', 'Lari',
             'Senam Pagi', 'Belajar Baik', '', 'Membantu Orang Tua', 'Latihan Otot', 'Refleksi Diri'
         ];
         $statusLatihan = session('latihan_terpenuhi.remaja', []);
@@ -24,7 +24,7 @@ return view('program.remaja', compact('activities', 'statusLatihan'));
     public function dewasa()
     {
         $activities = [
-            'Point Up', 'Peregangan Rutin', 'Latihan Kardio', 'Jalan Santai', 'Yoga',
+            'Kesehatan', 'Peregangan Rutin', 'Jalan Pagi', 'Jalan Santai', 'Yoga',
             'Push-Up', 'Plank', 'Skipping', 'Mountain Climber', 'Jogging',
             'Zumba', 'Stretching', 'Strength Training', 'Core Workout', 'Cycling',
             'Dance', 'Swimming', 'Hiking', 'Tai Chi', 'Pilates',
