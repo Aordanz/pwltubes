@@ -55,6 +55,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/program/remaja', [ProgramController::class, 'remaja'])->name('program.remaja');
     Route::get('/program/dewasa', [ProgramController::class, 'dewasa'])->name('program.dewasa');
     Route::get('/program/lansia', [ProgramController::class, 'lansia'])->name('program.lansia');
+    Route::get('/activity/{id}', [ProgramController::class, 'detail']);
+
 
     // Fitur chat antara admin dan user (belum implementasi detail)
     Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
