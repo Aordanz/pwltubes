@@ -1,44 +1,23 @@
+<div class="flex justify-between items-center px-4 sm:px-6 lg:px-8 bg-gray-900 h-24 ">
+    <div class="flex justify-between w-full  h-16 items-center">
 
-<nav class="bg-gray-900 text-white shadow-md">
-    <nav class="fixed top-0 left-0 w-full z-50 bg-[#020617]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16 items-center">
-
-
-    <div class="flex justify-between items-center px-4 sm:px-6 lg:px-8 bg-gray-900 h-24 ">
-        <div class="flex justify-between w-full  h-16 items-center">
-           
         <!-- KIRI: Logo & Menu -->
-            <div class="flex items-center text-white space-x-6">
-                <a href="{{ route('home') }}" class="text-xl font-bold text-indigo-400 hover:text-indigo-300">Simpus Medical</a>
-                <a href="{{ route('about') }}" class="hover:text-indigo-300">About</a>
+        <div class="flex items-center text-white space-x-6">
+            <a href="{{ route('home') }}" class="text-xl font-bold text-indigo-400 hover:text-indigo-300">Simpus
+                Medical</a>
+            <a href="{{ route('about') }}" class="hover:text-indigo-300">About</a>
 
-                <!-- Dropdown Konsultasi Online -->
-                <div class="relative group">
-                    <button class="hover:text-blue-300 focus:outline-none">Konsultasi</button>
-                </div>
+            <!-- Dropdown Konsultasi Online -->
+            <div class="relative group">
+                <button class="hover:text-blue-300 focus:outline-none">Konsultasi</button>
             </div>
+        </div>
 
-            <!-- KANAN: Login/Register atau User -->
-            <div class="flex items-center space-x-4">
+        <!-- KANAN: Login/Register atau User -->
+        <div class="flex items-center space-x-4">
 
-<nav class="fixed top-0 left-0 right-0 z-50 bg-[#020617] text-white shadow-lg">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16">
 
-    <div class="w-full bg-black px-4 sm:px-6 lg:px-8 ">
-        <div class="flex justify-between items-center  h-24 ">
 
-            <!-- Logo dan Navigasi -->
-            <div class="flex items-center space-x-8">
-                <a href="{{ route('home') }}" class="text-2xl font-bold text-indigo-400 hover:text-indigo-300">Simpus Medical</a>
-                <div class="hidden md:flex space-x-6">
-
-                    <a href="#about" class="hover:text-indigo-300 transition duration-150 text-white">About</a>
-                    <a href="#" class="hover:text-indigo-300 transition duration-150 text-white">Konsultasi</a>
-
-                </div>
-            </div>
 
             <!-- Mobile Menu Button -->
             <div class="md:hidden">
@@ -54,19 +33,20 @@
             <div class="hidden md:flex items-center space-x-4">
 
                 @guest
-                    <a href="{{ route('login') }}" class="px-4 py-1 border border-indigo-500 text-indigo-400 rounded hover:bg-indigo-500 hover:text-white transition">Login</a>
-                    <a href="{{ route('register') }}" class="px-4 py-1 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition">Register</a>
+                    <a href="{{ route('login') }}"
+                        class="px-4 py-1 border border-indigo-500 text-indigo-400 rounded hover:bg-indigo-500 hover:text-white transition">Login</a>
+                    <a href="{{ route('register') }}"
+                        class="px-4 py-1 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition">Register</a>
                 @else
-                    <div class="relative group">
-                        <button class="text-sm text-gray-300 hover:text-white focus:outline-none">
-                            Halo, {{ Auth::user()->name }}
-                        </button>
-                        <div class="absolute right-0 mt-2 w-32 bg-white text-black rounded shadow-lg hidden group-hover:block">
-                            <form action="{{ route('logout') }}" method="POST" class="block px-4 py-2 hover:bg-gray-100">
-                                @csrf
-                                <button type="submit" class="w-full text-left">Logout akun</button>
-                            </form>
-                        </div>
+                    <div class="flex items-center space-x-2 text-sm text-gray-300">
+                        <span class="hover:text-white">Halo, {{ Auth::user()->name }}</span>
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit"
+                                class="px-2 py-1 text-red-400 border border-red-500 rounded hover:bg-red-500 hover:text-white transition text-sm">
+                                Logout
+                            </button>
+                        </form>
                     </div>
                 @endguest
             </div>
@@ -89,16 +69,13 @@
             @endguest
         </div>
     </div>
+</div>
 
-</nav>
 
-
-    <!-- Script Toggle -->
-    <script>
-        document.getElementById('menu-toggle').addEventListener('click', function () {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-    </script>
-
-</nav>
+<!-- Script Toggle -->
+<script>
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    });
+</script>
