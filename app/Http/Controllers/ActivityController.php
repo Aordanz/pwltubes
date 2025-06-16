@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class ActivityController extends Controller
 {
     public function show($id)
+
 {
     // Daftar aktivitas selama 30 hari (contoh)
     $activities = [
@@ -42,6 +43,18 @@ class ActivityController extends Controller
     ['Breathing Exercise', 'Stretching'],   // Hari 30
 ];
 
+    {
+        // Data aktivitas, bisa Anda sesuaikan dengan kebutuhan
+        $activities = [
+            'Kesehatan ', 'Peregangan Rutin', 'Latihan Kardio', 'Istirahat', 'Yoga',
+            'Latihan Otot ', 'Belajar', 'Istirahat', 'Latihan Otot', 'Jogging',
+            'Senam Pagi', 'Istirahat', 'Sepedaan', 'Latihan Otot', 'Jalan Sehat',
+            'Istirahat', 'Belajar', 'Lari', 'Berenang', 'Istirahat',
+            'Latihan Otot', 'Membantu Orang Tua', 'Skill Baru', 'Istirahat', 'Lari',
+            'Senam Pagi', 'Belajar', 'Istirahat', 'Membantu Orang Tua', 'Latihan Otot', 'Refleksi Diri' // dan seterusnya
+        ];
+
+
     if ($id < 1 || $id > count($activities)) {
         abort(404);
     }
@@ -53,3 +66,5 @@ class ActivityController extends Controller
 }
 
 }
+
+
