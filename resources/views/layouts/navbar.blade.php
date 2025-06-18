@@ -56,7 +56,7 @@
 
         <!-- Mobile Menu Items -->
         <div id="mobile-menu" class="md:hidden hidden mt-2 space-y-2">
-            <a href="{{ route('about') }}" class="block px-2 py-1 hover:text-indigo-300">About</a>
+            <a href="{{ route('about') }}" class="block px-2 py-1 hover:text-indigo-300 ">About</a>
             <a href="#" class="block px-2 py-1 hover:text-indigo-300">Konsultasi</a>
             @guest
                 <a href="{{ route('login') }}" class="block px-2 py-1 hover:text-indigo-300">Login</a>

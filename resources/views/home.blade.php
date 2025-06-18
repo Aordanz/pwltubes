@@ -18,16 +18,31 @@
 
 <!-- Header Section -->
 <header id="home" class="pt-32 pb-20 bg-[#e2e8f0]">
+<style>
+  @keyframes slide-right {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .slide-in-right {
+    animation: slide-right 1.5s ease-out forwards;
+  }
+</style>
   <div class="max-w-[1200px] mx-auto px-4 grid md:grid-cols-2 items-center gap-8">
     <div class="text-center md:text-left">
 
-      <h1 class="text-5xl font-extrabold italic text-[#38bdf8] leading-tight relative">
+ <h1 data-aos="fade-right" data-aos-duration="1500" class="text-5xl font-extrabold italic text-[#38bdf8] leading-tight relative">
+  HIDUP SEHAT UNTUK HIDUP BAHAGIA
+</h1>
 
-        HIDUP SEHAT UNTUK HIDUP BAHAGIA 
-        <span class="absolute -top-20 -left-20 text-[8rem] font-extrabold text-black/5 leading-[10rem] hidden md:block">
-        </span>
-      </h1>
-      <h2 class="text-4xl font-extrabold italic text-[#0f172a] mt-6">KESEHATAN ADALAH PRIORITAS BAGI SEMUA ORANG</h2>
+
+      <h2 data-aos="fade-right" data-aos-duration="1500" class="text-4xl font-extrabold italic text-[#0f172a] mt-6">KESEHATAN ADALAH PRIORITAS BAGI SEMUA ORANG</h2>
 
       <p class="text-[#475569] mt-4">
         Hidup sehat merupakan tanggung jawab diri kita bagaimana kita merawat tubuh dan pikiran kita serta menjaga kesehatan tubuh kita.
@@ -40,7 +55,7 @@
     <div>
 
 
-      <img src="{{ asset('images/logo_simpus.png') }}" alt="header" class="float-right -mt-2 max-w-[400px] rounded-xl" />
+      <img src="{{ asset('images/logo_simpus.png') }}" alt="header" class="float-right -mt-2 max-w-[400px] rounded-xl floating-img animate-bounce" />
    </div>
 
     </div>
@@ -129,4 +144,5 @@
 
 </body>
 </html>
+
 @endsection
