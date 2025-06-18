@@ -7,12 +7,22 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ChatController;
-use App\Http\Controllers\ActivityController;  // Pastikan kamu sudah buat ChatController
+use App\Http\Controllers\RemajaActivityController;
+use App\Http\Controllers\DewasaActivityController;
+use App\Http\Controllers\LansiaActivityController;
+
 
 // Halaman utama dan halaman statis (bisa diganti dengan controller jika perlu)
 Route::get('/', function () {
     return view('home');
 })->name('home');
+
+Route::middleware('auth')->group(function () {
+    // Route aktivitas berdasarkan kategori umur
+    Route::get('/activity/remaja/{id}', [RemajaActivityController::class, 'show'])->name('activity.remaja.show');
+    Route::get('/activity/dewasa/{id}', [DewasaActivityController::class, 'show'])->name('activity.dewasa.show');
+    Route::get('/activity/lansia/{id}', [LansiaActivityController::class, 'show'])->name('activity.lansia.show');
+});
 
 Route::view('/about', 'about')->name('about');
 Route::view('/services', 'services')->name('services');
