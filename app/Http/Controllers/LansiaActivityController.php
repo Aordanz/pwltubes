@@ -9,7 +9,7 @@ class LansiaActivityController extends Controller
     public function show($id)
     {
         $activities = [
-            ['Plank', 'Jogging'],
+            ['Perenggangan Badan', 'Jogging'],
             ['Squats', 'Yoga'],
             ['Rest Day', 'Rest Day'],
             ['Push-up', 'Walking'],

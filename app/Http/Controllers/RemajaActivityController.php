@@ -10,7 +10,7 @@ class RemajaActivityController extends Controller
     {
         // Aktivitas pagi dan malam selama 30 hari untuk kategori remaja
         $activities = [
-            ['ngelonte', 'Belajar'],
+            ['Peregangan Tubuh', 'Belajar'],
             ['Jogging', 'Membantu Orang Tua'],
             ['Rest Day', 'Rest Day'],
             ['Senam Pagi', 'Belajar'],

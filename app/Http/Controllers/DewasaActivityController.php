@@ -9,7 +9,7 @@ class DewasaActivityController extends Controller
     public function show($id)
     {
         $activities = [
-            ['Bunuhdiri', 'gamingsantai'],
+            ['Olahraga Santai', 'Lari Santai'],
             ['Squats', 'Yoga'],
             ['Rest Day', 'Rest Day'],
             ['Push-up', 'Walking'],
