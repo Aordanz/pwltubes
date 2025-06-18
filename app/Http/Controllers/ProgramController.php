@@ -24,7 +24,7 @@ class ProgramController extends Controller
     public function dewasa()
     {
 
-        return view('program.dewasa');
+        
 
         $activities = [
             'Kesehatan', 'Peregangan Rutin', 'Jalan Pagi', 'Jalan Santai', 'Yoga',
