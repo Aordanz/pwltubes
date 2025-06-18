@@ -82,7 +82,7 @@
 <section id="service" class="py-20 bg-[#020617] text-white">
   <div class="max-w-[1200px] mx-auto px-4 text-center">
     <h2 class="text-3xl font-bold leading-tight relative">
-      Manfaat Gaya Hidup Sehat Bagi Remaja
+      Manfaat Gaya Hidup Sehat Bagi Dewasa
       <span class="absolute -top-12 text-[6rem] font-extrabold leading-[6rem] text-white/10"></span>
     </h2>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
@@ -154,6 +154,76 @@
     </div>
   </div>
 </section>
+
+<section class="py-20 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600">
+  <div class="max-w-[1200px] mx-auto px-4">
+    <h2 class="text-3xl font-bold leading-tight text-white relative">
+      Diskusikan dengan Ahli Kami
+      <span class="absolute -top-12 text-[6rem] font-extrabold text-black/5">Best Team</span>
+    </h2>
+    <div class="flex flex-wrap gap-8 mt-16">
+      <!-- Card Mentor 1 -->
+      <div onclick="openChat('Nicolas Purba')" class="cursor-pointer text-center bg-white p-6 rounded-xl shadow-lg">
+        <img src="/assets/trainer1.jpg" alt="Mentor" class="mb-4 rounded-2xl mx-auto w-full h-auto object-cover" />
+        <h4 class="text-xl font-bold text-[#020617]">Nicolas Purba</h4>
+        <p class="text-[#94a3b8]">Mentor Dalam Menjaga Kesehatan</p>
+      </div>
+
+      <!-- Card Mentor 2 -->
+      <div onclick="openChat('Christian Barus')" class="cursor-pointer text-center bg-white p-6 rounded-xl shadow-lg">
+        <img src="/assets/trainer2.jpg" alt="Mentor" class="mb-4 rounded-2xl mx-auto w-full h-auto object-cover" />
+        <h4 class="text-xl font-bold text-[#020617]">Christian Barus</h4>
+        <p class="text-[#94a3b8]">Mentor Dalam Mengatur Gizi </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== Live Chat Box ==================== -->
+<div id="chatBox" class="fixed bottom-4 right-4 w-96 bg-white shadow-lg rounded-xl p-4 hidden z-50">
+  <div class="flex justify-between items-center mb-2">
+    <h3 id="mentorName" class="font-bold text-lg">Chat</h3>
+    <button onclick="closeChat()" class="text-red-500 text-xl">&times;</button>
+  </div>
+  <div id="chatMessages" class="h-64 overflow-y-auto border p-2 mb-2 bg-gray-100 rounded text-sm">
+    <!-- Pesan-pesan akan muncul di sini -->
+  </div>
+ <div class="flex">
+  <input type="text" id="chatInput" class="flex-1 border rounded-l px-2 py-1 mr-2" placeholder="Ketik pesan...">
+  <button onclick="sendMessage()" class="bg-blue-500 text-white px-4 rounded-r">Kirim</button>
+</div>
+</div>
+
+<!-- ==================== Script JavaScript ==================== -->
+<script>
+  function openChat(mentor) {
+    document.getElementById('chatBox').classList.remove('hidden');
+    document.getElementById('mentorName').innerText = `Chat dengan ${mentor}`;
+    document.getElementById('chatInput').focus();
+
+    // Kosongkan chat sebelumnya (opsional)
+    document.getElementById('chatMessages').innerHTML = '';
+  }
+
+  function closeChat() {
+    document.getElementById('chatBox').classList.add('hidden');
+  }
+
+  function sendMessage() {
+    const input = document.getElementById('chatInput');
+    const message = input.value.trim();
+    const chatMessages = document.getElementById('chatMessages');
+
+    if (message !== '') {
+      chatMessages.innerHTML += `<div class='mb-1'><strong>Anda:</strong> ${message}</div>`;
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      input.value = '';
+
+      // Kirim ke backend via fetch/ajax jika diperlukan
+    }
+  }
+</script>
+
 
 <!-- Footer -->
 <footer class="bg-[#0f172a] text-white py-12 px-4 sm:px-6 lg:px-8">

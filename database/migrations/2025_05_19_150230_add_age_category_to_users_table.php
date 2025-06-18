@@ -9,8 +9,9 @@ class AddAgeCategoryToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-$table->string('age_category')->nullable()->after('email');
-            // Bisa juga nullable() jika mau
+if (!Schema::hasColumn('users', 'age_category')) {
+    $table->string('age_category')->nullable()->after('email');
+}            // Bisa juga nullable() jika mau
             // $table->string('age_category')->nullable()->after('email');
         });
     }

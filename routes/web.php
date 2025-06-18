@@ -30,8 +30,9 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Semua route berikut hanya dapat diakses oleh user yang sudah login
 Route::middleware('auth')->group(function () {
-    Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
-    Route::post('/chat', [ChatController::class, 'send'])->name('chat.send');
+    Route::post('/chat/send', [ChatController::class, 'send']);
+Route::get('/chat/get', [ChatController::class, 'get']);
+
     // Redirect user ke halaman program latihan sesuai kategori umur setelah login
     Route::get('/home', function () {
         $user = auth()->user();

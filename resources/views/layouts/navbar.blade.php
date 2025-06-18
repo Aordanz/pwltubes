@@ -28,4 +28,29 @@
 
 
         </div>
- </div>
+
+        <!-- Mobile Menu Items -->
+        <div id="mobile-menu" class="md:hidden hidden mt-2 space-y-2">
+            <a href="{{ route('about') }}" class="block px-2 py-1 hover:text-indigo-300">About</a>
+            <a href="#" class="block px-2 py-1 hover:text-indigo-300">Konsultasi</a>
+            @guest
+                <a href="{{ route('login') }}" class="block px-2 py-1 hover:text-indigo-300">Login</a>
+                <a href="{{ route('register') }}" class="block px-2 py-1 hover:text-indigo-300">Register</a>
+            @else
+                <form action="{{ route('logout') }}" method="POST" class="px-2 py-1">
+                    @csrf
+                    <button type="submit" class="text-left w-full hover:text-red-500">Logout</button>
+                </form>
+            @endguest
+        </div>
+    </div>
+</div>
+
+
+<!-- Script Toggle -->
+<script>
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    });
+</script>
