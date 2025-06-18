@@ -10,12 +10,7 @@ class ProgramController extends Controller
     {
         $activities = [
 
-            'Point Up', 'Peregangan Rutin', 'Latihan Kardio', 'Jalan Santai', 'Yoga',
-            'Push-Up', 'Plank', 'Skipping', 'Mountain Climber', 'Jogging',
-            'Zumba', 'Stretching', 'Strength Training', 'Core Workout', 'Cycling',
-            'Dance', 'Swimming', 'Hiking', 'Tai Chi', 'Pilates',
-            'Boxing', 'Squats', 'Lunges', 'Bodyweight Exercise', 'Jumping Jacks',
-            'Crunches', 'Jump Rope', 'Burpees', 'Running', 'Weightlifting', 'Resistance Bands'
+            
 
             'Kesehatan ', 'Peregangan Rutin', 'Latihan Kardio', '', 'Yoga',
             'Latihan Otot ', 'Belajar', '', 'Latihan Otot', 'Jogging',
