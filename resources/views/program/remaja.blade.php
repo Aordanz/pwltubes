@@ -119,7 +119,7 @@
 
       <!-- Contoh Hari ke-1 -->
       @foreach($activities as $index => $activity)
-<a href="{{ route('activity.show', ['id' => $index + 1]) }}" class="block">
+<a href="{{ route('activity.remaja.show', ['id' => $loop->index + 1]) }}" class="block">
     <div class="relative border p-5 rounded-lg shadow hover:shadow-lg transition 
                 {{ ($index + 1) % 4 == 0 ? 'bg-red-100' : 'bg-white' }}">
 
