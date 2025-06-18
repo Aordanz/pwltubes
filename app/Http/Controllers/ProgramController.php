@@ -24,7 +24,7 @@ class ProgramController extends Controller
     public function dewasa()
     {
 
-    
+        
 
         $activities = [
             'Kesehatan', 'Peregangan Rutin', 'Jalan Pagi', 'Jalan Santai', 'Yoga',
@@ -40,7 +40,15 @@ class ProgramController extends Controller
 
     public function lansia()
     {
-        return view('program.lansia');
+        $activities = [
+        'Kesehatan ', 'Peregangan Rutin', 'Latihan Kardio', '', 'Yoga',
+            'Latihan Otot ', 'Belajar', '', 'Latihan Otot', 'Jogging',
+            'Senam Pagi', '', 'Sepedaan', 'Latihan Otot', 'Jalan Sehat',
+            '', 'Belajar', 'Lari', 'Berenang', 'Belajar',
+            'Latihan Otot', 'Membantu Orang Tua', 'Skill Baru', 'Latihan Otot', 'Lari',
+            'Senam Pagi', 'Belajar Baik', '', 'Membantu Orang Tua', 'Latihan Otot', 'Refleksi Diri'
+        ];
+         return view('program.lansia', compact('activities'));;
     }
     
 }
