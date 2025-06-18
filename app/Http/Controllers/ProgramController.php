@@ -24,15 +24,16 @@ class ProgramController extends Controller
     public function dewasa()
     {
 
-        
-
         $activities = [
-          'Peregangan Tubuh', 'Latih Tenaga', 'Latihan Kekuatan', 'Hari Istirahat', 'Semangat Sehat', 'Olahraga Jantung', 'Latihan Kelincahan',
-    'Hari Istirahat', 'Latihan Inti Tubuh', 'Menambah Stamina', 'Latihan Kelenturan', 'Hari Istirahat', 'Aktivitas Fisik', 'Latihan Keseimbangan',
-    'Kebugaran Tubuh', 'Hari Istirahat', 'Latihan Harian', 'Latihan Ketahanan', 'Tantangan Baru', 'Hari Istirahat', 'Menguatkan Otot',
-    'Gerakan Berirama', 'Menjaga Postur Tubuh', 'Hari Istirahat', 'Gerakan Cepat dan Ringan', 'Latihan Koordinasi', 'Daya Tahan Tubuh',
-    'Hari Istirahat', 'Fokus dan Konsentrasi', 'Aktivitas Sehari-hari', 'Hari Istirahat'
-
+        
+            'Latihan Peregangan', 'Latihan Energi', 'Latihan Kekuatan', 'Rest Day',
+    'Latihan Semangat', 'Latihan Kardio', 'Latihan Kelincahan', 'Rest Day',
+    'Latihan Inti Tubuh', 'Latihan Stamina', 'Latihan Kelenturan', 'Rest Day',
+    'Latihan Gerak Tubuh', 'Latihan Keseimbangan', 'Latihan Kebugaran', 'Rest Day',
+    'Latihan Harian', 'Latihan Ketahanan', 'Latihan Fisik', 'Rest Day',
+    'Latihan Otot', 'Latihan Ritme Tubuh', 'Latihan Stabilitas', 'Rest Day',
+    'Latihan Kecepatan', 'Latihan Koordinasi', 'Latihan Daya Tahan', 'Rest Day',
+    'Latihan Fokus', 'Latihan Gerak Aktif', 'Rest Day'
         ];
          return view('program.dewasa', compact('activities'));
 
