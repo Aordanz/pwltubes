@@ -13,7 +13,9 @@
         <div class="flex flex-col items-center mb-6">
            
             <h2 class="text-3xl font-bold text-center text-blue-700 flex items-center gap-2">
-                <i data-feather="heart" class="w-6 h-6 text-blue-600"></i> Portal Kesehatan
+                <div class="flex items-center justify-center ">
+                <img src="{{ asset('images/logo_simpus.png') }}" alt="header" class="float-right -mt-2 max-w-[150px] " />
+             </div> 
             </h2>
             <p class="text-sm text-gray-500 mt-1">Masuk untuk memulai hidup yang sehat</p>
         </div>
