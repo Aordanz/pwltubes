@@ -73,7 +73,6 @@ Route::get('/chat/get', [ChatController::class, 'get']);
     Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
     Route::post('/chat/send', [ChatController::class, 'sendMessage'])->name('chat.send');
     Route::get('/activity/{id}', [ActivityController::class, 'show'])->name('activity.show');
-    Route::get('/activity/{id}', [ActivityController::class, 'show'])->name('activity.show');
 });
 
 Route::post('/program/{kategori}/terpenuhi', function (Request $request, $kategori) {
