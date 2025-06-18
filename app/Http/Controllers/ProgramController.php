@@ -24,15 +24,16 @@ class ProgramController extends Controller
     public function dewasa()
     {
 
-        
-
         $activities = [
-            'Kesehatan', 'Peregangan Rutin', 'Jalan Pagi', 'Jalan Santai', 'Yoga',
-            'Push-Up', 'Plank', 'Skipping', 'Mountain Climber', 'Jogging',
-            'Zumba', 'Stretching', 'Strength Training', 'Core Workout', 'Cycling',
-            'Dance', 'Swimming', 'Hiking', 'Tai Chi', 'Pilates',
-            'Boxing', 'Squats', 'Lunges', 'Bodyweight Exercise', 'Jumping Jacks',
-            'Crunches', 'Jump Rope', 'Burpees', 'Running', 'Weightlifting', 'Resistance Bands'
+        
+            'Latihan Peregangan', 'Latihan Energi', 'Latihan Kekuatan', 'Rest Day',
+    'Latihan Semangat', 'Latihan Kardio', 'Latihan Kelincahan', 'Rest Day',
+    'Latihan Inti Tubuh', 'Latihan Stamina', 'Latihan Kelenturan', 'Rest Day',
+    'Latihan Gerak Tubuh', 'Latihan Keseimbangan', 'Latihan Kebugaran', 'Rest Day',
+    'Latihan Harian', 'Latihan Ketahanan', 'Latihan Fisik', 'Rest Day',
+    'Latihan Otot', 'Latihan Ritme Tubuh', 'Latihan Stabilitas', 'Rest Day',
+    'Latihan Kecepatan', 'Latihan Koordinasi', 'Latihan Daya Tahan', 'Rest Day',
+    'Latihan Fokus', 'Latihan Gerak Aktif', 'Rest Day'
         ];
          return view('program.dewasa', compact('activities'));
 
