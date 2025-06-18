@@ -9,20 +9,25 @@ class ProgramController extends Controller
     public function remaja()
     {
         $activities = [
+
+            
+
             'Kesehatan ', 'Peregangan Rutin', 'Latihan Kardio', '', 'Yoga',
             'Latihan Otot ', 'Belajar', '', 'Latihan Otot', 'Jogging',
             'Senam Pagi', '', 'Sepedaan', 'Latihan Otot', 'Jalan Sehat',
             '', 'Belajar', 'Lari', 'Berenang', 'Belajar',
             'Latihan Otot', 'Membantu Orang Tua', 'Skill Baru', 'Latihan Otot', 'Lari',
             'Senam Pagi', 'Belajar Baik', '', 'Membantu Orang Tua', 'Latihan Otot', 'Refleksi Diri'
-        ];
-        $statusLatihan = session('latihan_terpenuhi.remaja', []);
 
-return view('program.remaja', compact('activities', 'statusLatihan'));
+        ];
+        return view('program.remaja', compact('activities'));
     }
 
     public function dewasa()
     {
+
+        return view('program.dewasa');
+
         $activities = [
             'Kesehatan', 'Peregangan Rutin', 'Jalan Pagi', 'Jalan Santai', 'Yoga',
             'Push-Up', 'Plank', 'Skipping', 'Mountain Climber', 'Jogging',
@@ -32,6 +37,7 @@ return view('program.remaja', compact('activities', 'statusLatihan'));
             'Crunches', 'Jump Rope', 'Burpees', 'Running', 'Weightlifting', 'Resistance Bands'
         ];
          return view('program.dewasa', compact('activities'));
+
     }
 
     public function lansia()
