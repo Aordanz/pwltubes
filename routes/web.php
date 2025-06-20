@@ -92,12 +92,6 @@ Route::get('/chat/fetch', [ChatController::class, 'fetch'])->name('chat.fetch');
 });
 
 
-// Route menandai program latihan sebagai terpenuhi
-Route::post('/program/{kategori}/terpenuhi', function (Request $request, $kategori) {
-    $hari = $request->input('hari');
-    $status = session("latihan_terpenuhi.$kategori", []);
-    $status[$hari] = true;
-    session(["latihan_terpenuhi.$kategori" => $status]);
+// ✅ Versi benar, TANPA {kategori} di URL
+Route::post('/program/terpenuhi', [ProgramController::class, 'tandaiTerpenuhi'])->name('program.terpenuhi');
 
-    return redirect()->route('program.' . $kategori);
-})->name('program.terpenuhi');
