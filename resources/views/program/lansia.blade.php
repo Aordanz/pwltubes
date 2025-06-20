@@ -96,7 +96,7 @@
     Dengan pola makan bergizi, olahraga teratur, dan kesehatan mental yang terjaga, lansia dapat mengurangi risiko penyakit kronis, memperkuat daya ingat, serta menjalani masa tua dengan kualitas hidup yang lebih baik dan bahagia.
   </p>
   <div class="mt-8">
-    <h4 class="text-xl md:text-2xl italic font-semibold text-sky-800 bg-gray-100 px-4 py-2 rounded-lg inline-block">
+    <h4 class="text-xl md:text-2xl italic font-semibold text-sky-800 bg-gray-300 px-4 py-2 rounded-lg inline-block">
       “Pola Hidup Sehat, Investasi Masa Tua yang Berkualitas”
     </h4>
   </div>
@@ -175,13 +175,13 @@
         @csrf
         <input type="hidden" name="hari" value="{{ $index + 1 }}">
         <input type="checkbox" id="checkbox-{{ $index }}" onchange="markComplete({{ $index }})"
-               class="w-5 h-5 text-purple-600 border-gray-300 rounded focus:ring-0 cursor-pointer">
+               class="w-5 h-5 text-green-600 border-gray-300 rounded focus:ring-0 cursor-pointer">
       </form>
 
       {{-- Header Hari --}}
       <div class="flex justify-between items-center mb-2">
         <span class="text-sm font-semibold text-gray-500">Hari ke-{{ $index + 1 }}</span>
-        <span class="bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded-full">
+        <span class="bg-green-100 text-blue-700 text-xs px-2 py-1 rounded-full">
           @if(($index + 1) % 4 == 0)
             Hari Istirahat
           @else
@@ -239,20 +239,25 @@
   }
 </script>
 
-<section class="py-20 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600">
-  <div class="max-w-[1200px] mx-auto px-4">
-    <h2 class="text-3xl font-bold leading-tight text-white relative">
-      Diskusikan dengan Ahli Kami
-      <span class="absolute -top-12 text-[6rem] font-extrabold text-black/5"></span>
-    </h2>
-    <div class="flex flex-wrap gap-8 mt-16">
-      <!-- Card Mentor 1 -->
-      <div onclick="openChat('Nicolas Purba')" class="cursor-pointer text-center bg-white p-6 rounded-xl shadow-lg">
-        <img src="/assets/trainer1.jpg" alt="Mentor" class="mb-4 rounded-2xl mx-auto w-full h-auto object-cover" />
-        <h4 class="text-xl font-bold text-[#020617]">Nicolas Purba</h4>
-        <p class="text-[#94a3b8]">Mentor Dalam Menjaga Kesehatan</p>
+<!-- Mentor Section - Compact & Centered Avatar -->
+<section class="py-20 bg-gradient-to-r from-teal-800 via-teal-700 to-cyan-800 text-white">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-12">Diskusikan dengan Ahli Kami</h2>
+
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+      
+      <!-- Mentor 1 -->
+      <div onclick="openChat('Amadeo Hutahean')" 
+           class="cursor-pointer bg-white/10 rounded-2xl shadow-lg hover:shadow-xl transition hover:scale-105 p-5 text-center">
+        <div class="w-24 h-24 mx-auto overflow-hidden rounded-full border-4 border-white mb-4">
+          <img src="{{ asset('images/dokter.jpg') }}" alt="Mentor" class="object-cover w-full h-full" />
+        </div>
+        <h4 class="text-lg font-semibold text-white">Nicolas Purba</h4>
+        <p class="text-teal-200 text-sm">Ahli Gaya Hidup Sehat</p>
       </div>
 
+    </div>
+  </div>
 </section>
 
 <!-- ==================== Live Chat Box ==================== -->
@@ -300,34 +305,32 @@
   }
 </script>
 
-
-<!-- Modern Footer -->
-<footer class="bg-gradient-to-br from-sky-900 via-sky-800 to-sky-700 text-white py-16 px-6">
+<!-- Modern Footer: Gradasi Hijau Kuat ke Biru Muda -->
+<footer class="bg-gradient-to-b from-[#106973] via-[#1d7e89] to-sky-300 text-white py-16 px-6">
   <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
 
     <!-- Logo & Brand -->
     <div>
       <img src="{{ asset('images/logo_simpus.png') }}" alt="Logo" class="mb-4 w-44" />
-     
     </div>
 
     <!-- Navigasi -->
     <div>
       <h4 class="text-xl font-semibold mb-4">Navigasi</h4>
-      <ul class="space-y-2 text-slate-300">
-        <li><a href="#home" class="hover:text-white transition">Home</a></li>
-        <li><a href="#about" class="hover:text-white transition">Tentang Kami</a></li>
-        <li><a href="#konsultasi" class="hover:text-white transition">Konsultasi</a></li>
+      <ul class="space-y-2 text-white/80">
+        <li><a href="#home" class="hover:text-black transition">Home</a></li>
+        <li><a href="#about" class="hover:text-black transition">Tentang Kami</a></li>
+        <li><a href="#konsultasi" class="hover:text-black transition">Konsultasi</a></li>
       </ul>
     </div>
 
     <!-- Kontak -->
     <div>
       <h4 class="text-xl font-semibold mb-4">Kontak Kami</h4>
-      <ul class="space-y-2 text-slate-300">
-        <li><i class="ri-map-pin-line mr-2 text-sky-300"></i>Jl. Sehat No.123, Wellness City</li>
-        <li><i class="ri-mail-line mr-2 text-sky-300"></i><a href="mailto:kontak@healthpoint.com" class="hover:text-white transition">kontak@healthpoint.com</a></li>
-        <li><i class="ri-phone-line mr-2 text-sky-300"></i><a href="tel:+6281298765432" class="hover:text-white transition">+62 812 9876 5432</a></li>
+      <ul class="space-y-2 text-white/80">
+        <li><i class="ri-map-pin-line mr-2 text-white"></i>Simpang USU, Medan City</li>
+        <li><i class="ri-mail-line mr-2 text-white"></i><a href="mailto:kontak@healthpoint.com" class="hover:text-black transition">kontak@healthpoint.com</a></li>
+        <li><i class="ri-phone-line mr-2 text-white"></i><a href="tel:+6281298765432" class="hover:text-black transition">+62 812 9876 5432</a></li>
       </ul>
     </div>
 
@@ -335,16 +338,16 @@
     <div>
       <h4 class="text-xl font-semibold mb-4">Ikuti Kami</h4>
       <div class="flex space-x-4 mt-2">
-        <a href="#" class="text-sky-300 hover:text-white transition" aria-label="Facebook">
+        <a href="#" class="text-white/70 hover:text-white transition" aria-label="Facebook">
           <i class="ri-facebook-circle-fill text-2xl"></i>
         </a>
-        <a href="#" class="text-sky-300 hover:text-white transition" aria-label="Instagram">
+        <a href="#" class="text-white/70 hover:text-white transition" aria-label="Instagram">
           <i class="ri-instagram-fill text-2xl"></i>
         </a>
-        <a href="#" class="text-sky-300 hover:text-white transition" aria-label="Twitter">
+        <a href="#" class="text-white/70 hover:text-white transition" aria-label="Twitter">
           <i class="ri-twitter-x-fill text-2xl"></i>
         </a>
-        <a href="#" class="text-sky-300 hover:text-white transition" aria-label="YouTube">
+        <a href="#" class="text-white/70 hover:text-white transition" aria-label="YouTube">
           <i class="ri-youtube-fill text-2xl"></i>
         </a>
       </div>
@@ -353,7 +356,7 @@
   </div>
 
   <!-- Copyright -->
-  <div class="mt-12 border-t border-white/10 pt-6 text-center text-sm text-slate-400">
+  <div class="mt-12 border-t border-black/20 pt-6 text-center text-sm text-black/70">
     © 2025 SimpusMedical - Kelompok 4. All rights reserved.
   </div>
 </footer>
