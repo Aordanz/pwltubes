@@ -12,6 +12,7 @@ use App\Http\Controllers\RemajaActivityController;
 use App\Http\Controllers\DewasaActivityController;
 use App\Http\Controllers\LansiaActivityController;
 use App\Http\Controllers\DoctorChatController;
+use App\Http\Controllers\ProfileController;
 
 // Halaman utama dan halaman statis
 Route::get('/', function () {
@@ -21,6 +22,14 @@ Route::get('/', function () {
 Route::view('/about', 'about')->name('about');
 Route::view('/services', 'services')->name('services');
 Route::view('/contact', 'contact')->name('contact');
+
+//Profile User
+Route::middleware('auth')->group(function () {
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+Route::post('/profile/change-password', [ProfileController::class, 'changePassword'])->name('profile.changePassword');
+});
+
 
 // Login dan Register
 Route::get('/login', [LoginController::class, 'showForm'])->name('login');
@@ -83,12 +92,6 @@ Route::get('/chat/fetch', [ChatController::class, 'fetch'])->name('chat.fetch');
 });
 
 
-// Route menandai program latihan sebagai terpenuhi
-Route::post('/program/{kategori}/terpenuhi', function (Request $request, $kategori) {
-    $hari = $request->input('hari');
-    $status = session("latihan_terpenuhi.$kategori", []);
-    $status[$hari] = true;
-    session(["latihan_terpenuhi.$kategori" => $status]);
+// ✅ Versi benar, TANPA {kategori} di URL
+Route::post('/program/terpenuhi', [ProgramController::class, 'tandaiTerpenuhi'])->name('program.terpenuhi');
 
-    return redirect()->route('program.' . $kategori);
-})->name('program.terpenuhi');

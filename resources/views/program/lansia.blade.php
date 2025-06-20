@@ -11,233 +11,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
- <style>
-    @keyframes slide-right {
-      0% {
-        transform: translateX(-100%);
-        opacity: 0;
-      }
-      100% {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    .slide-in-right {
-      animation: slide-right 1.5s ease-out forwards;
-    }
-
-    /* Nonaktifkan lingkaran background jika ada di CSS luar */
-    header#home::before {
-      display: none !important;
-      content: none !important;
-    }
-  </style>
 </head>
 
 <body class="bg-gray-100 font-sans">
 
 <!-- Header Section -->
-<header id="home" class="w-full min-h-screen pt-32 pb-20 bg-no-repeat bg-center" 
-        style="background-image: url('{{ asset('images/tar.png') }}'); background-size: 100% 100%; background-color: #f9fafb;">
-
+<header id="home" class="pt-32 pb-20 bg-[#e2e8f0]">
   <div class="max-w-[1200px] mx-auto px-4 grid md:grid-cols-2 items-center gap-8">
     <div class="text-center md:text-left">
-      <h1 data-aos="fade-right" data-aos-duration="1500" class="text-5xl font-extrabold italic text-[#38bdf8] leading-tight">
+      <h1 class="text-5xl font-extrabold italic text-[#38bdf8] leading-tight relative">
         HIDUP SEHAT UNTUK HIDUP BAHAGIA
-      </h1> 
-
-      <h2 data-aos="fade-right" data-aos-duration="1500" class="text-4xl font-extrabold italic text-[#0f172a] mt-6">
-        KESEHATAN ADALAH PRIORITAS BAGI SEMUA ORANG
-      </h2>
-
+      </h1>
+      <h2 class="text-4xl font-extrabold italic text-[#0f172a] mt-6">KESEHATAN ADALAH PRIORITAS</h2>
       <p class="text-[#475569] mt-4">
-        Hidup sehat merupakan tanggung jawab diri kita bagaimana kita merawat tubuh dan pikiran kita serta menjaga kesehatan tubuh kita.
-      </p>
-
+         Hidup sehat merupakan tanggung jawab diri kita bagaimana kita merawat tubuh dan pikiran kita serta menjaga kesehatan tubuh kita.
       <div class="mt-6">
-        <button class="bg-[#0f172a] hover:bg-[#38bdf8] text-white px-6 py-3 rounded">
-          Pelajari Lebih Lanjut
-        </button>
+        <button class="bg-[#0f172a] hover:bg-[#38bdf8] text-white px-6 py-3 rounded">Pelajari Lebih Lanjut</button>
       </div>
     </div>
-
     <div>
-      <img src="{{ asset('images/logo_simpus.png') }}" alt="header" class="float-right -mt-2 max-w-[400px] rounded-xl animate-bounce" />
+      <img src="{{ asset('images/logo_simpus.png') }}" alt="header" class="float-right -mt-2 max-w-[400px] rounded-xl" />
     </div>
   </div>
 </header>
-
-<!-- About Section -->
-<section id="about" class="relative py-24 bg-gradient-to-b from-[#a5a5a5] via-[#d9e3e9] to-[#eaf7ff] text-gray-800 overflow-hidden z-0">
-
-  <!-- HAPUS overlay lama, atau ganti jadi transparan total -->
-  {{-- <div class="absolute inset-0 bg-white bg-opacity-50 backdrop-blur-sm"></div> --}}
-
-  <!-- Why Health Is Important -->
-  <div class="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-    
-    <!-- Image Section -->
-    <div class="relative group" data-aos="fade-right">
-      <div class="overflow-hidden rounded-3xl shadow-2xl transition duration-500 group-hover:scale-105">
-        <img src="{{ asset('images/lansia.png') }}" alt="Tentang Kami" class="w-full object-cover" />
-      </div>
-    </div>
-
-<!-- Text Section -->
-<div data-aos="fade-left">
-  <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6 text-sky-800">
-    Mengapa <span class="text-sky-600">Kesehatan</span> Penting bagi lansia?
-  </h2>
-  <p class="text-lg text-gray-700 leading-relaxed mb-4">
-    Seiring bertambahnya usia, tubuh mengalami penurunan fungsi alami. Pola hidup sehat menjadi kunci utama untuk menjaga kebugaran fisik dan daya tahan tubuh lansia agar tetap aktif dan mandiri.
-  </p>
-  <p class="text-lg text-gray-700 leading-relaxed">
-    Dengan pola makan bergizi, olahraga teratur, dan kesehatan mental yang terjaga, lansia dapat mengurangi risiko penyakit kronis, memperkuat daya ingat, serta menjalani masa tua dengan kualitas hidup yang lebih baik dan bahagia.
-  </p>
-  <div class="mt-8">
-    <h4 class="text-xl md:text-2xl italic font-semibold text-sky-800 bg-gray-300 px-4 py-2 rounded-lg inline-block">
-      “Pola Hidup Sehat, Investasi Masa Tua yang Berkualitas”
-    </h4>
-  </div>
-</div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Services Section Modern Teal-Aqua -->
-<section id="service" class="py-24 bg-gradient-to-r from-teal-800 via-teal-700 to-cyan-800 text-white relative overflow-hidden">
-  <div class="max-w-[1200px] mx-auto px-6 text-center relative z-10">
-    <h2 class="text-4xl font-extrabold mb-4 tracking-tight">Manfaat Gaya Hidup Sehat Bagi Lansia</h2>
-    <p class="text-teal-100 max-w-2xl mx-auto text-lg">
-      Gaya hidup sehat berdampak besar pada kualitas hidup para lansia. Berikut manfaat utamanya:
-    </p>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-16">
-      <!-- Card 1 -->
-      <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition duration-300 text-left">
-        <div class="flex items-center space-x-4 mb-4">
-          <div class="text-3xl font-bold text-teal-300"></div>
-          <h4 class="text-xl font-semibold text-white">Meningkatkan Kemandirian</h4>
-        </div>
-        <p class="text-teal-100 text-sm leading-relaxed">
-          Olahraga ringan, makan seimbang, dan tidur cukup membantu lansia menjaga kondisi fisik dan mental — membuat mereka tetap mandiri dalam aktivitas harian.
-        </p>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition duration-300 text-left">
-        <div class="flex items-center space-x-4 mb-4">
-          <div class="text-3xl font-bold text-teal-300"></div>
-          <h4 class="text-xl font-semibold text-white">Meningkatkan Kesehatan Mental</h4>
-        </div>
-        <p class="text-teal-100 text-sm leading-relaxed">
-          Interaksi sosial positif dan gaya hidup aktif menurunkan risiko depresi dan demensia, serta meningkatkan rasa bahagia dan ketenangan.
-        </p>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition duration-300 text-left">
-        <div class="flex items-center space-x-4 mb-4">
-          <div class="text-3xl font-bold text-teal-300"></div>
-          <h4 class="text-xl font-semibold text-white">Memperpanjang Usia & Kualitas Hidup</h4>
-        </div>
-        <p class="text-teal-100 text-sm leading-relaxed">
-          Kebiasaan sehat seperti olahraga, makanan bergizi, dan cek kesehatan rutin, memperpanjang usia dengan kualitas hidup yang lebih baik.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Decorative Gradient Circles -->
-  <div class="absolute w-[400px] h-[400px] bg-teal-300 opacity-10 rounded-full -top-20 -left-40 blur-3xl"></div>
-  <div class="absolute w-[300px] h-[300px] bg-teal-500 opacity-10 rounded-full bottom-0 right-0 blur-2xl"></div>
-</section>
-
-
 
 <!-- Popular Classes -->
 <section id="class" class="py-20 bg-gray-50 text-black">
   <div class="max-w-[1200px] mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-12">Kalender Aktivitas 30 Hari</h2>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      
-
-      <!-- Contoh Hari ke-1 -->
       @foreach($activities as $index => $activity)
-  <a href="{{ route('activity.lansia.show', ['id' => $loop->index + 1]) }}" class="block">
-    <div class="relative border p-5 rounded-lg shadow hover:shadow-lg transition 
-                {{ ($index + 1) % 4 == 0 ? 'bg-green-100' : 'bg-white' }}">
-
-      {{-- Checkbox di pojok kanan atas --}}
-      <form method="POST" action="{{ route('program.terpenuhi', ['kategori' => 'lansia']) }}" class="absolute top-2 right-2">
-        @csrf
-        <input type="hidden" name="hari" value="{{ $index + 1 }}">
-        <input type="checkbox" id="checkbox-{{ $index }}" onchange="markComplete({{ $index }})"
-               class="w-5 h-5 text-green-600 border-gray-300 rounded focus:ring-0 cursor-pointer">
-      </form>
-
-      {{-- Header Hari --}}
-      <div class="flex justify-between items-center mb-2">
-        <span class="text-sm font-semibold text-gray-500">Hari ke-{{ $index + 1 }}</span>
-        <span class="bg-green-100 text-blue-700 text-xs px-2 py-1 rounded-full">
-          @if(($index + 1) % 4 == 0)
-            Hari Istirahat
-          @else
-            {{ $activity }}
-          @endif
-        </span>
-      </div>
-
-      {{-- Gambar Aktivitas --}}
-      <img src="{{ ($index + 1) % 4 == 0 
-        ? 'https://source.unsplash.com/400x250/?elderly,rest' 
-        : 'https://source.unsplash.com/400x250/?senior,exercise' }}" 
-        class="rounded mb-3" 
-        alt="Aktivitas Hari {{ $index + 1 }}">
-
-      {{-- Deskripsi Aktivitas --}}
-      <p class="text-gray-700 text-sm">
-        @if(($index + 1) % 4 == 0)
-          Hari ke-{{ $index + 1 }} adalah waktu istirahat untuk menjaga kondisi tubuh.
-        @else
-          Aktivitas hari ke-{{ $index + 1 }} untuk lansia: {{ $activity }}.
-        @endif
-      </p>
-    </div>
-  </a>
-@endforeach
-
-
-
-      <!-- dan seterusnya sampai Hari ke-30 -->
-      <!-- Pseudo-loop selesai -->
+        <a href="{{ route('activity.lansia.show', ['id' => $loop->index + 1]) }}" class="block">
+          <div class="relative border p-5 rounded-lg shadow hover:shadow-lg transition {{ ($index + 1) % 4 == 0 ? 'bg-green-100' : 'bg-white' }}">
+            <form method="POST" action="{{ route('program.terpenuhi') }}" class="absolute top-2 right-2">
+              @csrf
+              <input type="hidden" name="hari" value="{{ $index + 1 }}">
+              <input type="hidden" name="kategori" value="lansia">
+              <input type="checkbox" 
+                     id="checkbox-{{ $index }}" 
+                     onchange="markComplete({{ $index }}, 'lansia')" 
+                     class="w-5 h-5 text-purple-600 border-gray-300 rounded focus:ring-0 cursor-pointer"
+                     {{ in_array($index + 1, $completedDays ?? []) ? 'checked disabled' : '' }}>
+            </form>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-sm font-semibold text-gray-500">Hari ke-{{ $index + 1 }}</span>
+              <span class="bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded-full">
+                @if(($index + 1) % 4 == 0)
+                  Hari Istirahat
+                @else
+                  {{ $activity }}
+                @endif
+              </span>
+            </div>
+            <img src="{{ ($index + 1) % 4 == 0 
+              ? 'https://source.unsplash.com/400x250/?elderly,rest' 
+              : 'https://source.unsplash.com/400x250/?senior,exercise' }}" 
+              class="rounded mb-3" 
+              alt="Aktivitas Hari {{ $index + 1 }}">
+            <p class="text-gray-700 text-sm">
+              @if(($index + 1) % 4 == 0)
+                Hari ke-{{ $index + 1 }} adalah waktu istirahat untuk menjaga kondisi tubuh.
+              @else
+                Aktivitas hari ke-{{ $index + 1 }} untuk lansia: {{ $activity }}.
+              @endif
+            </p>
+          </div>
+        </a>
+      @endforeach
     </div>
   </div>
 </section>
 
 <!-- Notifikasi Aktivitas Selesai -->
 <div id="notification" class="fixed bottom-5 right-5 bg-green-500 text-white py-3 px-5 rounded-lg shadow-lg hidden">
-    <p class="font-semibold">Aktivitas Selesai!</p>
-    <p class="text-sm">Anda mendapatkan 1 bintang</p>
-    
+  <p class="font-semibold">Aktivitas Selesai!</p>
+  <p class="text-sm">Anda mendapatkan 1 bintang</p>
 </div>
 
 <script>
-  // Fungsi untuk menampilkan notifikasi saat checkbox dicentang
-  function markComplete(index) {
+  function markComplete(index, kategori) {
     const checkbox = document.getElementById(`checkbox-${index}`);
-    const notification = document.getElementById('notification');
-
     if (checkbox.checked) {
-      notification.classList.remove('hidden');
-      setTimeout(function() {
-        notification.classList.add('hidden');
-      }, 3000); // Notifikasi hilang setelah 3 detik
+      fetch("{{ route('program.terpenuhi') }}", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-TOKEN": "{{ csrf_token() }}"
+        },
+        body: JSON.stringify({
+          hari: index + 1,
+          kategori: kategori
+        })
+      }).then(response => {
+        if (response.ok) {
+          checkbox.disabled = true;
+          const notification = document.getElementById('notification');
+          notification.classList.remove('hidden');
+          setTimeout(() => {
+            notification.classList.add('hidden');
+          }, 3000);
+        }
+      });
     }
   }
 </script>
+
 
 <!-- Mentor Section - Compact & Centered Avatar -->
 <section class="py-20 bg-gradient-to-r from-teal-800 via-teal-700 to-cyan-800 text-white">
@@ -361,7 +239,6 @@
     © 2025 SimpusMedical - Kelompok 4. All rights reserved.
   </div>
 </footer>
-
 
 </body>
 </html>
