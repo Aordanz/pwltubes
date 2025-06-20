@@ -1,5 +1,5 @@
 <!-- Navbar Oval Style -->
-<div class="fixed top-3 left-1/2 transform -translate-x-1/2 z-50">
+<div class="fixed top-3 left-1/2 transform -translate-x-1/2 z-50 padding-top">
     <div class="bg-white rounded-full shadow-lg backdrop-blur-sm bg-opacity-70 px-8 py-3 w-[95vw] max-w-7xl mx-auto flex items-center justify-between">
         
         <!-- KIRI: Menu Navigasi -->
