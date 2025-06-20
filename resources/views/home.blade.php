@@ -97,6 +97,35 @@
 <script>
   AOS.init();
 </script>
+<!-- Services Section -->
+<section id="konsultasi" >
+<section class="py-20 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600">
+  <div class="max-w-[1200px] mx-auto px-4">
+    <h2 class="text-3xl font-bold leading-tight text-white relative">
+      Diskusikan dengan Ahli Kami
+      <span class="absolute -top-12 text-[6rem] font-extrabold text-black/5">Best Team</span>
+    </h2>
+    <div class="flex flex-wrap gap-8 mt-16">
+      <!-- Card Mentor 1 -->
+      <div onclick="openChat('Prawira Tarigan')" class="cursor-pointer text-center bg-white p-6 rounded-xl shadow-lg">
+        <img src="/assets/trainer1.jpg" alt="Mentor" class="mb-4 rounded-2xl mx-auto w-full h-auto object-cover" />
+        <h4 class="text-xl font-bold text-[#020617]">Prawira Tarigan</h4>
+        <p class="text-[#94a3b8]">Mentor Dalam Melatih Otot</p>
+      </div>
+<script>
+  function openChat(mentorName) {
+    // Simpan nama mentor ke localStorage (jika ingin digunakan setelah login)
+    localStorage.setItem("selectedMentor", mentorName);
+    // Redirect ke halaman login
+    window.location.href = "/login";
+  }
+</script>
+      
+     
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Footer -->
 <footer class="bg-[#0f172a] text-white py-12 px-4 sm:px-6 lg:px-8">
