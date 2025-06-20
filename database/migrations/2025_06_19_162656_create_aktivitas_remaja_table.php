@@ -9,13 +9,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('aktivitas_remaja', function (Blueprint $table) {
-            $table->id();
-            $table->string('aktivitas');
-            $table->string('video');
-            $table->text('deskripsi');
-            $table->string('program');
-            $table->timestamps();
-        });
+    $table->id();
+    $table->integer('hari');
+    $table->string('program_1')->nullable();
+    $table->string('program_2')->nullable();
+    $table->text('deskripsi_1')->nullable();
+    $table->text('deskripsi_2')->nullable();
+    $table->string('video')->nullable();
+    $table->timestamps();
+});
     }
 
     public function down(): void

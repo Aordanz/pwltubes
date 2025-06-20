@@ -9,12 +9,14 @@ class AktivitasRemaja extends Model
 {
     use HasFactory;
 
-    protected $table = 'aktivitas_remaja';
+    protected $table = 'aktivitas_remaja'; // Nama tabel sesuai dengan migration
 
     protected $fillable = [
-        'aktivitas',
+        'hari',
+        'program_1',
+        'program_2',
+        'deskripsi_1',
+        'deskripsi_2',
         'video',
-        'deskripsi',
-        'program',
     ];
 }

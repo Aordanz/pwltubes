@@ -1,72 +1,82 @@
 @extends('layouts.layout')
 
 @section('content')
-<div class="container mx-auto p-4">
-    <div class="flex justify-center">
-        <div class="w-full max-w-lg">
-            <div class="bg-white shadow-xl rounded-lg p-4">
-                <h2 class="text-xl font-bold mb-4">Chat dengan {{ $doctor->name }}</h2>
+<div class="max-w-2xl mx-auto mt-10 bg-white shadow p-6 rounded">
+    <h2 class="text-xl font-bold mb-4">Chat dengan Dokter</h2>
+    
+    <select id="doctorSelect" class="border p-2 rounded mb-4 w-full">
+        <option value="">Pilih Dokter</option>
+        @foreach ($doctors as $doctor)
+            <option value="{{ $doctor->id }}">{{ $doctor->name }}</option>
+        @endforeach
+    </select>
 
-                {{-- Chat box --}}
-                <div id="chat-box" class="h-64 overflow-y-scroll border rounded p-3 bg-gray-50 mb-4">
-                    {{-- Pesan akan dimuat lewat JavaScript --}}
-                </div>
+    <div id="chatBox" class="h-64 border p-3 overflow-y-auto mb-4 bg-gray-100 rounded"></div>
 
-                {{-- Form Kirim Pesan --}}
-                <form id="chat-form">
-                    <input type="hidden" name="receiver_id" value="{{ $doctor->id }}">
-                    <input type="hidden" name="receiver_type" value="doctor">
-                    <div class="flex gap-2">
-                        <input id="chat-input" type="text" name="content" class="flex-1 border rounded px-3 py-2" placeholder="Ketik pesan..." required>
-                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Kirim</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+    <div class="flex">
+        <input type="text" id="messageInput" class="border rounded-l p-2 flex-1" placeholder="Tulis pesan...">
+        <button onclick="sendMessage()" class="bg-blue-600 text-white px-4 rounded-r">Kirim</button>
     </div>
 </div>
 
 <script>
-    const chatBox = document.getElementById('chat-box');
-    const chatForm = document.getElementById('chat-form');
-    const chatInput = document.getElementById('chat-input');
+    let selectedDoctorId = null;
 
-    // Muat pesan tiap 3 detik
-    function loadMessages() {
-        fetch("{{ route('chat.get') }}")
-            .then(res => res.json())
-            .then(data => {
-                chatBox.innerHTML = data.messages.map(msg => `
-                    <p class="mb-2">
-                        <span class="font-semibold">${msg.sender_name}:</span>
-                        ${msg.content}
-                    </p>
-                `).join('');
-                chatBox.scrollTop = chatBox.scrollHeight;
-            });
-    }
+    document.getElementById('doctorSelect').addEventListener('change', function () {
+        selectedDoctorId = this.value;
+        fetchMessages();
+    });
 
-    loadMessages();
-    setInterval(loadMessages, 3000);
-
-    // Kirim pesan
-    chatForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const formData = new FormData(chatForm);
+    function sendMessage() {
+        const message = document.getElementById('messageInput').value;
+        if (!selectedDoctorId || !message) return;
 
         fetch("{{ route('chat.send') }}", {
             method: 'POST',
             headers: {
-                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
             },
-            body: formData
+            body: JSON.stringify({
+                receiver_id: selectedDoctorId,
+                content: message
+            })
+        }).then(() => {
+            document.getElementById('messageInput').value = '';
+            fetchMessages();
+        });
+    }
+
+    function fetchMessages() {
+        if (!selectedDoctorId) return;
+
+        fetch("{{ route('chat.fetch') }}", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+            },
+            body: JSON.stringify({
+                receiver_id: selectedDoctorId
+            })
         })
         .then(res => res.json())
-        .then(() => {
-            chatInput.value = '';
-            loadMessages();
+        .then(data => {
+            const chatBox = document.getElementById('chatBox');
+            chatBox.innerHTML = '';
+            data.forEach(msg => {
+                chatBox.innerHTML += `
+                    <div class="mb-1 ${msg.sender_type === 'user' ? 'text-right' : 'text-left'}">
+                        <span class="inline-block px-3 py-1 rounded ${msg.sender_type === 'user' ? 'bg-blue-200' : 'bg-gray-300'}">
+                            ${msg.content}
+                        </span>
+                    </div>
+                `;
+            });
+            chatBox.scrollTop = chatBox.scrollHeight;
         });
-    });
+    }
+
+    setInterval(fetchMessages, 5000);
 </script>
 @endsection

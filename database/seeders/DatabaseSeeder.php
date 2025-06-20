@@ -2,8 +2,15 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\AktivitasDewasa;
+use App\Models\AktivitasLansia;
 use Illuminate\Database\Seeder;
+use App\Models\User;
+// use Database\Seeders\DoctorSeeder;
+use Database\Seeders\AktivitasRemajaSeeder;
+use Database\Seeders\AktivitasDewasaSeeder;
+use Database\Seeders\AktivitasLansiaSeeder;
+ // ✅ Tambahkan baris ini
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,15 +19,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Seeder untuk user biasa (user default Laravel)
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test2@mail.com',
-        ]);
 
-        // ✅ Panggil seeder untuk dokter
+
+        // Menjalankan seeder lainnya
         $this->call([
-            DoctorSeeder::class,
+            // DoctorSeeder::class,
+            AktivitasRemajaSeeder::class,
+            AktivitasDewasaSeeder::class,
+            AktivitasLansiaSeeder::class,
         ]);
     }
 }

@@ -10,10 +10,13 @@ return new class extends Migration
     {
         Schema::create('aktivitas_dewasa', function (Blueprint $table) {
             $table->id();
-            $table->string('aktivitas');
-            $table->string('video');
-            $table->text('deskripsi');
-            $table->string('program');
+            $table->integer('hari');
+            $table->string('aktivitas_pagi')->nullable();
+            $table->string('aktivitas_sore')->nullable();
+            $table->text('deskripsi_1')->nullable();
+            $table->text('deskripsi_2')->nullable();
+            $table->string('video')->nullable();
+            $table->string('video2')->nullable();
             $table->timestamps();
         });
     }

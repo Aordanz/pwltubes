@@ -1,5 +1,3 @@
-<!-- resources/views/doctor/chat.blade.php -->
-
 @extends('layouts.layout_doctor')
 
 @section('content')
@@ -14,7 +12,7 @@
 
     <!-- Chat Box -->
     <div class="bg-white p-4 rounded shadow h-[400px] overflow-y-scroll mb-4" id="chat-box">
-        @foreach($messages as $message)
+        @forelse($messages as $message)
             <div class="mb-3">
                 <div class="text-sm {{ $message->sender_type === 'doctor' ? 'text-blue-600' : 'text-gray-800' }}">
                     <strong>{{ $message->sender_type === 'doctor' ? 'Anda' : 'User #' . $message->sender_id }}:</strong>
@@ -22,17 +20,25 @@
                 <div class="bg-gray-100 p-2 rounded text-sm">{{ $message->content }}</div>
                 <div class="text-xs text-gray-500 mt-1">{{ $message->created_at->format('H:i d/m/Y') }}</div>
             </div>
-        @endforeach
+        @empty
+            <div class="text-center text-gray-500">Belum ada percakapan.</div>
+        @endforelse
     </div>
 
     <!-- Kirim Pesan -->
     <form action="{{ route('doctor.chat.send') }}" method="POST" class="flex items-center space-x-2">
         @csrf
         <input type="hidden" name="receiver_type" value="user">
-        <input type="number" name="receiver_id" placeholder="ID User" required
-               class="border p-2 rounded w-24">
-        <input type="text" name="content" placeholder="Ketik pesan..." required
-               class="border p-2 rounded flex-1">
+
+        <select name="receiver_id" required class="border p-2 rounded w-40">
+            <option value="" disabled selected>Pilih User</option>
+            @foreach($users as $user)
+                <option value="{{ $user->id }}">User #{{ $user->id }} - {{ $user->name }}</option>
+            @endforeach
+        </select>
+
+        <input type="text" name="content" placeholder="Ketik pesan..." required class="border p-2 rounded flex-1">
+        
         <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
             Kirim
         </button>
