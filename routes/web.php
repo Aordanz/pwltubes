@@ -45,7 +45,7 @@ Route::get('/chat/fetch', [ChatController::class, 'fetch'])->name('chat.fetch');
 
     // Redirect user ke halaman program latihan sesuai kategori umur
     Route::get('/home', function () {
-        $user = auth()->user();
+        $user = auth::user();
 
         if ($user->role === 'doctor') {
             return redirect()->route('doctor.dashboard');
@@ -71,7 +71,7 @@ Route::get('/chat/fetch', [ChatController::class, 'fetch'])->name('chat.fetch');
 
     // Dashboard Dokter & Chat
     Route::get('/doctor/dashboard', function () {
-        if (auth()->user()->role !== 'doctor') {
+        if (auth::user()->role !== 'doctor') {
             abort(403);
         }
         return view('doctor.dashboard');
