@@ -155,20 +155,21 @@
   AOS.init();
 </script>
 
-<!-- Services Section -->
-<section id="konsultasi" >
-<section class="py-20 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600">
-  <div class="max-w-[1200px] mx-auto px-4">
-    <h2 class="text-3xl font-bold leading-tight text-white relative">
-      Diskusikan dengan Ahli Kami
-      <span class="absolute -top-12 text-[6rem] font-extrabold text-black/5"></span>
-    </h2>
-    <div class="flex flex-wrap gap-8 mt-16">
-      <!-- Card Mentor 1 -->
-      <div onclick="openChat('Prawira Tarigan')" class="cursor-pointer text-center bg-white p-6 rounded-xl shadow-lg">
-        <img src="/assets/trainer1.jpg" alt="Mentor" class="mb-4 rounded-2xl mx-auto w-full h-auto object-cover" />
-        <h4 class="text-xl font-bold text-[#020617]">Prawira Tarigan</h4>
-        <p class="text-[#94a3b8]">Mentor Dalam Melatih Otot</p>
+<!-- Mentor Section - Compact & Centered Avatar -->
+<section class="w-full bg-[#eaf7ff] py-20">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-12">Diskusikan dengan Ahli Kami</h2>
+
+    <div class="flex justify-center">
+      
+      <!-- Mentor 1 -->
+      <div onclick="openChat('Amadeo Hutahean')" 
+             class="cursor-pointer bg-sky-600 rounded-2xl shadow-lg hover:shadow-xl transition hover:scale-105 p-5 text-center font-sans">
+        <div class="w-24 h-24 mx-auto overflow-hidden rounded-full border-4 border-white mb-4">
+          <img src="{{ asset('images/dokter.jpg') }}" alt="Mentor" class="object-cover w-full h-full" />
+        </div>
+        <h4 class="text-lg font-semibold text-white">Nicolas Purba</h4>
+        <p class="text-teal-200 text-sm">Ahli Gaya Hidup Sehat</p>
       </div>
 <script>
   function openChat(mentorName) {
@@ -209,7 +210,7 @@
     <div>
       <h4 class="text-xl font-semibold mb-4">Kontak Kami</h4>
       <ul class="space-y-2 text-slate-300">
-        <li><i class="ri-map-pin-line mr-2 text-sky-300"></i>Jl. Sehat No.123, Wellness City</li>
+        <li><i class="ri-map-pin-line mr-2 text-sky-300"></i>Simpang USU, Medan City</li>
         <li><i class="ri-mail-line mr-2 text-sky-300"></i><a href="mailto:kontak@healthpoint.com" class="hover:text-white transition">kontak@healthpoint.com</a></li>
         <li><i class="ri-phone-line mr-2 text-sky-300"></i><a href="tel:+6281298765432" class="hover:text-white transition">+62 812 9876 5432</a></li>
       </ul>
