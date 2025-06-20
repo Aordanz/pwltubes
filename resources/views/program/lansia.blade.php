@@ -305,32 +305,33 @@
   }
 </script>
 
-<!-- Modern Footer: Gradasi Hijau Kuat ke Biru Muda -->
-<footer class="bg-gradient-to-b from-[#106973] via-[#1d7e89] to-sky-300 text-white py-16 px-6">
+<!-- Modern Footer -->
+<footer class="bg-gradient-to-br from-sky-900 via-sky-800 to-sky-700 text-white py-16 px-6">
   <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
 
     <!-- Logo & Brand -->
     <div>
       <img src="{{ asset('images/logo_simpus.png') }}" alt="Logo" class="mb-4 w-44" />
+     
     </div>
 
     <!-- Navigasi -->
     <div>
       <h4 class="text-xl font-semibold mb-4">Navigasi</h4>
-      <ul class="space-y-2 text-white/80">
-        <li><a href="#home" class="hover:text-black transition">Home</a></li>
-        <li><a href="#about" class="hover:text-black transition">Tentang Kami</a></li>
-        <li><a href="#konsultasi" class="hover:text-black transition">Konsultasi</a></li>
+      <ul class="space-y-2 text-slate-300">
+        <li><a href="#home" class="hover:text-white transition">Home</a></li>
+        <li><a href="#about" class="hover:text-white transition">Tentang Kami</a></li>
+        <li><a href="#konsultasi" class="hover:text-white transition">Konsultasi</a></li>
       </ul>
     </div>
 
     <!-- Kontak -->
     <div>
       <h4 class="text-xl font-semibold mb-4">Kontak Kami</h4>
-      <ul class="space-y-2 text-white/80">
-        <li><i class="ri-map-pin-line mr-2 text-white"></i>Simpang USU, Medan City</li>
-        <li><i class="ri-mail-line mr-2 text-white"></i><a href="mailto:kontak@healthpoint.com" class="hover:text-black transition">kontak@healthpoint.com</a></li>
-        <li><i class="ri-phone-line mr-2 text-white"></i><a href="tel:+6281298765432" class="hover:text-black transition">+62 812 9876 5432</a></li>
+      <ul class="space-y-2 text-slate-300">
+        <li><i class="ri-map-pin-line mr-2 text-sky-300"></i>Simpang USU, Medan City</li>
+        <li><i class="ri-mail-line mr-2 text-sky-300"></i><a href="mailto:kontak@healthpoint.com" class="hover:text-white transition">kontak@healthpoint.com</a></li>
+        <li><i class="ri-phone-line mr-2 text-sky-300"></i><a href="tel:+6281298765432" class="hover:text-white transition">+62 812 9876 5432</a></li>
       </ul>
     </div>
 
@@ -338,16 +339,16 @@
     <div>
       <h4 class="text-xl font-semibold mb-4">Ikuti Kami</h4>
       <div class="flex space-x-4 mt-2">
-        <a href="#" class="text-white/70 hover:text-white transition" aria-label="Facebook">
+        <a href="#" class="text-sky-300 hover:text-white transition" aria-label="Facebook">
           <i class="ri-facebook-circle-fill text-2xl"></i>
         </a>
-        <a href="#" class="text-white/70 hover:text-white transition" aria-label="Instagram">
+        <a href="#" class="text-sky-300 hover:text-white transition" aria-label="Instagram">
           <i class="ri-instagram-fill text-2xl"></i>
         </a>
-        <a href="#" class="text-white/70 hover:text-white transition" aria-label="Twitter">
+        <a href="#" class="text-sky-300 hover:text-white transition" aria-label="Twitter">
           <i class="ri-twitter-x-fill text-2xl"></i>
         </a>
-        <a href="#" class="text-white/70 hover:text-white transition" aria-label="YouTube">
+        <a href="#" class="text-sky-300 hover:text-white transition" aria-label="YouTube">
           <i class="ri-youtube-fill text-2xl"></i>
         </a>
       </div>
@@ -356,7 +357,7 @@
   </div>
 
   <!-- Copyright -->
-  <div class="mt-12 border-t border-black/20 pt-6 text-center text-sm text-black/70">
+  <div class="mt-12 border-t border-white/10 pt-6 text-center text-sm text-slate-400">
     © 2025 SimpusMedical - Kelompok 4. All rights reserved.
   </div>
 </footer>
