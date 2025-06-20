@@ -70,35 +70,68 @@
 <!-- Kalender Aktivitas -->
 <section id="class" class="py-20 bg-gray-50 text-black">
   <div class="max-w-[1200px] mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-12">Kalender Aktivitas 30 Hari</h2>
+    <h2 class="text-3xl font-bold text-center mb-12">Kalender Aktivitas 30 Hari untuk Dewasa</h2>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
       @foreach($activities as $index => $activity)
-        <a href="{{ route('activity.dewasa.show', ['id' => $loop->index + 1]) }}" class="block">
-          <div class="border p-5 rounded-lg shadow hover:shadow-lg transition {{ ($index + 1) % 4 == 0 ? 'bg-red-100' : 'bg-white' }}">
-            <div class="flex justify-between items-center mb-2">
-              <span class="text-sm font-semibold text-gray-500">Hari ke-{{ $index + 1 }}</span>
-              <span class="bg-teal-100 text-teal-700 text-xs px-2 py-1 rounded-full">
-                @if(($index + 1) % 4 == 0)
-                  Rest Day
-                @else
-                  {{ $activity }}
-                @endif
-              </span>
-            </div>
-            <img src="{{ ($index + 1) % 4 == 0 ? 'https://source.unsplash.com/400x250/?rest,day' : 'https://source.unsplash.com/400x250/?exercise,day' }}" class="rounded mb-3" alt="Aktivitas Hari {{ $index + 1 }}">
-            <p class="text-gray-700 text-sm">
-              @if(($index + 1) % 4 == 0)
-                Hari ke-{{ $index + 1 }} adalah Rest Day.
-              @else
-                Aktivitas hari ke-{{ $index + 1 }}: {{ $activity }}.
-              @endif
-            </p>
+      <a href="{{ route('activity.dewasa.show', ['id' => $loop->index + 1]) }}" class="block">
+          <div class="relative border p-5 rounded-lg shadow hover:shadow-lg transition {{ ($index + 1) % 4 == 0 ? 'bg-yellow-100' : 'bg-white' }}">
+
+              <form method="POST" action="{{ route('program.terpenuhi', ['kategori' => 'dewasa']) }}" class="absolute top-2 right-2">
+                  @csrf
+                  <input type="hidden" name="hari" value="{{ $index + 1 }}">
+                  <input type="checkbox" id="checkbox-{{ $index }}" onchange="markComplete({{ $index }})" class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-0 cursor-pointer">
+              </form>
+
+              <div class="flex justify-between items-center mb-2">
+                  <span class="text-sm font-semibold text-gray-500">Hari ke-{{ $index + 1 }}</span>
+                  <span class="bg-indigo-100 text-indigo-700 text-xs px-2 py-1 rounded-full">
+                      @if(($index + 1) % 4 == 0)
+                          Istirahat
+                      @else
+                          {{ $activity }}
+                      @endif
+                  </span>
+              </div>
+
+              <img src="{{ ($index + 1) % 4 == 0 ? 'https://source.unsplash.com/400x250/?relax,day' : 'https://source.unsplash.com/400x250/?fitness,adult' }}" class="rounded mb-3" alt="Aktivitas Hari {{ $index + 1 }}">
+
+              <p class="text-gray-700 text-sm">
+                  @if(($index + 1) % 4 == 0)
+                    Hari ke-{{ $index + 1 }} adalah hari istirahat untuk menjaga kebugaran.
+                  @else
+                    Aktivitas hari ke-{{ $index + 1 }} untuk dewasa: {{ $activity }}.
+                  @endif
+              </p>
           </div>
-        </a>
+      </a>
       @endforeach
     </div>
   </div>
 </section>
+
+<!-- Notifikasi Aktivitas Selesai -->
+<div id="notification" class="fixed bottom-5 right-5 bg-green-500 text-white py-3 px-5 rounded-lg shadow-lg hidden">
+    <p class="font-semibold">Aktivitas Selesai!</p>
+    <p class="text-sm">Anda mendapatkan 1 bintang</p>
+    
+</div>
+
+<script>
+  // Fungsi untuk menampilkan notifikasi saat checkbox dicentang
+  function markComplete(index) {
+    const checkbox = document.getElementById(`checkbox-${index}`);
+    const notification = document.getElementById('notification');
+
+    if (checkbox.checked) {
+      notification.classList.remove('hidden');
+      setTimeout(function() {
+        notification.classList.add('hidden');
+      }, 3000); // Notifikasi hilang setelah 3 detik
+    }
+  }
+</script>
+
 
 <!-- Chat Section -->
 <section class="py-20 bg-blue-600 text-white">
