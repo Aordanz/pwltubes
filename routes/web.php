@@ -12,6 +12,7 @@ use App\Http\Controllers\RemajaActivityController;
 use App\Http\Controllers\DewasaActivityController;
 use App\Http\Controllers\LansiaActivityController;
 use App\Http\Controllers\DoctorChatController;
+use App\Http\Controllers\ProfileController;
 
 // Halaman utama dan halaman statis
 Route::get('/', function () {
@@ -21,6 +22,14 @@ Route::get('/', function () {
 Route::view('/about', 'about')->name('about');
 Route::view('/services', 'services')->name('services');
 Route::view('/contact', 'contact')->name('contact');
+
+//Profile User
+Route::middleware('auth')->group(function () {
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+Route::post('/profile/change-password', [ProfileController::class, 'changePassword'])->name('profile.changePassword');
+});
+
 
 // Login dan Register
 Route::get('/login', [LoginController::class, 'showForm'])->name('login');
