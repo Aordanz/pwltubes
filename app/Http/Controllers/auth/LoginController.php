@@ -10,19 +10,30 @@ class LoginController extends Controller
 {
     public function showForm()
     {
-        return view('auth.login');  // buat file resources/views/auth/login.blade.php
+        return view('auth.login');
     }
 
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'email' => ['required','email'],
+            'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/home');
+
+            $user = Auth::user();
+
+            // ✅ Redirect berdasarkan role
+            switch ($user->role) {
+                case 'admin':
+                    return redirect()->intended('/admin');
+                case 'doctor':
+        return redirect()->intended(route('doctor.dashboard'));
+                default:
+                    return redirect()->intended('/home');
+            }
         }
 
         return back()->withErrors([
