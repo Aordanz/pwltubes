@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'Program Dewasa')
+@section('title', 'Program Lansia')
 
 @section('content')
 <!DOCTYPE html>
@@ -120,29 +120,42 @@
       <!-- Contoh Hari ke-1 -->
       @foreach($activities as $index => $activity)
   <a href="{{ route('activity.lansia.show', ['id' => $loop->index + 1]) }}" class="block">
-    <div class="border p-5 rounded-lg shadow hover:shadow-lg transition 
-                {{ ($index + 1) % 4 == 0 ? 'bg-red-100' : 'bg-white' }}">
+    <div class="relative border p-5 rounded-lg shadow hover:shadow-lg transition 
+                {{ ($index + 1) % 4 == 0 ? 'bg-green-100' : 'bg-white' }}">
+
+      {{-- Checkbox di pojok kanan atas --}}
+      <form method="POST" action="{{ route('program.terpenuhi', ['kategori' => 'lansia']) }}" class="absolute top-2 right-2">
+        @csrf
+        <input type="hidden" name="hari" value="{{ $index + 1 }}">
+        <input type="checkbox" id="checkbox-{{ $index }}" onchange="markComplete({{ $index }})"
+               class="w-5 h-5 text-purple-600 border-gray-300 rounded focus:ring-0 cursor-pointer">
+      </form>
+
+      {{-- Header Hari --}}
       <div class="flex justify-between items-center mb-2">
         <span class="text-sm font-semibold text-gray-500">Hari ke-{{ $index + 1 }}</span>
-        <span class="bg-teal-100 text-teal-700 text-xs px-2 py-1 rounded-full">
-          {{-- Jika indeks adalah kelipatan 4 (rest day), tampilkan Rest Day --}}
+        <span class="bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded-full">
           @if(($index + 1) % 4 == 0)
-            Rest Day
+            Hari Istirahat
           @else
             {{ $activity }}
           @endif
         </span>
       </div>
-      
-      {{-- Jika hari adalah rest day, tampilkan gambar yang sesuai --}}
-      <img src="{{ ($index + 1) % 4 == 0 ? 'https://source.unsplash.com/400x250/?rest,day' : 'https://source.unsplash.com/400x250/?exercise,day' }}" class="rounded mb-3" alt="Aktivitas Hari {{ $index + 1 }}">
-      
-      {{-- Deskripsi hari --}}
+
+      {{-- Gambar Aktivitas --}}
+      <img src="{{ ($index + 1) % 4 == 0 
+        ? 'https://source.unsplash.com/400x250/?elderly,rest' 
+        : 'https://source.unsplash.com/400x250/?senior,exercise' }}" 
+        class="rounded mb-3" 
+        alt="Aktivitas Hari {{ $index + 1 }}">
+
+      {{-- Deskripsi Aktivitas --}}
       <p class="text-gray-700 text-sm">
         @if(($index + 1) % 4 == 0)
-          Hari ke-{{ $index + 1 }} adalah Rest Day.
+          Hari ke-{{ $index + 1 }} adalah waktu istirahat untuk menjaga kondisi tubuh.
         @else
-          Aktivitas yang harus dilakukan hari ke-{{ $index + 1 }}: {{ $activity }}.
+          Aktivitas hari ke-{{ $index + 1 }} untuk lansia: {{ $activity }}.
         @endif
       </p>
     </div>
@@ -150,11 +163,34 @@
 @endforeach
 
 
+
       <!-- dan seterusnya sampai Hari ke-30 -->
       <!-- Pseudo-loop selesai -->
     </div>
   </div>
 </section>
+
+<!-- Notifikasi Aktivitas Selesai -->
+<div id="notification" class="fixed bottom-5 right-5 bg-green-500 text-white py-3 px-5 rounded-lg shadow-lg hidden">
+    <p class="font-semibold">Aktivitas Selesai!</p>
+    <p class="text-sm">Anda mendapatkan 1 bintang</p>
+    
+</div>
+
+<script>
+  // Fungsi untuk menampilkan notifikasi saat checkbox dicentang
+  function markComplete(index) {
+    const checkbox = document.getElementById(`checkbox-${index}`);
+    const notification = document.getElementById('notification');
+
+    if (checkbox.checked) {
+      notification.classList.remove('hidden');
+      setTimeout(function() {
+        notification.classList.add('hidden');
+      }, 3000); // Notifikasi hilang setelah 3 detik
+    }
+  }
+</script>
 
 <section class="py-20 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600">
   <div class="max-w-[1200px] mx-auto px-4">
@@ -164,20 +200,12 @@
     </h2>
     <div class="flex flex-wrap gap-8 mt-16">
       <!-- Card Mentor 1 -->
-      <div onclick="openChat('Amadeo Hutahean')" class="cursor-pointer text-center bg-white p-6 rounded-xl shadow-lg">
+      <div onclick="openChat('Nicolas Purba')" class="cursor-pointer text-center bg-white p-6 rounded-xl shadow-lg">
         <img src="/assets/trainer1.jpg" alt="Mentor" class="mb-4 rounded-2xl mx-auto w-full h-auto object-cover" />
         <h4 class="text-xl font-bold text-[#020617]">Nicolas Purba</h4>
         <p class="text-[#94a3b8]">Mentor Dalam Menjaga Kesehatan</p>
       </div>
 
-      <!-- Card Mentor 2 -->
-      <div onclick="openChat('Efredi Bukit')" class="cursor-pointer text-center bg-white p-6 rounded-xl shadow-lg">
-        <img src="/assets/trainer2.jpg" alt="Mentor" class="mb-4 rounded-2xl mx-auto w-full h-auto object-cover" />
-        <h4 class="text-xl font-bold text-[#020617]">Efredi Bukit</h4>
-        <p class="text-[#94a3b8]">Mentor Dalam Mengatur Kehidu</p>
-      </div>
-    </div>
-  </div>
 </section>
 
 <!-- ==================== Live Chat Box ==================== -->
