@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'Program Dewasa')
+@section('title', 'Program Lansia')
 
 @section('content')
 <!DOCTYPE html>
@@ -11,104 +11,151 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+ <style>
+    @keyframes slide-right {
+      0% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .slide-in-right {
+      animation: slide-right 1.5s ease-out forwards;
+    }
+
+    /* Nonaktifkan lingkaran background jika ada di CSS luar */
+    header#home::before {
+      display: none !important;
+      content: none !important;
+    }
+  </style>
 </head>
 
 <body class="bg-gray-100 font-sans">
-<!-- Navbar -->
-<!-- <nav class="fixed top-0 left-0 w-full z-50 bg-[#020617] shadow">
-  <div class="max-w-[1200px] mx-auto px-4 py-4 flex items-center justify-between">
-    <div class="max-w-[175px]">
-      <img src="/assets/logo-light.png" alt="logo" class="block" />
-    </div>
-    <div class="text-white text-2xl cursor-pointer md:hidden">
-      <i class="ri-menu-line" id="menu-btn"></i>
-    </div>
-    <ul id="nav-links" class="hidden md:flex gap-6 text-white font-semibold">
-      <li><a href="#home" class="hover:text-[#42c8c9]">Home</a></li>
-      <li><a href="#about" class="hover:text-[#42c8c9]">About</a></li>
-      <li><a href="#service" class="hover:text-[#42c8c9]">Services</a></li>
-      <li><a href="#class" class="hover:text-[#42c8c9]">Classes</a></li>
-      <li><a href="#contact" class="hover:text-[#42c8c9]">Blog</a></li>
-      <li><a href="{{ route('login') }}" class="text-blue-500 hover:underline">Login</a></li>
-      <li><a href="{{ route('register') }}" class="hover:text-[#42c8c9]">Register</a></li>
-    </ul>
-  </div>
-</nav> -->
 
 <!-- Header Section -->
-<header id="home" class="pt-32 pb-20 bg-[#e2e8f0]">
+<header id="home" class="w-full min-h-screen pt-32 pb-20 bg-no-repeat bg-center" 
+        style="background-image: url('{{ asset('images/tar.png') }}'); background-size: 100% 100%; background-color: #f9fafb;">
+
   <div class="max-w-[1200px] mx-auto px-4 grid md:grid-cols-2 items-center gap-8">
     <div class="text-center md:text-left">
-      <h1 class="text-5xl font-extrabold italic text-[#38bdf8] leading-tight relative">
+      <h1 data-aos="fade-right" data-aos-duration="1500" class="text-5xl font-extrabold italic text-[#38bdf8] leading-tight">
         HIDUP SEHAT UNTUK HIDUP BAHAGIA
-        <span class="absolute -top-20 -left-20 text-[8rem] font-extrabold text-black/5 leading-[10rem] hidden md:block">
-        </span>
-      </h1>
-      <h2 class="text-4xl font-extrabold italic text-[#0f172a] mt-6">KESEHATAN ADALAH PRIORITAS</h2>
+      </h1> 
+
+      <h2 data-aos="fade-right" data-aos-duration="1500" class="text-4xl font-extrabold italic text-[#0f172a] mt-6">
+        KESEHATAN ADALAH PRIORITAS BAGI SEMUA ORANG
+      </h2>
+
       <p class="text-[#475569] mt-4">
-         Hidup sehat merupakan tanggung jawab diri kita bagaimana kita merawat tubuh dan pikiran kita serta menjaga kesehatan tubuh kita.
+        Hidup sehat merupakan tanggung jawab diri kita bagaimana kita merawat tubuh dan pikiran kita serta menjaga kesehatan tubuh kita.
+      </p>
+
       <div class="mt-6">
-        <button class="bg-[#0f172a] hover:bg-[#38bdf8] text-white px-6 py-3 rounded">Pelajari Lebih Lanjut</button>
+        <button class="bg-[#0f172a] hover:bg-[#38bdf8] text-white px-6 py-3 rounded">
+          Pelajari Lebih Lanjut
+        </button>
       </div>
     </div>
+
     <div>
-      <img src="{{ asset('images/logo_simpus.png') }}" alt="header" class="float-right -mt-2 max-w-[400px] rounded-xl" />
+      <img src="{{ asset('images/logo_simpus.png') }}" alt="header" class="float-right -mt-2 max-w-[400px] rounded-xl animate-bounce" />
     </div>
   </div>
 </header>
 
 <!-- About Section -->
-<section id="about" class="py-20 bg-white">
-  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
-    <div class="relative" data-aos="fade-right">
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-green-100 rounded-full -z-10 blur-2xl"></div>
-      <img src="{{ asset('images/gayahidup.jpg') }}" alt="about" class="rounded-lg mx-auto mr-50" />
+<section id="about" class="relative py-24 bg-gradient-to-b from-[#a5a5a5] via-[#d9e3e9] to-[#eaf7ff] text-gray-800 overflow-hidden z-0">
 
+  <!-- HAPUS overlay lama, atau ganti jadi transparan total -->
+  {{-- <div class="absolute inset-0 bg-white bg-opacity-50 backdrop-blur-sm"></div> --}}
+
+  <!-- Why Health Is Important -->
+  <div class="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+    
+    <!-- Image Section -->
+    <div class="relative group" data-aos="fade-right">
+      <div class="overflow-hidden rounded-3xl shadow-2xl transition duration-500 group-hover:scale-105">
+        <img src="{{ asset('images/lansia.png') }}" alt="Tentang Kami" class="w-full object-cover" />
+      </div>
     </div>
-    <div data-aos="fade-left">
-      <h2 class="text-3xl font-bold text-[#065f46]">Mengapa Kesehatan Itu Penting?</h2>
-      <p class="mt-4 text-gray-600">
-        Kesehatan merupakan salah satu aspek paling penting dalam kehidupan manusia karena tanpa kesehatan yang baik, berbagai aktivitas dan tujuan hidup menjadi sulit untuk dicapai. Tubuh yang sehat memungkinkan kita untuk menjalani rutinitas sehari-hari dengan energi dan semangat, serta berfungsi optimal dalam menjalankan pekerjaan, berinteraksi sosial, dan menikmati waktu luang. 
-      </p>
-      <p class="mt-3 text-gray-600">
-        Selain itu, kesehatan yang baik juga mendukung produktivitas, membantu mengurangi stres, dan meningkatkan kualitas hidup secara keseluruhan. Dengan kesehatan yang terjaga, seseorang lebih mampu untuk menghadapi tantangan dan tekanan yang ada dalam kehidupan.
-      </p>
-      
+
+<!-- Text Section -->
+<div data-aos="fade-left">
+  <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6 text-sky-800">
+    Mengapa <span class="text-sky-600">Kesehatan</span> Penting bagi lansia?
+  </h2>
+  <p class="text-lg text-gray-700 leading-relaxed mb-4">
+    Seiring bertambahnya usia, tubuh mengalami penurunan fungsi alami. Pola hidup sehat menjadi kunci utama untuk menjaga kebugaran fisik dan daya tahan tubuh lansia agar tetap aktif dan mandiri.
+  </p>
+  <p class="text-lg text-gray-700 leading-relaxed">
+    Dengan pola makan bergizi, olahraga teratur, dan kesehatan mental yang terjaga, lansia dapat mengurangi risiko penyakit kronis, memperkuat daya ingat, serta menjalani masa tua dengan kualitas hidup yang lebih baik dan bahagia.
+  </p>
+  <div class="mt-8">
+    <h4 class="text-xl md:text-2xl italic font-semibold text-sky-800 bg-gray-100 px-4 py-2 rounded-lg inline-block">
+      “Pola Hidup Sehat, Investasi Masa Tua yang Berkualitas”
+    </h4>
+  </div>
+</div>
+
     </div>
   </div>
 </section>
 
-<!-- Services Section -->
-<section id="service" class="py-20 bg-[#020617] text-white">
-  <div class="max-w-[1200px] mx-auto px-4 text-center">
-    <h2 class="text-3xl font-bold leading-tight relative">
-      Manfaat Gaya Hidup Sehat Bagi Lansia
-      <span class="absolute -top-12 text-[6rem] font-extrabold leading-[6rem] text-white/10"></span>
-    </h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-      <div class="space-y-2">
-        <span class="text-2xl font-extrabold text-white/75">01</span>
-        <h4 class="text-xl font-semibold">Meningkatkan Kemandirian</h4>
-        <p class="text-[#94a3b8]">Dengan menjaga kesehatan tubuh melalui olahraga ringan, pola makan seimbang, dan tidur yang cukup, 
-          lansia dapat mempertahankan kemampuan fisik dan mental mereka. Ini membantu mereka tetap mandiri dalam menjalani aktivitas sehari-hari,
-           mengurangi ketergantungan pada orang lain.</p>
+<!-- Services Section Modern Teal-Aqua -->
+<section id="service" class="py-24 bg-gradient-to-r from-teal-800 via-teal-700 to-cyan-800 text-white relative overflow-hidden">
+  <div class="max-w-[1200px] mx-auto px-6 text-center relative z-10">
+    <h2 class="text-4xl font-extrabold mb-4 tracking-tight">Manfaat Gaya Hidup Sehat Bagi Lansia</h2>
+    <p class="text-teal-100 max-w-2xl mx-auto text-lg">
+      Gaya hidup sehat berdampak besar pada kualitas hidup para lansia. Berikut manfaat utamanya:
+    </p>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-16">
+      <!-- Card 1 -->
+      <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition duration-300 text-left">
+        <div class="flex items-center space-x-4 mb-4">
+          <div class="text-3xl font-bold text-teal-300"></div>
+          <h4 class="text-xl font-semibold text-white">Meningkatkan Kemandirian</h4>
+        </div>
+        <p class="text-teal-100 text-sm leading-relaxed">
+          Olahraga ringan, makan seimbang, dan tidur cukup membantu lansia menjaga kondisi fisik dan mental — membuat mereka tetap mandiri dalam aktivitas harian.
+        </p>
       </div>
-      <div class="space-y-2">
-        <span class="text-2xl font-extrabold text-white/75">02</span>
-        <h4 class="text-xl font-semibold">Meningkatkan Kesehatan Mental</h4>
-        <p class="text-[#94a3b8]">Gaya hidup sehat, termasuk interaksi sosial yang positif, dapat mengurangi risiko depresi, kecemasan, dan demensia.
-           Lansia yang menjaga kesehatan fisiknya cenderung lebih aktif secara mental,
-          memiliki tingkat stres yang lebih rendah, dan merasakan kebahagiaan lebih tinggi.</p>
+
+      <!-- Card 2 -->
+      <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition duration-300 text-left">
+        <div class="flex items-center space-x-4 mb-4">
+          <div class="text-3xl font-bold text-teal-300"></div>
+          <h4 class="text-xl font-semibold text-white">Meningkatkan Kesehatan Mental</h4>
+        </div>
+        <p class="text-teal-100 text-sm leading-relaxed">
+          Interaksi sosial positif dan gaya hidup aktif menurunkan risiko depresi dan demensia, serta meningkatkan rasa bahagia dan ketenangan.
+        </p>
       </div>
-      <div class="space-y-2">
-        <span class="text-2xl font-extrabold text-white/75">03</span>
-        <h4 class="text-xl font-semibold">Memperpanjang Harapan Hidup dan Kualitas Hidup</h4>
-        <p class="text-[#94a3b8]">Pola hidup sehat yang mencakup olahraga teratur, konsumsi makanan bergizi, dan pemeriksaan kesehatan rutin dapat memperpanjang usia serta meningkatkan kualitas hidup lansia. 
-          Mereka cenderung mengalami lebih sedikit gangguan kesehatan dan bisa menikmati masa pensiun dengan lebih bahagia dan sehat.</p>
+
+      <!-- Card 3 -->
+      <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition duration-300 text-left">
+        <div class="flex items-center space-x-4 mb-4">
+          <div class="text-3xl font-bold text-teal-300"></div>
+          <h4 class="text-xl font-semibold text-white">Memperpanjang Usia & Kualitas Hidup</h4>
+        </div>
+        <p class="text-teal-100 text-sm leading-relaxed">
+          Kebiasaan sehat seperti olahraga, makanan bergizi, dan cek kesehatan rutin, memperpanjang usia dengan kualitas hidup yang lebih baik.
+        </p>
       </div>
     </div>
   </div>
+
+  <!-- Decorative Gradient Circles -->
+  <div class="absolute w-[400px] h-[400px] bg-teal-300 opacity-10 rounded-full -top-20 -left-40 blur-3xl"></div>
+  <div class="absolute w-[300px] h-[300px] bg-teal-500 opacity-10 rounded-full bottom-0 right-0 blur-2xl"></div>
 </section>
+
+
 
 <!-- Popular Classes -->
 <section id="class" class="py-20 bg-gray-50 text-black">
@@ -160,7 +207,7 @@
   <div class="max-w-[1200px] mx-auto px-4">
     <h2 class="text-3xl font-bold leading-tight text-white relative">
       Diskusikan dengan Ahli Kami
-      <span class="absolute -top-12 text-[6rem] font-extrabold text-black/5">Best Team</span>
+      <span class="absolute -top-12 text-[6rem] font-extrabold text-black/5"></span>
     </h2>
     <div class="flex flex-wrap gap-8 mt-16">
       <!-- Card Mentor 1 -->
@@ -226,46 +273,60 @@
 </script>
 
 
-<!-- Footer -->
-<footer class="bg-[#0f172a] text-white py-12 px-4 sm:px-6 lg:px-8">
-  <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
-    
-    <!-- Logo & Copyright -->
+<!-- Modern Footer -->
+<footer class="bg-gradient-to-br from-sky-900 via-sky-800 to-sky-700 text-white py-16 px-6">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
+
+    <!-- Logo & Brand -->
     <div>
-      <img src="/assets/logo-light.png" alt="Logo" class="mb-6 w-40" />
-      <p class="text-[#94a3b8] text-sm">© 2025 HealthPoint. All rights reserved.</p>
+      <img src="{{ asset('images/logo_simpus.png') }}" alt="Logo" class="mb-4 w-44" />
+     
     </div>
 
     <!-- Navigasi -->
     <div>
-      <h4 class="text-xl font-semibold mb-4 text-white">Navigasi</h4>
-      <ul class="space-y-2 text-[#94a3b8]">
+      <h4 class="text-xl font-semibold mb-4">Navigasi</h4>
+      <ul class="space-y-2 text-slate-300">
         <li><a href="#home" class="hover:text-white transition">Home</a></li>
-        <li><a href="#about" class="hover:text-white transition">About</a></li>
-        <li><a href="#service" class="hover:text-white transition">Services</a></li>
-        <li><a href="#class" class="hover:text-white transition">Classes</a></li>
+        <li><a href="#about" class="hover:text-white transition">Tentang Kami</a></li>
+        <li><a href="#konsultasi" class="hover:text-white transition">Konsultasi</a></li>
       </ul>
     </div>
 
-    <!-- Kontak Kami -->
+    <!-- Kontak -->
     <div>
-      <h4 class="text-xl font-semibold mb-4 text-white">Kontak Kami</h4>
-      <ul class="space-y-2 text-[#94a3b8]">
-        <li>Jl. Sehat No.123, Wellness Cit</li>
-        <li><a href="mailto:kontak@healthpoint.com" class="hover:text-white transition">kontak@healthpoint.com</a></li>
-        <li><a href="tel:+6281298765432" class="hover:text-white transition">+62 812 9876 5432</a></li>
+      <h4 class="text-xl font-semibold mb-4">Kontak Kami</h4>
+      <ul class="space-y-2 text-slate-300">
+        <li><i class="ri-map-pin-line mr-2 text-sky-300"></i>Jl. Sehat No.123, Wellness City</li>
+        <li><i class="ri-mail-line mr-2 text-sky-300"></i><a href="mailto:kontak@healthpoint.com" class="hover:text-white transition">kontak@healthpoint.com</a></li>
+        <li><i class="ri-phone-line mr-2 text-sky-300"></i><a href="tel:+6281298765432" class="hover:text-white transition">+62 812 9876 5432</a></li>
       </ul>
-      <!-- Sosial Media -->
-      <div class="mt-6 flex space-x-4">
-        <a href="#" class="text-[#94a3b8] hover:text-white transition" aria-label="Facebook">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.62 9.87v-6.99h-2.6v-2.88h2.6V9.41c0-2.57 1.53-3.99 3.88-3.99 1.12 0 2.3.2 2.3.2v2.53h-1.3c-1.28 0-1.68.8-1.68 1.62v1.96h2.85l-.46 2.88h-2.39v6.99A10 10 0 0022 12z"/></svg>
+    </div>
+
+    <!-- Sosial Media -->
+    <div>
+      <h4 class="text-xl font-semibold mb-4">Ikuti Kami</h4>
+      <div class="flex space-x-4 mt-2">
+        <a href="#" class="text-sky-300 hover:text-white transition" aria-label="Facebook">
+          <i class="ri-facebook-circle-fill text-2xl"></i>
         </a>
-        <a href="#" class="text-[#94a3b8] hover:text-white transition" aria-label="Instagram">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.054 1.96.24 2.41.406a4.89 4.89 0 011.75 1.13 4.9 4.9 0 011.13 1.75c.165.45.352 1.24.406 2.41.058 1.266.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.24 1.96-.406 2.41a4.9 4.9 0 01-1.13 1.75 4.9 4.9 0 01-1.75 1.13c-.45.165-1.24.352-2.41.406-1.266.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.96-.24-2.41-.406a4.9 4.9 0 01-1.75-1.13 4.9 4.9 0 01-1.13-1.75c-.165-.45-.352-1.24-.406-2.41C2.212 15.584 2.2 15.2 2.2 12s.012-3.584.07-4.85c.054-1.17.24-1.96.406-2.41a4.89 4.89 0 011.13-1.75 4.89 4.89 0 011.75-1.13c.45-.165 1.24-.352 2.41-.406C8.416 2.212 8.8 2.2 12 2.2zm0 2.05c-3.15 0-3.52.012-4.77.068-1.07.05-1.65.22-2.03.37a2.85 2.85 0 00-1.04.68c-.3.3-.522.66-.68 1.04-.15.38-.32.96-.37 2.03-.056 1.25-.068 1.62-.068 4.77s.012 3.52.068 4.77c.05 1.07.22 1.65.37 2.03.158.38.38.74.68 1.04.3.3.66.522 1.04.68.38.15.96.32 2.03.37 1.25.056 1.62.068 4.77.068s3.52-.012 4.77-.068c1.07-.05 1.65-.22 2.03-.37.38-.158.74-.38 1.04-.68.3-.3.522-.66.68-1.04.15-.38.32-.96.37-2.03.056-1.25.068-1.62.068-4.77s-.012-3.52-.068-4.77c-.05-1.07-.22-1.65-.37-2.03a2.85 2.85 0 00-.68-1.04 2.85 2.85 0 00-1.04-.68c-.38-.15-.96-.32-2.03-.37-1.25-.056-1.62-.068-4.77-.068zM12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.176a4.014 4.014 0 110-8.028 4.014 4.014 0 010 8.028zm6.406-10.848a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
+        <a href="#" class="text-sky-300 hover:text-white transition" aria-label="Instagram">
+          <i class="ri-instagram-fill text-2xl"></i>
+        </a>
+        <a href="#" class="text-sky-300 hover:text-white transition" aria-label="Twitter">
+          <i class="ri-twitter-x-fill text-2xl"></i>
+        </a>
+        <a href="#" class="text-sky-300 hover:text-white transition" aria-label="YouTube">
+          <i class="ri-youtube-fill text-2xl"></i>
         </a>
       </div>
     </div>
 
+  </div>
+
+  <!-- Copyright -->
+  <div class="mt-12 border-t border-white/10 pt-6 text-center text-sm text-slate-400">
+    © 2025 SimpusMedical - Kelompok 4. All rights reserved.
   </div>
 </footer>
 
