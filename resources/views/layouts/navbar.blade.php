@@ -13,9 +13,9 @@
 
             <!-- Dropdown Konsultasi -->
             <div class="relative group hidden md:inline">
-                <button class="text-gray-600 hover:text-indigo-500 transition focus:outline-none">
+                <a href="#konsultasi" class="text-gray-600 hover:text-indigo-500 transition focus:outline-none">
                     Konsultasi
-                </button>
+                </button></a>
                 <!-- (Opsional: tambahkan dropdown isi di sini jika diperlukan) -->
             </div>
         </div>
