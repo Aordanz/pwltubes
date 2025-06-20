@@ -70,8 +70,12 @@
 </header>
 
 <!-- About Section -->
-<section id="about" class="relative py-24 bg-gradient-to-br from-blue-900 via-blue-500 to-cyan-400 text-white">
-  <div class="absolute inset-0 bg-black bg-opacity-40"></div> <!-- Dark overlay for readability -->
+<section id="about" class="relative py-24 bg-gradient-to-b from-[#a5a5a5] via-[#d9e3e9] to-[#eaf7ff] text-gray-800 overflow-hidden z-0">
+
+  <!-- HAPUS overlay lama, atau ganti jadi transparan total -->
+  {{-- <div class="absolute inset-0 bg-white bg-opacity-50 backdrop-blur-sm"></div> --}}
+
+  <!-- Why Health Is Important -->
   <div class="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
     
     <!-- Image Section -->
@@ -83,26 +87,66 @@
 
     <!-- Text Section -->
     <div data-aos="fade-left">
-      <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
-        Mengapa <span class="text-lime-300">Kesehatan</span> Itu Penting?
+      <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6 text-sky-800">
+        Mengapa <span class="text-sky-600">Kesehatan</span> Itu Penting?
       </h2>
-      <p class="text-lg text-gray-100 leading-relaxed mb-4">
-        Kesehatan adalah pondasi utama kehidupan. Tanpa tubuh yang sehat, aktivitas harian menjadi beban, semangat menurun, dan kualitas hidup terpengaruh secara drastis. Kesehatan yang baik memungkinkan kita untuk bekerja dengan optimal, bersosialisasi, serta menikmati hidup dengan penuh energi.
+      <p class="text-lg text-gray-700 leading-relaxed mb-4">
+        Kesehatan adalah pondasi utama kehidupan. Tanpa tubuh yang sehat, aktivitas harian menjadi beban, semangat menurun, dan kualitas hidup terpengaruh secara drastis.
       </p>
-      <p class="text-lg text-gray-100 leading-relaxed">
-        Dengan menjaga kesehatan, kita juga memperkuat ketahanan terhadap stres, meningkatkan produktivitas, dan memperpanjang usia dengan penuh kualitas. Karena itu, mari bergabung bersama kami untuk menjalani hidup yang lebih sehat dan bahagia.
+      <p class="text-lg text-gray-700 leading-relaxed">
+        Dengan menjaga kesehatan, kita memperkuat ketahanan terhadap stres, meningkatkan produktivitas, dan memperpanjang usia dengan penuh kualitas.
       </p>
       <div class="mt-8">
-        <h4 class="text-xl md:text-2xl italic font-semibold text-gray-200 bg-white bg-opacity-10 backdrop-blur-sm px-4 py-2 rounded-lg inline-block">
+        <h4 class="text-xl md:text-2xl italic font-semibold text-sky-800 bg-gray-100 px-4 py-2 rounded-lg inline-block">
           “MULAILAH HIDUP SEHAT BERSAMA KAMI”
         </h4>
       </div>
-      <button class="mt-8 inline-block bg-emerald-400 hover:bg-emerald-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition duration-300">
-        Gabung Sekarang
-      </button>
+     <button onclick="window.location.href='/register'" class="mt-8 inline-block bg-emerald-500 hover:bg-emerald-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition duration-300">
+  Gabung Sekarang
+</button>
+
     </div>
   </div>
 </section>
+
+
+ <!-- Live Well Section -->
+<section class="w-full bg-[#eaf7ff] py-20">
+  <div class="w-full grid md:grid-cols-2 items-center gap-16 px-8 md:px-16">
+    
+    <!-- Text -->
+    <div data-aos="fade-up-right">
+      <h3 class="text-4xl font-bold text-emerald-700 mb-6">Hidup Sehat, Setiap Hari</h3>
+      <p class="text-lg text-gray-700 mb-8">
+        Kesehatan bukan hanya tentang tidak sakit, tetapi tentang bagaimana kamu hidup, merasa, dan berkembang setiap hari. Mulailah hari-harimu dengan lebih sehat secara mental dan fisik.
+      </p>
+      <ul class="space-y-4">
+        <li class="flex items-start space-x-3">
+          <i class="ri-moon-line text-2xl text-emerald-600"></i>
+          <span><strong>Tidur Berkualitas:</strong> Atur pola tidur yang konsisten untuk energi optimal.</span>
+        </li>
+        <li class="flex items-start space-x-3">
+          <i class="ri-restaurant-2-line text-2xl text-emerald-600"></i>
+          <span><strong>Nutrisi Seimbang:</strong> Asupan makanan yang sehat mempengaruhi semua aspek hidup.</span>
+        </li>
+        <li class="flex items-start space-x-3">
+          <i class="ri-emotion-happy-line text-2xl text-emerald-600"></i>
+          <span><strong>Kesehatan Mental:</strong> Kendalikan stres dan jaga keseimbangan emosi.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Illustration -->
+    <div data-aos="fade-up-left">
+      <div class="overflow-hidden shadow-2xl hover:scale-105 transition-all duration-500">
+        <img src="{{ asset('images/sehat.png') }}" alt="Healthy Lifestyle" class="w-full h-auto object-cover rounded-3xl" />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
 
 
 <!-- Include AOS script -->
@@ -110,13 +154,14 @@
 <script>
   AOS.init();
 </script>
+
 <!-- Services Section -->
 <section id="konsultasi" >
 <section class="py-20 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600">
   <div class="max-w-[1200px] mx-auto px-4">
     <h2 class="text-3xl font-bold leading-tight text-white relative">
       Diskusikan dengan Ahli Kami
-      <span class="absolute -top-12 text-[6rem] font-extrabold text-black/5">Best Team</span>
+      <span class="absolute -top-12 text-[6rem] font-extrabold text-black/5"></span>
     </h2>
     <div class="flex flex-wrap gap-8 mt-16">
       <!-- Card Mentor 1 -->
@@ -140,44 +185,63 @@
   </div>
 </section>
 
-<!-- Footer -->
-<footer class="bg-[#0f172a] text-white py-12 px-4 sm:px-6 lg:px-8">
-  <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
+<!-- Modern Footer -->
+<footer class="bg-gradient-to-br from-sky-900 via-sky-800 to-sky-700 text-white py-16 px-6">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
+
+    <!-- Logo & Brand -->
     <div>
-      <img src="/assets/logo-light.png" alt="Logo" class="mb-6 w-40" />
-      <p class="text-[#94a3b8] text-sm">© 2025 SimpusMedical. Kelompok4.</p>
+      <img src="{{ asset('images/logo_simpus.png') }}" alt="Logo" class="mb-4 w-44" />
+     
     </div>
 
+    <!-- Navigasi -->
     <div>
-      <h4 class="text-xl font-semibold mb-4 text-white">Navigasi</h4>
-      <ul class="space-y-2 text-[#94a3b8]">
+      <h4 class="text-xl font-semibold mb-4">Navigasi</h4>
+      <ul class="space-y-2 text-slate-300">
         <li><a href="#home" class="hover:text-white transition">Home</a></li>
-        <li><a href="#about" class="hover:text-white transition">About</a></li>
-        <li><a href="#service" class="hover:text-white transition">Services</a></li>
-        <li><a href="#class" class="hover:text-white transition">Classes</a></li>
+        <li><a href="#about" class="hover:text-white transition">Tentang Kami</a></li>
+        <li><a href="#konsultasi" class="hover:text-white transition">Konsultasi</a></li>
       </ul>
     </div>
 
+    <!-- Kontak -->
     <div>
-      <h4 class="text-xl font-semibold mb-4 text-white">Kontak Kami</h4>
-      <ul class="space-y-2 text-[#94a3b8]">
-        <li>Jl. Sehat No.123, Wellness City</li>
-        <li><a href="mailto:kontak@healthpoint.com" class="hover:text-white transition">kontak@healthpoint.com</a></li>
-        <li><a href="tel:+6281298765432" class="hover:text-white transition">+62 812 9876 5432</a></li>
+      <h4 class="text-xl font-semibold mb-4">Kontak Kami</h4>
+      <ul class="space-y-2 text-slate-300">
+        <li><i class="ri-map-pin-line mr-2 text-sky-300"></i>Jl. Sehat No.123, Wellness City</li>
+        <li><i class="ri-mail-line mr-2 text-sky-300"></i><a href="mailto:kontak@healthpoint.com" class="hover:text-white transition">kontak@healthpoint.com</a></li>
+        <li><i class="ri-phone-line mr-2 text-sky-300"></i><a href="tel:+6281298765432" class="hover:text-white transition">+62 812 9876 5432</a></li>
       </ul>
-      <div class="mt-6 flex space-x-4">
-        <!-- Icon Facebook -->
-        <a href="#" class="text-[#94a3b8] hover:text-white transition" aria-label="Facebook">
-          <i class="ri-facebook-fill text-xl"></i>
+    </div>
+
+    <!-- Sosial Media -->
+    <div>
+      <h4 class="text-xl font-semibold mb-4">Ikuti Kami</h4>
+      <div class="flex space-x-4 mt-2">
+        <a href="#" class="text-sky-300 hover:text-white transition" aria-label="Facebook">
+          <i class="ri-facebook-circle-fill text-2xl"></i>
         </a>
-        <!-- Icon Instagram -->
-        <a href="#" class="text-[#94a3b8] hover:text-white transition" aria-label="Instagram">
-          <i class="ri-instagram-line text-xl"></i>
+        <a href="#" class="text-sky-300 hover:text-white transition" aria-label="Instagram">
+          <i class="ri-instagram-fill text-2xl"></i>
+        </a>
+        <a href="#" class="text-sky-300 hover:text-white transition" aria-label="Twitter">
+          <i class="ri-twitter-x-fill text-2xl"></i>
+        </a>
+        <a href="#" class="text-sky-300 hover:text-white transition" aria-label="YouTube">
+          <i class="ri-youtube-fill text-2xl"></i>
         </a>
       </div>
     </div>
+
+  </div>
+
+  <!-- Copyright -->
+  <div class="mt-12 border-t border-white/10 pt-6 text-center text-sm text-slate-400">
+    © 2025 SimpusMedical - Kelompok 4. All rights reserved.
   </div>
 </footer>
+
 
 </body>
 </html>
