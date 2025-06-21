@@ -45,7 +45,7 @@
   <div class="max-w-[1200px] mx-auto px-4 grid md:grid-cols-2 items-center gap-8">
     <div class="text-center md:text-left">
       <h1 data-aos="fade-right" data-aos-duration="1500" class="text-5xl font-extrabold italic text-[#38bdf8] leading-tight">
-        HIDUP SEHAT UNTUK HIDUP BAHAGIA
+        HIDUP SEHAT UNTUK HIDUP BAHAGIAA
       </h1> 
 
       <h2 data-aos="fade-right" data-aos-duration="1500" class="text-4xl font-extrabold italic text-[#0f172a] mt-6">
