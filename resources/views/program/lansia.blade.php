@@ -11,29 +11,151 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+ <style>
+    @keyframes slide-right {
+      0% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .slide-in-right {
+      animation: slide-right 1.5s ease-out forwards;
+    }
+
+    /* Nonaktifkan lingkaran background jika ada di CSS luar */
+    header#home::before {
+      display: none !important;
+      content: none !important;
+    }
+  </style>
 </head>
 
 <body class="bg-gray-100 font-sans">
 
 <!-- Header Section -->
-<header id="home" class="pt-32 pb-20 bg-[#e2e8f0]">
+<header id="home" class="w-full min-h-screen pt-32 pb-20 bg-no-repeat bg-center" 
+        style="background-image: url('{{ asset('images/tar.png') }}'); background-size: 100% 100%; background-color: #f9fafb;">
+
   <div class="max-w-[1200px] mx-auto px-4 grid md:grid-cols-2 items-center gap-8">
     <div class="text-center md:text-left">
-      <h1 class="text-5xl font-extrabold italic text-[#38bdf8] leading-tight relative">
+      <h1 data-aos="fade-right" data-aos-duration="1500" class="text-5xl font-extrabold italic text-[#38bdf8] leading-tight">
         HIDUP SEHAT UNTUK HIDUP BAHAGIA
-      </h1>
-      <h2 class="text-4xl font-extrabold italic text-[#0f172a] mt-6">KESEHATAN ADALAH PRIORITAS</h2>
+      </h1> 
+
+      <h2 data-aos="fade-right" data-aos-duration="1500" class="text-4xl font-extrabold italic text-[#0f172a] mt-6">
+        KESEHATAN ADALAH PRIORITAS BAGI SEMUA ORANG
+      </h2>
+
       <p class="text-[#475569] mt-4">
-         Hidup sehat merupakan tanggung jawab diri kita bagaimana kita merawat tubuh dan pikiran kita serta menjaga kesehatan tubuh kita.
+        Hidup sehat merupakan tanggung jawab diri kita bagaimana kita merawat tubuh dan pikiran kita serta menjaga kesehatan tubuh kita.
+      </p>
+
       <div class="mt-6">
-        <button class="bg-[#0f172a] hover:bg-[#38bdf8] text-white px-6 py-3 rounded">Pelajari Lebih Lanjut</button>
+        <button class="bg-[#0f172a] hover:bg-[#38bdf8] text-white px-6 py-3 rounded">
+          Pelajari Lebih Lanjut
+        </button>
       </div>
     </div>
+
     <div>
-      <img src="{{ asset('images/logo_simpus.png') }}" alt="header" class="float-right -mt-2 max-w-[400px] rounded-xl" />
+      <img src="{{ asset('images/logo_simpus.png') }}" alt="header" class="float-right -mt-2 max-w-[400px] rounded-xl animate-bounce" />
     </div>
   </div>
 </header>
+
+<!-- About Section -->
+<section id="about" class="relative py-24 bg-gradient-to-b from-[#a5a5a5] via-[#d9e3e9] to-[#eaf7ff] text-gray-800 overflow-hidden z-0">
+
+  <!-- HAPUS overlay lama, atau ganti jadi transparan total -->
+  {{-- <div class="absolute inset-0 bg-white bg-opacity-50 backdrop-blur-sm"></div> --}}
+
+  <!-- Why Health Is Important -->
+  <div class="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+    
+    <!-- Image Section -->
+    <div class="relative group" data-aos="fade-right">
+      <div class="overflow-hidden rounded-3xl shadow-2xl transition duration-500 group-hover:scale-105">
+        <img src="{{ asset('images/lansia.png') }}" alt="Tentang Kami" class="w-full object-cover" />
+      </div>
+    </div>
+
+<!-- Text Section -->
+<div data-aos="fade-left">
+  <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6 text-sky-800">
+    Mengapa <span class="text-sky-600">Kesehatan</span> Penting bagi lansia?
+  </h2>
+  <p class="text-lg text-gray-700 leading-relaxed mb-4">
+    Seiring bertambahnya usia, tubuh mengalami penurunan fungsi alami. Pola hidup sehat menjadi kunci utama untuk menjaga kebugaran fisik dan daya tahan tubuh lansia agar tetap aktif dan mandiri.
+  </p>
+  <p class="text-lg text-gray-700 leading-relaxed">
+    Dengan pola makan bergizi, olahraga teratur, dan kesehatan mental yang terjaga, lansia dapat mengurangi risiko penyakit kronis, memperkuat daya ingat, serta menjalani masa tua dengan kualitas hidup yang lebih baik dan bahagia.
+  </p>
+  <div class="mt-8">
+    <h4 class="text-xl md:text-2xl italic font-semibold text-sky-800 bg-gray-300 px-4 py-2 rounded-lg inline-block">
+      “Pola Hidup Sehat, Investasi Masa Tua yang Berkualitas”
+    </h4>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Services Section Modern Teal-Aqua -->
+<section id="service" class="py-24 bg-gradient-to-r from-teal-800 via-teal-700 to-cyan-800 text-white relative overflow-hidden">
+  <div class="max-w-[1200px] mx-auto px-6 text-center relative z-10">
+    <h2 class="text-4xl font-extrabold mb-4 tracking-tight">Manfaat Gaya Hidup Sehat Bagi Lansia</h2>
+    <p class="text-teal-100 max-w-2xl mx-auto text-lg">
+      Gaya hidup sehat berdampak besar pada kualitas hidup para lansia. Berikut manfaat utamanya:
+    </p>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-16">
+      <!-- Card 1 -->
+      <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition duration-300 text-left">
+        <div class="flex items-center space-x-4 mb-4">
+          <div class="text-3xl font-bold text-teal-300"></div>
+          <h4 class="text-xl font-semibold text-white">Meningkatkan Kemandirian</h4>
+        </div>
+        <p class="text-teal-100 text-sm leading-relaxed">
+          Olahraga ringan, makan seimbang, dan tidur cukup membantu lansia menjaga kondisi fisik dan mental — membuat mereka tetap mandiri dalam aktivitas harian.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition duration-300 text-left">
+        <div class="flex items-center space-x-4 mb-4">
+          <div class="text-3xl font-bold text-teal-300"></div>
+          <h4 class="text-xl font-semibold text-white">Meningkatkan Kesehatan Mental</h4>
+        </div>
+        <p class="text-teal-100 text-sm leading-relaxed">
+          Interaksi sosial positif dan gaya hidup aktif menurunkan risiko depresi dan demensia, serta meningkatkan rasa bahagia dan ketenangan.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition duration-300 text-left">
+        <div class="flex items-center space-x-4 mb-4">
+          <div class="text-3xl font-bold text-teal-300"></div>
+          <h4 class="text-xl font-semibold text-white">Memperpanjang Usia & Kualitas Hidup</h4>
+        </div>
+        <p class="text-teal-100 text-sm leading-relaxed">
+          Kebiasaan sehat seperti olahraga, makanan bergizi, dan cek kesehatan rutin, memperpanjang usia dengan kualitas hidup yang lebih baik.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative Gradient Circles -->
+  <div class="absolute w-[400px] h-[400px] bg-teal-300 opacity-10 rounded-full -top-20 -left-40 blur-3xl"></div>
+  <div class="absolute w-[300px] h-[300px] bg-teal-500 opacity-10 rounded-full bottom-0 right-0 blur-2xl"></div>
+</section>
+
+
 
 <!-- Popular Classes -->
 <section id="class" class="py-20 bg-gray-50 text-black">
@@ -83,14 +205,14 @@
 </section>
 
 <!-- Notifikasi Aktivitas Selesai -->
-<div id="notification" class="fixed bottom-5 right-5 bg-green-500 text-white py-3 px-5 rounded-lg shadow-lg hidden">
+<div id="notification" class="fixed bottom-5 right-5 bg-green-500 text-white py-3 px-5 rounded-lg shadow-lg hidden z-50">
   <p class="font-semibold">Aktivitas Selesai!</p>
   <p class="text-sm">Anda mendapatkan 1 bintang</p>
 </div>
 
 <script>
   function markComplete(index, kategori) {
-    const checkbox = document.getElementById(`checkbox-${index}`);
+    const checkbox = document.getElementById(`checkbox-${index}`); // ✅ pakai backtick
     if (checkbox.checked) {
       fetch("{{ route('program.terpenuhi') }}", {
         method: "POST",
@@ -105,8 +227,12 @@
       }).then(response => {
         if (response.ok) {
           checkbox.disabled = true;
+
+          // Tampilkan notifikasi
           const notification = document.getElementById('notification');
           notification.classList.remove('hidden');
+
+          // Sembunyikan setelah 3 detik
           setTimeout(() => {
             notification.classList.add('hidden');
           }, 3000);
@@ -157,7 +283,7 @@
 <script>
   function openChat(mentor) {
     document.getElementById('chatBox').classList.remove('hidden');
-    document.getElementById('mentorName').innerText = `Chat dengan ${mentor}`;
+    document.getElementById('mentorName').innerText = Chat dengan ${mentor};
     document.getElementById('chatInput').focus();
 
     // Kosongkan chat sebelumnya (opsional)
@@ -174,7 +300,7 @@
     const chatMessages = document.getElementById('chatMessages');
 
     if (message !== '') {
-      chatMessages.innerHTML += `<div class='mb-1'><strong>Anda:</strong> ${message}</div>`;
+      chatMessages.innerHTML += <div class='mb-1'><strong>Anda:</strong> ${message}</div>;
       chatMessages.scrollTop = chatMessages.scrollHeight;
       input.value = '';
 
@@ -239,6 +365,7 @@
     © 2025 SimpusMedical - Kelompok 4. All rights reserved.
   </div>
 </footer>
+
 
 </body>
 </html>
