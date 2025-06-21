@@ -207,15 +207,15 @@
   </div>
 </section>
 
-{{-- Notifikasi --}}
-<div id="notification" class="fixed bottom-5 right-5 bg-green-500 text-white py-3 px-5 rounded-lg shadow-lg hidden">
+<!-- Notifikasi Aktivitas Selesai -->
+<div id="notification" class="fixed bottom-5 right-5 bg-green-500 text-white py-3 px-5 rounded-lg shadow-lg hidden z-50">
   <p class="font-semibold">Aktivitas Selesai!</p>
   <p class="text-sm">Anda mendapatkan 1 bintang</p>
 </div>
 
 <script>
   function markComplete(index, kategori) {
-    const checkbox = document.getElementById(`checkbox-${index}`);
+    const checkbox = document.getElementById(`checkbox-${index}`); // ✅ pakai backtick
     if (checkbox.checked) {
       fetch("{{ route('program.terpenuhi') }}", {
         method: "POST",
@@ -229,9 +229,15 @@
         })
       }).then(response => {
         if (response.ok) {
-          document.getElementById('notification').classList.remove('hidden');
+          checkbox.disabled = true;
+
+          // Tampilkan notifikasi
+          const notification = document.getElementById('notification');
+          notification.classList.remove('hidden');
+
+          // Sembunyikan setelah 3 detik
           setTimeout(() => {
-            document.getElementById('notification').classList.add('hidden');
+            notification.classList.add('hidden');
           }, 3000);
         }
       });
@@ -374,6 +380,8 @@ setInterval(fetchMessages, 5000);
         <li><i class="ri-map-pin-line mr-2 text-sky-300"></i>Simpang USU, Medan City</li>
         <li><i class="ri-mail-line mr-2 text-sky-300"></i><a href="mailto:kontak@healthpoint.com" class="hover:text-white transition">kontak@healthpoint.com</a></li>
         <li><i class="ri-phone-line mr-2 text-sky-300"></i><a href="tel:+6281298765432" class="hover:text-white transition">+62 812 9876 5432</a></li>
+      </ul>
+    </div>
 
     <!-- Sosial Media -->
     <div>
