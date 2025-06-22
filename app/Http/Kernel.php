@@ -28,11 +28,13 @@ class Kernel extends HttpKernel
         ],
     ];
 
-    protected $routeMiddleware = [
-        'auth' => \App\Http\Middleware\Authenticate::class,
-        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        'admin.only' => \App\Http\Middleware\EnsureUserIsAdmin::class,
+   protected $routeMiddleware = [
+    'auth' => \App\Http\Middleware\Authenticate::class,
+    'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+    'admin.only' => \App\Http\Middleware\EnsureUserIsAdmin::class,
 
-        // Middleware lain jika ada
-    ];
+    'is_doctor' => \App\Http\Middleware\CheckIfDoctor::class,
+
+    // Middleware lain jika ada
+];
 }

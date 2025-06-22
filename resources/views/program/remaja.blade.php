@@ -6,12 +6,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <title>{{ $title ?? 'MyApp' }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    {{-- Vite directive untuk memuat bootstrap.js (yang berisi konfigurasi Echo) --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     <style>
     @keyframes slide-right {
       0% {
@@ -28,7 +31,6 @@
       animation: slide-right 1.5s ease-out forwards;
     }
 
-    /* Nonaktifkan lingkaran background jika ada di CSS luar */
     header#home::before {
       display: none !important;
       content: none !important;
@@ -39,7 +41,6 @@
 <body class="bg-gray-100 font-sans">
 
 
-<!-- Header Section -->
 <header id="home" class="w-full min-h-screen pt-32 pb-20 bg-no-repeat bg-center" 
         style="background-image: url('{{ asset('images/tar.png') }}'); background-size: 100% 100%; background-color: #f9fafb;">
 
@@ -70,46 +71,34 @@
   </div>
 </header>
 
-<!-- About Section -->
 <section id="about" class="relative py-24 bg-gradient-to-b from-[#a5a5a5] via-[#d9e3e9] to-[#eaf7ff] text-gray-800 overflow-hidden z-0">
-
-  <!-- HAPUS overlay lama, atau ganti jadi transparan total -->
-  {{-- <div class="absolute inset-0 bg-white bg-opacity-50 backdrop-blur-sm"></div> --}}
-
-  <!-- Why Health Is Important -->
   <div class="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
     
-    <!-- Image Section -->
     <div class="relative group" data-aos="fade-right">
       <div class="overflow-hidden rounded-3xl shadow-2xl transition duration-500 group-hover:scale-105">
         <img src="{{ asset('images/rema.png') }}" alt="Tentang Kami" class="w-full object-cover" />
       </div>
     </div>
 
-<!-- Text Section -->
-<div data-aos="fade-left">
-  <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6 text-sky-800">
-    Mengapa <span class="text-sky-600">Kesehatan</span> Penting bagi Remaja?
-  </h2>
-  <p class="text-lg text-gray-700 leading-relaxed mb-4">
-    Masa remaja adalah periode penting dalam pertumbuhan fisik, emosional, dan mental. Menjalani pola hidup sehat di usia ini membantu membentuk fondasi tubuh yang kuat, meningkatkan konsentrasi belajar, serta mendukung perkembangan otak dan daya tahan tubuh.
-  </p>
-  <p class="text-lg text-gray-700 leading-relaxed">
-    Dengan pola makan bergizi, aktivitas fisik teratur, serta tidur yang cukup dan manajemen stres, remaja dapat menghindari risiko obesitas, gangguan hormonal, dan masalah kesehatan mental, serta tumbuh menjadi individu yang produktif dan percaya diri.
-  </p>
-  <div class="mt-8">
-    <h4 class="text-xl md:text-2xl italic font-semibold text-sky-800 bg-gray-300 px-4 py-2 rounded-lg inline-block">
-      “Remaja Sehat Hari Ini, Pemimpin Hebat di Masa Depan”
-    </h4>
-  </div>
-</div>
-
-
+    <div data-aos="fade-left">
+      <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6 text-sky-800">
+        Mengapa <span class="text-sky-600">Kesehatan</span> Penting bagi Remaja?
+      </h2>
+      <p class="text-lg text-gray-700 leading-relaxed mb-4">
+        Masa remaja adalah periode penting dalam pertumbuhan fisik, emosional, dan mental. Menjalani pola hidup sehat di usia ini membantu membentuk fondasi tubuh yang kuat, meningkatkan konsentrasi belajar, serta mendukung perkembangan otak dan daya tahan tubuh.
+      </p>
+      <p class="text-lg text-gray-700 leading-relaxed">
+        Dengan pola makan bergizi, aktivitas fisik teratur, serta tidur yang cukup dan manajemen stres, remaja dapat menghindari risiko obesitas, gangguan hormonal, dan masalah kesehatan mental, serta tumbuh menjadi individu yang produktif dan percaya diri.
+      </p>
+      <div class="mt-8">
+        <h4 class="text-xl md:text-2xl italic font-semibold text-sky-800 bg-gray-300 px-4 py-2 rounded-lg inline-block">
+          “Remaja Sehat Hari Ini, Pemimpin Hebat di Masa Depan”
+        </h4>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Services Section Modern Teal-Aqua -->
 <section id="service" class="py-20 bg-gradient-to-r from-blue-500 via-blue-500 to-blue-500 text-white">
   <div class="max-w-[1200px] mx-auto px-6 text-center relative z-10">
     <h2 class="text-4xl font-extrabold mb-4 tracking-tight">Manfaat Gaya Hidup Sehat Bagi Remaja</h2>
@@ -118,7 +107,6 @@
     </p>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-16">
-      <!-- Card 1 -->
       <div class="bg-white/5 backdrop-blur-md border border-white/50 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition duration-300 text-left">
         <div class="flex items-center space-x-4 mb-4">
           <div class="text-3xl font-bold text-teal-300"></div>
@@ -129,7 +117,6 @@
         </p>
       </div>
 
-      <!-- Card 2 -->
       <div class="bg-white/5 backdrop-blur-md border border-white/50 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition duration-300 text-left">
         <div class="flex items-center space-x-4 mb-4">
           <div class="text-3xl font-bold text-teal-300"></div>
@@ -140,7 +127,6 @@
         </p>
       </div>
 
-      <!-- Card 3 -->
       <div class="bg-white/5 backdrop-blur-md border border-white/50 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition duration-300 text-left">
         <div class="flex items-center space-x-4 mb-4">
           <div class="text-3xl font-bold text-teal-300"></div>
@@ -152,62 +138,60 @@
       </div>
     </div>
   </div>
-
-  <!-- Decorative Gradient Circles -->
   <div class="absolute w-[400px] h-[400px] bg-teal-300 opacity-10 rounded-full -top-20 -left-40 blur-3xl"></div>
   <div class="absolute w-[300px] h-[300px] bg-teal-500 opacity-10 rounded-full bottom-0 right-0 blur-2xl"></div>
 </section>
 
 
-<!-- Kalender Aktivitas -->
 <section id="class" class="py-20 bg-gray-50 text-black">
   <div class="max-w-[1200px] mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-12">Kalender Aktivitas 30 Hari</h2>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      @foreach($activities as $index => $activity)
-        <a href="{{ route('activity.remaja.show', ['id' => $index + 1]) }}" class="block">
-          <div class="relative border p-5 rounded-lg shadow hover:shadow-lg transition {{ ($index + 1) % 4 == 0 ? 'bg-red-100' : 'bg-white' }}">
-            {{-- Checkbox --}}
-            <form method="POST" action="{{ route('program.terpenuhi') }}" class="absolute top-2 right-2">
-              @csrf
-              <input type="hidden" name="hari" value="{{ $index + 1 }}">
-              <input type="hidden" name="kategori" value="remaja">
-              <input type="checkbox"
-                     id="checkbox-{{ $index }}"
-                     onchange="markComplete({{ $index }}, 'remaja')"
-                     class="w-5 h-5 text-green-600 border-gray-300 rounded focus:ring-0 cursor-pointer"
-                     {{ in_array($index + 1, $completedDays ?? []) ? 'checked disabled' : '' }}>
-            </form>
+      @if (!empty($activities))
+        @foreach($activities as $index => $activity)
+          <a href="{{ route('activity.remaja.show', ['id' => $index + 1]) }}" class="block">
+            <div class="relative border p-5 rounded-lg shadow hover:shadow-lg transition {{ ($index + 1) % 4 == 0 ? 'bg-red-100' : 'bg-white' }}">
+              {{-- Checkbox --}}
+              <form method="POST" action="{{ route('program.terpenuhi') }}" class="absolute top-2 right-2">
+                @csrf
+                <input type="hidden" name="hari" value="{{ $index + 1 }}">
+                <input type="hidden" name="kategori" value="remaja">
+                <input type="checkbox"
+                       id="checkbox-{{ $index }}"
+                       onchange="markComplete({{ $index }}, 'remaja')"
+                       class="w-5 h-5 text-green-600 border-gray-300 rounded focus:ring-0 cursor-pointer"
+                       {{ in_array($index + 1, $completedDays ?? []) ? 'checked disabled' : '' }}>
+              </form>
 
-            {{-- Info Hari --}}
-            <div class="flex justify-between items-center mb-2">
-              <span class="text-sm font-semibold text-gray-500">Hari ke-{{ $index + 1 }}</span>
-              <span class="bg-teal-100 text-teal-700 text-xs px-2 py-1 rounded-full">
-                {{ ($index + 1) % 4 == 0 ? 'Rest Day' : $activity }}
-              </span>
+              {{-- Info Hari --}}
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-semibold text-gray-500">Hari ke-{{ $index + 1 }}</span>
+                <span class="bg-teal-100 text-teal-700 text-xs px-2 py-1 rounded-full">
+                  {{ ($index + 1) % 4 == 0 ? 'Rest Day' : $activity }}
+                </span>
+              </div>
+
+              {{-- Gambar --}}
+              <img src="{{ ($index + 1) % 4 == 0 ? 'https://source.unsplash.com/400x250/?rest,day' : 'https://source.unsplash.com/400x250/?exercise,day' }}"
+                   class="rounded mb-3"
+                   alt="Aktivitas Hari {{ $index + 1 }}">
+
+              {{-- Deskripsi --}}
+              <p class="text-gray-700 text-sm">
+                @if(($index + 1) % 4 == 0)
+                  Hari ke-{{ $index + 1 }} adalah Rest Day.
+                @else
+                  Aktivitas hari ke-{{ $index + 1 }}: {{ $activity }}.
+                @endif
+              </p>
             </div>
-
-            {{-- Gambar --}}
-            <img src="{{ ($index + 1) % 4 == 0 ? 'https://source.unsplash.com/400x250/?rest,day' : 'https://source.unsplash.com/400x250/?exercise,day' }}"
-                 class="rounded mb-3"
-                 alt="Aktivitas Hari {{ $index + 1 }}">
-
-            {{-- Deskripsi --}}
-            <p class="text-gray-700 text-sm">
-              @if(($index + 1) % 4 == 0)
-                Hari ke-{{ $index + 1 }} adalah Rest Day.
-              @else
-                Aktivitas hari ke-{{ $index + 1 }}: {{ $activity }}.
-              @endif
-            </p>
-          </div>
-        </a>
-      @endforeach
+          </a>
+        @endforeach
+      @endif
     </div>
   </div>
 </section>
 
-<!-- Notifikasi Aktivitas Selesai -->
 <div id="notification" class="fixed bottom-5 right-5 bg-green-500 text-white py-3 px-5 rounded-lg shadow-lg hidden z-50">
   <p class="font-semibold">Aktivitas Selesai!</p>
   <p class="text-sm">Anda mendapatkan 1 bintang</p>
@@ -215,7 +199,7 @@
 
 <script>
   function markComplete(index, kategori) {
-    const checkbox = document.getElementById(`checkbox-${index}`); // ✅ pakai backtick
+    const checkbox = document.getElementById(`checkbox-${index}`);
     if (checkbox.checked) {
       fetch("{{ route('program.terpenuhi') }}", {
         method: "POST",
@@ -230,12 +214,8 @@
       }).then(response => {
         if (response.ok) {
           checkbox.disabled = true;
-
-          // Tampilkan notifikasi
           const notification = document.getElementById('notification');
           notification.classList.remove('hidden');
-
-          // Sembunyikan setelah 3 detik
           setTimeout(() => {
             notification.classList.add('hidden');
           }, 3000);
@@ -245,30 +225,37 @@
   }
 </script>
 
-<!-- Mentor Section - Compact & Centered Avatar -->
 <section class="py-20 bg-gradient-to-r from-blue-500 via-blue-500 to-blue-500 text-white">
   <div class="max-w-6xl mx-auto px-4 text-center">
     <h2 class="text-3xl font-bold mb-12">Diskusikan dengan Ahli Kami</h2>
 
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-
       
-      <!-- Mentor 1 -->
-      <div onclick="openChat('Amadeo Hutahean')" 
-           class="cursor-pointer bg-white/10 rounded-2xl shadow-lg hover:shadow-xl transition hover:scale-105 p-5 text-center">
-        <div class="w-24 h-24 mx-auto overflow-hidden rounded-full border-4 border-white mb-4">
-          <img src="{{ asset('images/dokter.jpg') }}" alt="Mentor" class="object-cover w-full h-full" />
-        </div>
-        <h4 class="text-lg font-semibold text-white">Nicolas Purba</h4>
-        <p class="text-teal-200 text-sm">Ahli Gaya Hidup Sehat</p>
-      </div>
+      {{-- Pastikan variabel $doctors sudah dikirim dari ProgramController --}}
+      @if(isset($doctors) && !$doctors->isEmpty())
+          
+          {{-- BUKA LOOP DI SINI --}}
+          @foreach($doctors as $doctor)
+              <div 
+                  onclick="openChat('{{ $doctor->name }}', {{ $doctor->id }})" 
+                  class="cursor-pointer bg-white/10 rounded-2xl shadow-lg hover:shadow-xl transition hover:scale-105 p-5 text-center">
+                  <div class="w-24 h-24 mx-auto overflow-hidden rounded-full border-4 border-white mb-4">
+                      <img src="{{ asset('images/dokter.jpg') }}" alt="Mentor" class="object-cover w-full h-full" />
+                  </div>
+                  <h4 class="text-lg font-semibold text-white">{{ $doctor->name }}</h4>
+                  <p class="text-teal-200 text-sm">Ahli Gaya Hidup Sehat</p>
+              </div>
+          @endforeach
+
+      @else
+          <p class="text-center col-span-full">Saat ini tidak ada ahli yang tersedia.</p>
+      @endif
 
     </div>
   </div>
 </section>
 
 
-<!-- ==================== Live Chat Box ==================== -->
 <div id="chatBox" class="fixed bottom-4 right-4 w-96 bg-white shadow-lg rounded-xl p-4 hidden z-50">
   <div class="flex justify-between items-center mb-2">
     <h3 id="mentorName" class="font-bold text-lg">Chat</h3>
@@ -282,29 +269,57 @@
 </div>
 
 <script>
+// =========================================================================
+// SCRIPT LIVE CHAT REAL-TIME (FINAL)
+// =========================================================================
 let selectedMentorId = null;
 let selectedMentorName = '';
 
+// PENTING: Dapatkan ID pengguna yang sedang login.
+@auth
+    const currentUserId = {{ Auth::id() }};
+@else
+    const currentUserId = null;
+@endauth
+
 function openChat(mentorName, mentorId) {
+    if (!currentUserId) {
+        alert('Anda harus login untuk memulai chat.');
+        return;
+    }
+
     selectedMentorId = mentorId;
     selectedMentorName = mentorName;
 
     document.getElementById('chatBox').classList.remove('hidden');
     document.getElementById('mentorName').innerText = `Chat dengan ${mentorName}`;
-    document.getElementById('chatMessages').innerHTML = '';
-    fetchMessages();
+    document.getElementById('chatMessages').innerHTML = '<p class="text-center text-gray-500">Memuat riwayat chat...</p>';
+    
+    fetchMessages(); 
+    listenForMessages();
 }
 
 function closeChat() {
     document.getElementById('chatBox').classList.add('hidden');
+    if(window.Echo && selectedMentorId) {
+        const channelName = `chat.${currentUserId}.${selectedMentorId}`;
+        window.Echo.leave(channelName);
+    }
     selectedMentorId = null;
 }
 
 function sendMessage() {
     const input = document.getElementById('chatInput');
-    const message = input.value.trim();
+    const messageContent = input.value.trim();
 
-    if (message === '' || !selectedMentorId) return;
+    if (messageContent === '' || !selectedMentorId) return;
+
+    appendMessage({
+        content: messageContent,
+        sender_id: currentUserId
+    });
+
+    
 
     fetch("{{ route('chat.send') }}", {
         method: 'POST',
@@ -314,56 +329,80 @@ function sendMessage() {
         },
         body: JSON.stringify({
             receiver_id: selectedMentorId,
-            receiver_type: 'doctor',
-            content: message
+            content: messageContent
         })
     })
-    .then(response => response.json())
-    .then(data => {
-        input.value = '';
-        fetchMessages();
-    });
+    .catch(error => console.error('Error sending message:', error));
+    
+    input.value = '';
+    input.focus();
 }
 
 function fetchMessages() {
     if (!selectedMentorId) return;
 
-    fetch("{{ route('chat.fetch') }}")
+    const fetchUrl = `/chat/fetch/${selectedMentorId}`;
+
+    fetch(fetchUrl)
         .then(response => response.json())
         .then(data => {
             const chatBox = document.getElementById('chatMessages');
             chatBox.innerHTML = '';
             data.forEach(msg => {
-                if ((msg.sender_type === 'user' && msg.receiver_id === selectedMentorId) ||
-                    (msg.receiver_type === 'user' && msg.sender_id === selectedMentorId)) {
-                    chatBox.innerHTML += `
-                        <div class="mb-1 ${msg.sender_type === 'user' ? 'text-right' : 'text-left'}">
-                            <span class="inline-block px-2 py-1 rounded ${msg.sender_type === 'user' ? 'bg-blue-300' : 'bg-gray-300'}">
-                                ${msg.content}
-                            </span>
-                        </div>
-                    `;
-                }
+                appendMessage(msg);
             });
-            chatBox.scrollTop = chatBox.scrollHeight;
-        });
+        })
+        .catch(error => console.error('Error fetching messages:', error));
 }
 
-// auto-refresh setiap 5 detik
-setInterval(fetchMessages, 5000);
+function listenForMessages() {
+    if(window.Echo) {
+        const channelName = `chat.${currentUserId}.${selectedMentorId}`;
+        
+        window.Echo.leave(channelName);
+        
+        window.Echo.private(channelName)
+            .listen('.chat-message', (event) => {
+                appendMessage(event.message);
+            });
+    } else {
+        console.error('Laravel Echo not initialized! Pastikan Anda sudah menjalankan "npm run dev".');
+    }
+}
+
+function appendMessage(msg) {
+    const chatBox = document.getElementById('chatMessages');
+    
+    const isCurrentUserSender = msg.sender_id == currentUserId;
+
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `mb-1 flex ${isCurrentUserSender ? 'justify-end' : 'justify-start'}`;
+    
+    const messageSpan = document.createElement('span');
+    messageSpan.className = `inline-block max-w-xs break-words px-3 py-2 rounded-lg ${isCurrentUserSender ? 'bg-blue-500 text-white' : 'bg-gray-300 text-black'}`;
+    messageSpan.textContent = msg.content;
+
+    messageDiv.appendChild(messageSpan);
+    chatBox.appendChild(messageDiv);
+    
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+document.getElementById('chatInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        sendMessage();
+    }
+});
 </script>
 
-<!-- Modern Footer -->
+
 <footer class="bg-gradient-to-br from-sky-900 via-sky-800 to-sky-700 text-white py-16 px-6">
   <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
 
-    <!-- Logo & Brand -->
     <div>
       <img src="{{ asset('images/logo_simpus.png') }}" alt="Logo" class="mb-4 w-44" />
-     
     </div>
 
-    <!-- Navigasi -->
     <div>
       <h4 class="text-xl font-semibold mb-4">Navigasi</h4>
       <ul class="space-y-2 text-slate-300">
@@ -373,7 +412,6 @@ setInterval(fetchMessages, 5000);
       </ul>
     </div>
 
-    <!-- Kontak -->
     <div>
       <h4 class="text-xl font-semibold mb-4">Kontak Kami</h4>
       <ul class="space-y-2 text-slate-300">
@@ -383,7 +421,6 @@ setInterval(fetchMessages, 5000);
       </ul>
     </div>
 
-    <!-- Sosial Media -->
     <div>
       <h4 class="text-xl font-semibold mb-4">Ikuti Kami</h4>
       <div class="flex space-x-4 mt-2">
@@ -404,7 +441,6 @@ setInterval(fetchMessages, 5000);
 
   </div>
 
-  <!-- Copyright -->
   <div class="mt-12 border-t border-white/10 pt-6 text-center text-sm text-slate-400">
     © 2025 SimpusMedical - Kelompok 4. All rights reserved.
   </div>
