@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ActivityUser;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth; // <-- Pastikan ini di-import
 
 class ProgramController extends Controller
 {
-     public function remaja()
+    public function remaja()
     {
         $activities = [
             'Kesehatan ', 'Peregangan Rutin', 'Latihan Kardio', '', 'Yoga',
@@ -24,77 +25,71 @@ class ProgramController extends Controller
             ->pluck('hari')
             ->toArray();
 
-        // ==========================================================
-        // PENAMBAHAN: Ambil data semua pengguna yang memiliki role 'doctor'
-        // ==========================================================
         $doctors = User::where('role', 'doctor')->get();
 
-        // Ganti 'program.remaja' dengan path view Anda yang benar jika berbeda
         return view('program.remaja', [
             'activities'    => $activities,
             'kategori'      => 'remaja',
             'completedDays' => $completedDays,
-            'doctors'       => $doctors, // <-- Kirim data dokter ke view
+            'doctors'       => $doctors,
         ]);
     }
 
     public function dewasa()
-{
-    $activities = [
-        'Latihan Peregangan', 'Latihan Energi', 'Latihan Kekuatan', 'Rest Day',
-        'Latihan Semangat', 'Latihan Kardio', 'Latihan Kelincahan', 'Rest Day',
-        'Latihan Inti Tubuh', 'Latihan Stamina', 'Latihan Kelenturan', 'Rest Day',
-        'Latihan Gerak Tubuh', 'Latihan Keseimbangan', 'Latihan Kebugaran', 'Rest Day',
-        'Latihan Harian', 'Latihan Ketahanan', 'Latihan Fisik', 'Rest Day',
-        'Latihan Otot', 'Latihan Ritme Tubuh', 'Latihan Stabilitas', 'Rest Day',
-        'Latihan Kecepatan', 'Latihan Koordinasi', 'Latihan Daya Tahan', 'Rest Day',
-        'Latihan Fokus', 'Latihan Gerak Aktif', 'Rest Day'
-    ];
+    {
+        $activities = [
+            'Latihan Peregangan', 'Latihan Energi', 'Latihan Kekuatan', 'Rest Day',
+            'Latihan Semangat', 'Latihan Kardio', 'Latihan Kelincahan', 'Rest Day',
+            'Latihan Inti Tubuh', 'Latihan Stamina', 'Latihan Kelenturan', 'Rest Day',
+            'Latihan Gerak Tubuh', 'Latihan Keseimbangan', 'Latihan Kebugaran', 'Rest Day',
+            'Latihan Harian', 'Latihan Ketahanan', 'Latihan Fisik', 'Rest Day',
+            'Latihan Otot', 'Latihan Ritme Tubuh', 'Latihan Stabilitas', 'Rest Day',
+            'Latihan Kecepatan', 'Latihan Koordinasi', 'Latihan Daya Tahan', 'Rest Day',
+            'Latihan Fokus', 'Latihan Gerak Aktif', 'Rest Day'
+        ];
 
-    $completedDays = ActivityUser::where('user_id', auth()->id())
-        ->where('kategori', 'dewasa')
-        ->pluck('hari')
-        ->toArray();
+        $completedDays = ActivityUser::where('user_id', auth()->id())
+            ->where('kategori', 'dewasa')
+            ->pluck('hari')
+            ->toArray();
 
-    // Ambil semua dokter
-    $doctors = User::where('role', 'doctor')->get();
+        $doctors = User::where('role', 'doctor')->get();
 
-    return view('program.dewasa', [
-        'activities'    => $activities,
-        'kategori'      => 'dewasa',
-        'completedDays' => $completedDays,
-        'doctors'       => $doctors, // <-- Kirim ke view
-    ]);
-}
+        return view('program.dewasa', [
+            'activities'    => $activities,
+            'kategori'      => 'dewasa',
+            'completedDays' => $completedDays,
+            'doctors'       => $doctors,
+        ]);
+    }
 
-public function lansia()
-{
-    $activities = [
-        'Kesehatan Jantung', 'Peregangan Tubuh', 'Keseimbangan dan Stabilitas', 'Rest Day',
-        'Fleksibilitas Tubuh', 'Kekuatan Tubuh Atas', 'Koordinasi Motorik', 'Rest Day',
-        'Latihan Sendi', 'Pernapasan dan Relaksasi', 'Kesehatan Otak', 'Rest Day',
-        'Daya Tahan', 'Postur Tubuh', 'Latihan Seluruh Tubuh', 'Rest Day',
-        'Mobilitas Harian', 'Kesehatan Mata & Leher', 'Refleksi & Keseimbangan', 'Rest Day',
-        'Senam Pagi & Pernafasan', 'Stimulasi Refleks', 'Menjaga Mobilitas', 'Rest Day',
-        'Kekuatan Tubuh Bagian Bawah', 'Fokus dan Daya Ingat', 'Gerakan Sehari-hari', 'Rest Day',
-        'Kesehatan Emosional', 'Peregangan Malam', 'Evaluasi & Syukur'
-    ];
+    public function lansia()
+    {
+        $activities = [
+            'Kesehatan Jantung', 'Peregangan Tubuh', 'Keseimbangan dan Stabilitas', 'Rest Day',
+            'Fleksibilitas Tubuh', 'Kekuatan Tubuh Atas', 'Koordinasi Motorik', 'Rest Day',
+            'Latihan Sendi', 'Pernapasan dan Relaksasi', 'Kesehatan Otak', 'Rest Day',
+            'Daya Tahan', 'Postur Tubuh', 'Latihan Seluruh Tubuh', 'Rest Day',
+            'Mobilitas Harian', 'Kesehatan Mata & Leher', 'Refleksi & Keseimbangan', 'Rest Day',
+            'Senam Pagi & Pernafasan', 'Stimulasi Refleks', 'Menjaga Mobilitas', 'Rest Day',
+            'Kekuatan Tubuh Bagian Bawah', 'Fokus dan Daya Ingat', 'Gerakan Sehari-hari', 'Rest Day',
+            'Kesehatan Emosional', 'Peregangan Malam', 'Evaluasi & Syukur'
+        ];
 
-    $completedDays = ActivityUser::where('user_id', auth()->id())
-        ->where('kategori', 'lansia')
-        ->pluck('hari')
-        ->toArray();
+        $completedDays = ActivityUser::where('user_id', auth()->id())
+            ->where('kategori', 'lansia')
+            ->pluck('hari')
+            ->toArray();
 
-    // Ambil semua dokter
-    $doctors = User::where('role', 'doctor')->get();
+        $doctors = User::where('role', 'doctor')->get();
 
-    return view('program.lansia', [
-        'activities'    => $activities,
-        'kategori'      => 'lansia',
-        'completedDays' => $completedDays,
-        'doctors'       => $doctors, // <-- Kirim ke view
-    ]);
-}
+        return view('program.lansia', [
+            'activities'    => $activities,
+            'kategori'      => 'lansia',
+            'completedDays' => $completedDays,
+            'doctors'       => $doctors,
+        ]);
+    }
 
     public function tandaiTerpenuhi(Request $request)
     {
@@ -116,5 +111,33 @@ public function lansia()
         }
 
         return response()->json(['success' => true]);
+    }
+
+    // ==========================================================
+    // METHOD BARU YANG DITAMBAHKAN UNTUK MENGATASI ERROR
+    // ==========================================================
+    public function markAsCompleteFromDetail(Request $request)
+    {
+        $user = Auth::user();
+        $hari = $request->input('hari');
+        $kategori = $request->input('kategori');
+
+        // Gunakan model ActivityUser untuk menyimpan progress
+        $exists = ActivityUser::where('user_id', $user->id)
+            ->where('hari', $hari)
+            ->where('kategori', $kategori)
+            ->exists();
+
+        if (! $exists) {
+            ActivityUser::create([
+                'user_id' => $user->id,
+                'hari' => $hari,
+                'kategori' => $kategori,
+            ]);
+        }
+
+        // Redirect kembali ke halaman kalender yang sesuai berdasarkan kategori
+        return redirect()->route('program.' . $kategori)
+                         ->with('status', 'Kerja bagus! Aktivitas berhasil ditandai selesai.');
     }
 }

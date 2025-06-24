@@ -3,51 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\AktivitasDewasa; // <-- Import model yang benar
+use App\Models\ActivityUser;    // <-- Import model untuk cek status
+use Illuminate\Support\Facades\Auth;   // <-- Import fasad Auth
 
 class DewasaActivityController extends Controller
 {
-    public function show($id)
+    /**
+     * Menampilkan detail aktivitas berdasarkan nomor hari.
+     *
+     * @param  int  $hari
+     * @return \Illuminate\View\View
+     */
+    public function show($hari)
     {
-        $activities = [
-            ['Jogging Pagi 20 Menit', 'Jalan Sore Keliling Perumahan'],
-            ['Senam Pagi Bertenaga', 'Yoga Sore yang Menenangkan'],
-            ['Latihan Otot Bagian Atas', 'Peregangan Ringan'],
-            ['Hari Istirahat', 'Hari Istirahat'],
-            ['Peregangan Seluruh Tubuh', 'Main Bulu Tangkis Santai'],
-            ['Latihan Kardio Pagi', 'Jalan Cepat di Sore Hari'],
-            ['Latihan Otot Kaki', 'Senam HIIT Ringan'],
-            ['Hari Istirahat', 'Hari Istirahat'],
-            ['Push-up dan Sit-up', 'Main Sepak Bola atau Basket'],
-            ['Jalan Pagi 3 Kilometer', 'Yoga untuk Kelenturan Tubuh'],
-            ['Latihan Inti (Perut & Punggung)', 'Senam Berirama'],
-            ['Hari Istirahat', 'Hari Istirahat'],
-            ['Senam Aerobik Pagi', 'Naik Turun Tangga Selama 10 Menit'],
-            ['Latihan Beban dengan Berat Badan Sendiri', 'Jalan Sore Santai'],
-            ['Jogging Pagi Hari', 'Bersepeda Selama 30 Menit'],
-            ['Hari Istirahat', 'Hari Istirahat'],
-            ['Functional Training', 'Senam Kardio Sore'],
-            ['Peregangan Dinamis', 'Zumba Sore Menyenangkan'],
-            ['Jalan Pagi ke Kantor atau Pasar', 'Bersepeda Sore Hari'],
-            ['Hari Istirahat', 'Hari Istirahat'],
-            ['Senam Pagi di Luar Ruangan', 'Latihan HIIT Singkat'],
-            ['Latihan Inti Tubuh', 'Jalan Kaki Bersama Teman'],
-            ['Latihan Kekuatan (Resistance Band)', 'Latihan Mobilitas Sendi'],
-            ['Hari Istirahat', 'Hari Istirahat'],
-            ['Jogging Ringan Pagi', 'Senam Ritmis Ringan'],
-            ['Peregangan Aktif Pagi', 'Latihan Menjaga Keseimbangan'],
-            ['Latihan Sirkuit Pagi', 'Main Bola Voli atau Futsal'],
-            ['Hari Istirahat', 'Hari Istirahat'],
-            ['Latihan Interval Pagi', 'Stretching dan Relaksasi'],
-            ['Latihan Punggung dan Dada', 'Bersepeda Keliling Sekitar Rumah'],
-            ['Hari Istirahat', 'Hari Istirahat']
-        ];
-
-        if ($id < 1 || $id > count($activities)) {
-            abort(404);
-        }
-
-        [$morning, $evening] = $activities[$id - 1];
-
-        return view('activity.show', compact('id', 'morning', 'evening'));
+        // 1. Ambil data detail aktivitas dari database berdasarkan HARI
+        $activity = AktivitasDewasa::where('hari', $hari)->firstOrFail();
+        
+        // 2. Cek apakah aktivitas ini sudah diselesaikan oleh pengguna
+        $isCompleted = ActivityUser::where('user_id', Auth::id())
+                                   ->where('kategori', 'dewasa') // Spesifik untuk dewasa
+                                   ->where('hari', $hari)
+                                   ->exists();
+        
+        // 3. Kirim data aktivitas DAN status selesai ke view
+        return view('program.dewasa.show', [
+            'activity' => $activity,
+            'isCompleted' => $isCompleted // Kirim variabel ini ke view
+        ]);
     }
 }

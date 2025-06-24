@@ -10,10 +10,14 @@ return new class extends Migration
     {
         Schema::create('aktivitas_lansia', function (Blueprint $table) {
             $table->id();
-            $table->string('aktivitas');
+            $table->text('hari');
+            $table->string('aktivitas_pagi');
+            $table->string('aktivitas_sore');
+            $table->text('deskripsi_1');
+            $table->text('deskripsi_2');
             $table->string('video');
-            $table->text('deskripsi');
-            $table->string('program');
+            $table->string('video2');
+
             $table->timestamps();
         });
     }

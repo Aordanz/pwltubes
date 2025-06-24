@@ -8,10 +8,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ $title ?? 'MyApp' }}</title>
+    <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
  <style>
     @keyframes slide-right {
       0% {
@@ -92,8 +93,6 @@
         </h4>
       </div>
     </div>
-
-    </div>
   </div>
 </section>
 
@@ -106,84 +105,63 @@
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-16">
       <div class="bg-white/5 backdrop-blur-md border border-white/50 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition duration-300 text-left">
-        <div class="flex items-center space-x-4 mb-4">
-          <div class="text-3xl font-bold text-teal-300"></div>
           <h4 class="text-xl font-semibold text-white">Mencegah Penyakit Kronis</h4>
-        </div>
-        <p class="text-teal-100 text-sm leading-relaxed">
-          Membantu menjaga tekanan darah, kadar gula darah, dan kolesterol tetap normal.
-        </p>
+          <p class="text-teal-100 text-sm leading-relaxed mt-2">
+            Membantu menjaga tekanan darah, kadar gula darah, dan kolesterol tetap normal.
+          </p>
       </div>
 
       <div class="bg-white/5 backdrop-blur-md border border-white/50 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition duration-300 text-left">
-        <div class="flex items-center space-x-4 mb-4">
-          <div class="text-3xl font-bold text-teal-300"></div>
           <h4 class="text-xl font-semibold text-white">Menjaga Kesehatan Mental</h4>
-        </div>
-        <p class="text-teal-100 text-sm leading-relaxed">
-          Meningkatkan energi harian serta kestabilan suasana hati.
-        </p>
+          <p class="text-teal-100 text-sm leading-relaxed mt-2">
+            Meningkatkan energi harian serta kestabilan suasana hati.
+          </p>
       </div>
 
       <div class="bg-white/5 backdrop-blur-md border border-white/50 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition duration-300 text-left">
-        <div class="flex items-center space-x-4 mb-4">
-          <div class="text-3xl font-bold text-teal-300"></div>
           <h4 class="text-xl font-semibold text-white">Memperkuat Sistem Imun</h4>
-        </div>
-        <p class="text-teal-100 text-sm leading-relaxed">
-          Gaya hidup aktif memperkuat daya tahan tubuh.
-        </p>
+          <p class="text-teal-100 text-sm leading-relaxed mt-2">
+            Gaya hidup aktif memperkuat daya tahan tubuh.
+          </p>
       </div>
     </div>
   </div>
-
-  <div class="absolute w-[400px] h-[400px] bg-teal-300 opacity-10 rounded-full -top-20 -left-40 blur-3xl"></div>
-  <div class="absolute w-[300px] h-[300px] bg-teal-500 opacity-10 rounded-full bottom-0 right-0 blur-2xl"></div>
 </section>
 
 <section id="class" class="py-20 bg-gray-50 text-black">
-  <div class="max-w-[1200px] mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-12">Kalender Aktivitas 30 Hari untuk Dewasa</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      
-      @foreach($activities as $index => $activity)
-      <a href="{{ route('activity.dewasa.show', ['id' => $loop->index + 1]) }}" class="block">
-          <div class="relative border p-5 rounded-lg shadow hover:shadow-lg transition {{ ($index + 1) % 4 == 0 ? 'bg-yellow-100' : 'bg-white' }}">
+    <div class="max-w-[1200px] mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Kalender Aktivitas 30 Hari untuk Dewasa</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+         @foreach($activities as $index => $activityName)
+    {{-- 1. Tautan diperbaiki untuk mengirimkan parameter 'hari' --}}
+    <a href="{{ route('activity.dewasa.show', ['hari' => $index + 1]) }}" class="block">
+        <div class="relative border p-5 rounded-lg shadow hover:shadow-lg transition h-full 
+                    {{ in_array($index + 1, $completedDays ?? []) ? 'border-2 border-green-500 bg-green-50' : '' }} 
+                    {{ ($index + 1) % 4 == 0 ? 'bg-yellow-100' : 'bg-white' }}">
+            
+            {{-- 2. Checkbox dihapus dan diganti dengan ikon centang --}}
+            @if(in_array($index + 1, $completedDays ?? []))
+                <div class="absolute top-2 right-2 bg-green-500 text-white rounded-full h-7 w-7 flex items-center justify-center shadow-lg" title="Aktivitas Selesai">
+                    <i class="ri-check-line font-bold text-xl"></i>
+                </div>
+            @endif
 
-              <form method="POST" action="{{ route('program.terpenuhi', ['kategori' => 'dewasa']) }}" class="absolute top-2 right-2">
-                  @csrf
-                  <input type="hidden" name="hari" value="{{ $index + 1 }}">
-                  <input type="checkbox"
-                         id="checkbox-{{ $index }}"
-                         onchange="markComplete({{ $index }}, 'dewasa')"
-                         class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-0 cursor-pointer">
-              </form>
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-semibold text-gray-500">Hari ke-{{ $index + 1 }}</span>
+            </div>
 
-              <div class="flex justify-between items-center mb-2">
-                  <span class="text-sm font-semibold text-gray-500">Hari ke-{{ $index + 1 }}</span>
-                  <span class="bg-indigo-100 text-indigo-700 text-xs px-2 py-1 rounded-full">
-                      @if(($index + 1) % 4 == 0)
-                          Istirahat
-                      @else
-                          {{ $activity }}
-                      @endif
-                  </span>
-              </div>
-
-              <img src="{{ ($index + 1) % 4 == 0 ? 'https://source.unsplash.com/400x250/?relax,day' : 'https://source.unsplash.com/400x250/?fitness,adult' }}" class="rounded mb-3" alt="Aktivitas Hari {{ $index + 1 }}">
-
-              <p class="text-gray-700 text-sm">
-                  @if(($index + 1) % 4 == 0)
-                    Hari ke-{{ $index + 1 }} adalah hari istirahat untuk menjaga kebugaran.
-                  @else
-                    Aktivitas hari ke-{{ $index + 1 }} untuk dewasa: {{ $activity }}.
-                  @endif
-              </p>
-          </div>
-      </a>
-      @endforeach
+            {{-- 3. Variabel judul diperbaiki menjadi $activityName --}}
+            <h3 class="font-bold text-lg text-gray-800 mb-3 min-h-[56px]">{{ $activityName ?: 'Hari Istirahat' }}</h3>
+            
+            <p class="text-gray-600 text-sm mt-auto">
+               Klik untuk melihat detail...
+            </p>
+        </div>
+    </a>
+@endforeach
+        </div>
     </div>
-  </div>
 </section>
 
 <div id="notification" class="fixed bottom-5 right-5 bg-green-500 text-white py-3 px-5 rounded-lg shadow-lg hidden z-50">

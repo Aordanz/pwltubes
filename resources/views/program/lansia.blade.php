@@ -130,44 +130,32 @@
   <div class="max-w-[1200px] mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-12">Kalender Aktivitas 30 Hari</h2>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      @foreach($activities as $index => $activity)
-        <a href="{{ route('activity.lansia.show', ['id' => $loop->index + 1]) }}" class="block">
-          <div class="relative border p-5 rounded-lg shadow hover:shadow-lg transition {{ ($index + 1) % 4 == 0 ? 'bg-green-100' : 'bg-white' }}">
-            <form method="POST" action="{{ route('program.terpenuhi') }}" class="absolute top-2 right-2">
-              @csrf
-              <input type="hidden" name="hari" value="{{ $index + 1 }}">
-              <input type="hidden" name="kategori" value="lansia">
-              <input type="checkbox" 
-                     id="checkbox-{{ $index }}" 
-                     onchange="markComplete({{ $index }}, 'lansia')" 
-                     class="w-5 h-5 text-purple-600 border-gray-300 rounded focus:ring-0 cursor-pointer"
-                     {{ in_array($index + 1, $completedDays ?? []) ? 'checked disabled' : '' }}>
-            </form>
-            <div class="flex justify-between items-center mb-2">
-              <span class="text-sm font-semibold text-gray-500">Hari ke-{{ $index + 1 }}</span>
-              <span class="bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded-full">
-                @if(($index + 1) % 4 == 0)
-                  Hari Istirahat
-                @else
-                  {{ $activity }}
-                @endif
-              </span>
-            </div>
-            <img src="{{ ($index + 1) % 4 == 0 
-              ? 'https://source.unsplash.com/400x250/?elderly,rest' 
-              : 'https://source.unsplash.com/400x250/?senior,exercise' }}" 
-              class="rounded mb-3" 
-              alt="Aktivitas Hari {{ $index + 1 }}">
-            <p class="text-gray-700 text-sm">
-              @if(($index + 1) % 4 == 0)
-                Hari ke-{{ $index + 1 }} adalah waktu istirahat untuk menjaga kondisi tubuh.
-              @else
-                Aktivitas hari ke-{{ $index + 1 }} untuk lansia: {{ $activity }}.
-              @endif
-            </p>
-          </div>
-        </a>
-      @endforeach
+                  @foreach($activities as $index => $activityName)
+                {{-- Tautan mengirim parameter 'hari' yang benar --}}
+                <a href="{{ route('activity.lansia.show', ['hari' => $index + 1]) }}" class="block">
+                    <div class="relative border p-5 rounded-lg shadow hover:shadow-lg transition h-full 
+                                {{ in_array($index + 1, $completedDays ?? []) ? 'border-2 border-green-500 bg-green-50' : '' }} 
+                                {{ ($index + 1) % 4 == 0 ? 'bg-green-100' : 'bg-white' }}">
+                        
+                        {{-- Menampilkan ikon centang jika selesai, tidak ada checkbox --}}
+                        @if(in_array($index + 1, $completedDays ?? []))
+                            <div class="absolute top-2 right-2 bg-green-500 text-white rounded-full h-7 w-7 flex items-center justify-center shadow-lg" title="Aktivitas Selesai">
+                                <i class="ri-check-line font-bold text-xl"></i>
+                            </div>
+                        @endif
+
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-semibold text-gray-500">Hari ke-{{ $index + 1 }}</span>
+                        </div>
+
+                        <h3 class="font-bold text-lg text-gray-800 mb-3 min-h-[56px]">{{ $activityName ?: 'Hari Istirahat' }}</h3>
+                        
+                        <p class="text-gray-600 text-sm mt-auto">
+                           Klik untuk melihat detail...
+                        </p>
+                    </div>
+                </a>
+            @endforeach
     </div>
   </div>
 </section>

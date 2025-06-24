@@ -144,52 +144,44 @@
 
 
 <section id="class" class="py-20 bg-gray-50 text-black">
-  <div class="max-w-[1200px] mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-12">Kalender Aktivitas 30 Hari</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      @if (!empty($activities))
-        @foreach($activities as $index => $activity)
-          <a href="{{ route('activity.remaja.show', ['id' => $index + 1]) }}" class="block">
-            <div class="relative border p-5 rounded-lg shadow hover:shadow-lg transition {{ ($index + 1) % 4 == 0 ? 'bg-red-100' : 'bg-white' }}">
-              {{-- Checkbox --}}
-              <form method="POST" action="{{ route('program.terpenuhi') }}" class="absolute top-2 right-2">
-                @csrf
-                <input type="hidden" name="hari" value="{{ $index + 1 }}">
-                <input type="hidden" name="kategori" value="remaja">
-                <input type="checkbox"
-                       id="checkbox-{{ $index }}"
-                       onchange="markComplete({{ $index }}, 'remaja')"
-                       class="w-5 h-5 text-green-600 border-gray-300 rounded focus:ring-0 cursor-pointer"
-                       {{ in_array($index + 1, $completedDays ?? []) ? 'checked disabled' : '' }}>
-              </form>
+    <div class="max-w-[1200px] mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Kalender Aktivitas 30 Hari</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            @foreach($activities as $index => $activityName)
+                <a href="{{ route('activity.remaja.show', ['hari' => $index + 1]) }}" class="block">
+                    <div class="relative border p-5 rounded-lg shadow hover:shadow-lg transition h-full 
+                                {{ in_array($index + 1, $completedDays ?? []) ? 'border-2 border-green-500 bg-green-50' : '' }} 
+                                {{ ($index + 1) % 4 == 0 ? 'bg-red-100' : 'bg-white' }}">
+                        
+                        {{-- ========================================================== --}}
+                        {{-- BAGIAN YANG DIPERBAIKI: FORM CHECKBOX DIHAPUS --}}
+                        {{-- ========================================================== --}}
+                        @if(in_array($index + 1, $completedDays ?? []))
+                            {{-- Hanya tampilkan ikon centang jika sudah selesai --}}
+                            <div class="absolute top-2 right-2 bg-green-500 text-white rounded-full h-7 w-7 flex items-center justify-center shadow-lg" title="Aktivitas Selesai">
+                                <i class="ri-check-line font-bold text-xl"></i>
+                            </div>
+                        @endif
+                        {{-- Tidak ada lagi @else dan form checkbox --}}
+                        {{-- ========================================================== --}}
 
-              {{-- Info Hari --}}
-              <div class="flex justify-between items-center mb-2">
-                <span class="text-sm font-semibold text-gray-500">Hari ke-{{ $index + 1 }}</span>
-                <span class="bg-teal-100 text-teal-700 text-xs px-2 py-1 rounded-full">
-                  {{ ($index + 1) % 4 == 0 ? 'Rest Day' : $activity }}
-                </span>
-              </div>
+                        {{-- Info Hari --}}
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-semibold text-gray-500">Hari ke-{{ $index + 1 }}</span>
+                        </div>
 
-              {{-- Gambar --}}
-              <img src="{{ ($index + 1) % 4 == 0 ? 'https://source.unsplash.com/400x250/?rest,day' : 'https://source.unsplash.com/400x250/?exercise,day' }}"
-                   class="rounded mb-3"
-                   alt="Aktivitas Hari {{ $index + 1 }}">
+                        {{-- Menampilkan nama aktivitas dari array manual --}}
+                        <h3 class="font-bold text-lg text-gray-800 mb-3 min-h-[56px]">{{ $activityName ?: 'Hari Istirahat' }}</h3>
 
-              {{-- Deskripsi --}}
-              <p class="text-gray-700 text-sm">
-                @if(($index + 1) % 4 == 0)
-                  Hari ke-{{ $index + 1 }} adalah Rest Day.
-                @else
-                  Aktivitas hari ke-{{ $index + 1 }}: {{ $activity }}.
-                @endif
-              </p>
-            </div>
-          </a>
-        @endforeach
-      @endif
+                        {{-- Deskripsi singkat --}}
+                        <p class="text-gray-600 text-sm mt-auto">
+                           Klik untuk melihat detail...
+                        </p>
+                    </div>
+                </a>
+            @endforeach
+        </div>
     </div>
-  </div>
 </section>
 
 <div id="notification" class="fixed bottom-5 right-5 bg-green-500 text-white py-3 px-5 rounded-lg shadow-lg hidden z-50">
