@@ -12,15 +12,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Seeder untuk user biasa (user default Laravel)
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test2@mail.com',
-        ]);
+      
 
         // ✅ Panggil seeder untuk dokter
         $this->call([
-            DoctorSeeder::class,
+            
+            AktivitasLansiaSeeder::class,
+            AktivitasDewasaSeeder::class,
+            AktivitasRemajaSeeder::class,
         ]);
     }
 }

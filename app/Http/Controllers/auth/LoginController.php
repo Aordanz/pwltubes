@@ -26,17 +26,21 @@ class LoginController extends Controller
             $user = Auth::user();
 
             // =================================================================
-            // PERBAIKAN TOTAL DI SINI
-            // 1. Cek dulu apakah rolenya 'doctor'
-            // 2. Jika bukan, baru cek 'age_category'
+            // PERBAIKAN: Menambahkan logika redirect berdasarkan peran
             // =================================================================
-            
+
+            // 1. Cek apakah pengguna adalah admin
+            if ($user->role === 'admin') {
+                return redirect('/admin'); // Arahkan ke dashboard Filament
+            }
+
+            // 2. Cek apakah pengguna adalah dokter
             if ($user->role === 'doctor') {
                 return redirect()->route('doctor.dashboard');
             }
 
-            // Untuk role 'user', kita redirect berdasarkan age_category
-            switch ($user->age_category) { // <-- MENGGUNAKAN KOLOM YANG BENAR
+            // 3. Jika bukan keduanya, arahkan ke program sesuai kategori umur
+            switch ($user->age_category) {
                 case 'remaja':
                     return redirect()->route('program.remaja');
                 
@@ -47,8 +51,8 @@ class LoginController extends Controller
                     return redirect()->route('program.lansia');
 
                 default:
-                    // Fallback jika age_category kosong atau tidak valid
-                    return redirect()->route('home');
+                    // Fallback jika kategori umur tidak valid
+                    return redirect('/');
             }
         }
 

@@ -3,50 +3,52 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\AktivitasLansia;
+use App\Models\ActivityUser;
+use Illuminate\Support\Facades\Auth;
 
 class LansiaActivityController extends Controller
 {
-    public function show($id)
+    /**
+     * Menampilkan detail aktivitas berdasarkan nomor hari.
+     *
+     * @param  string  $hari
+     * @return \Illuminate\View\View
+     */
+    public function show($hari)
     {
-        $activities = [
-            ['Perenggangan Badan', 'Jogging'],
-            ['Squats', 'Yoga'],
-            ['Rest Day', 'Rest Day'],
-            ['Push-up', 'Walking'],
-            ['Stretching', 'Lunges'],
-            ['Jogging', 'Tai Chi'],
-            ['Dance', 'Strength Training'],
-            ['Burpees', 'Pilates'],
-            ['Rest Day', 'Rest Day'],
-            ['Zumba', 'Sit-up'],
-            ['Yoga', 'Push-up'],
-            ['Cycling', 'Swimming'],
-            ['Brisk Walk', 'Plank'],
-            ['Boxing', 'Stretching'],
-            ['Rest Day', 'Rest Day'],
-            ['Squats', 'Breathing'],
-            ['Jump Rope', 'Walking'],
-            ['Plank', 'Yoga'],
-            ['Running', 'Pilates'],
-            ['Bodyweight Squats', 'Wall Sit'],
-            ['Lunges', 'Jogging'],
-            ['Rest Day', 'Rest Day'],
-            ['Push-up', 'Stretching'],
-            ['Cycling', 'Jogging'],
-            ['Yoga', 'Crunches'],
-            ['Jumping Jacks', 'Breathing'],
-            ['Mountain Climber', 'Wall Sit'],
-            ['Rest Day', 'Rest Day'],
-            ['Tai Chi', 'Sit-up'],
-            ['Strength Training', 'Plank'],
-        ];
+        // ==========================================================
+        // PERBAIKAN FINAL: Menggunakan metode pencarian yang lebih kuat
+        // ==========================================================
 
-        if ($id < 1 || $id > count($activities)) {
-            abort(404);
+        // 1. Ambil SEMUA aktivitas dari database.
+        $allActivities = AktivitasLansia::all();
+
+        $activity = null;
+        // 2. Loop melalui setiap item dan bandingkan nilainya setelah dibersihkan
+        foreach ($allActivities as $item) {
+            // trim() akan menghapus spasi di awal dan akhir dari kedua nilai
+            // sebelum membandingkannya. Ini menyelesaikan masalah data yang kotor.
+            if (trim($item->hari) == trim($hari)) {
+                $activity = $item;
+                break; // Hentikan loop jika sudah ditemukan
+            }
         }
 
-        [$morning, $evening] = $activities[$id - 1];
-
-        return view('activity.show', compact('id', 'morning', 'evening'));
+        // 3. Jika setelah dicari tetap tidak ada, tampilkan 404 Not Found.
+        if (!$activity) {
+            abort(404);
+        }
+        
+        // Cek status penyelesaian
+        $isCompleted = ActivityUser::where('user_id', Auth::id())
+                                   ->where('kategori', 'lansia')
+                                   ->where('hari', $activity->hari)
+                                   ->exists();
+        
+        return view('program.lansia.show', [
+            'activity' => $activity,
+            'isCompleted' => $isCompleted
+        ]);
     }
 }

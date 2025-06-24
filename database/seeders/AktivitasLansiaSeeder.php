@@ -2,15 +2,15 @@
 
 namespace Database\Seeders;
 
-use App\Models\AktivitasRemaja;
+use App\Models\AktivitasLansia;
 use Illuminate\Database\Seeder;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
-class AktivitasSeeder extends Seeder
+class AktivitasLansiaSeeder extends Seeder
 {
     public function run(): void
     {
-        $path = storage_path('app/data_aktivitas.xlsx');
+        $path = storage_path('app/aktivitas_lansia.xlsx');
 
         if (!file_exists($path)) {
             $this->command->error("File not found: $path");
@@ -30,11 +30,16 @@ class AktivitasSeeder extends Seeder
                 continue; // skip jika aktivitas kosong
             }
 
-            AktivitasRemaja::create([
-                'aktivitas' => $row['B'] ?? '',
-                'video' => $row['C'] ?? '',
-                'deskripsi' => $row['D'] ?? '',
-                'program' => $row['E'] ?? '',
+
+            AktivitasLansia::create([
+                'hari' => $row['B'] ?? '',
+                'aktivitas_pagi' => $row['C'] ?? '',
+                'aktivitas_sore' => $row['D'] ?? '',
+                'deskripsi_1' => $row['E'] ?? '',
+                'deskripsi_2' => $row['F'] ?? '',
+                'video' => $row['G'] ?? '',
+                'video2' => $row['H'] ?? '',
+                
             ]);
 
             $inserted++;
