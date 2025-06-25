@@ -3,7 +3,7 @@
 @section('title', 'Detail Aktivitas')
 
 @section('content')
-<div class="max-w-5xl mx-auto p-6">
+<div class="max-w-5xl mx-auto pt-32 px-6">
     <h2 class="text-3xl font-bold text-center text-[#065f46] mb-8">Detail Aktivitas Hari ke-{{ $id }}</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">

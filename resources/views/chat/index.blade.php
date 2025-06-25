@@ -1,37 +1,72 @@
 @extends('layouts.layout')
 
-@section('title', 'Chat User-Admin')
-
 @section('content')
-<div class="max-w-3xl mx-auto p-6 bg-white shadow rounded mt-10">
-    <h1 class="text-2xl font-semibold mb-6">Chat dengan Admin</h1>
+<div class="container mx-auto p-4">
+    <div class="flex justify-center">
+        <div class="w-full max-w-lg">
+            <div class="bg-white shadow-xl rounded-lg p-4">
+                <h2 class="text-xl font-bold mb-4">Chat dengan {{ $doctor->name }}</h2>
 
-    <div class="border rounded p-4 h-96 overflow-y-auto mb-6 bg-gray-50" id="chatBox">
-        @foreach ($messages as $msg)
-            @php
-                $isUser = $msg->sender_id === auth()->id();
-            @endphp
-            <div class="mb-4 flex {{ $isUser ? 'justify-end' : 'justify-start' }}">
-                <div class="max-w-xs px-4 py-2 rounded-lg
-                    {{ $isUser ? 'bg-green-200 text-green-900' : 'bg-gray-300 text-gray-900' }}">
-                    <p>{{ $msg->message }}</p>
-                    <span class="text-xs text-gray-600 block mt-1">{{ $msg->created_at->format('d M H:i') }}</span>
+                {{-- Chat box --}}
+                <div id="chat-box" class="h-64 overflow-y-scroll border rounded p-3 bg-gray-50 mb-4">
+                    {{-- Pesan akan dimuat lewat JavaScript --}}
                 </div>
-            </div>
-        @endforeach
-    </div>
 
-    <form action="{{ route('chat.send') }}" method="POST" class="flex space-x-4">
-        @csrf
-        <input type="text" name="message" placeholder="Tulis pesan..." 
-               class="flex-grow border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400" required>
-        <button type="submit" 
-                class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">Kirim</button>
-    </form>
+                {{-- Form Kirim Pesan --}}
+                <form id="chat-form">
+                    <input type="hidden" name="receiver_id" value="{{ $doctor->id }}">
+                    <input type="hidden" name="receiver_type" value="doctor">
+                    <div class="flex gap-2">
+                        <input id="chat-input" type="text" name="content" class="flex-1 border rounded px-3 py-2" placeholder="Ketik pesan..." required>
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Kirim</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
-    let chatBox = document.getElementById('chatBox');
-    chatBox.scrollTop = chatBox.scrollHeight;
+    const chatBox = document.getElementById('chat-box');
+    const chatForm = document.getElementById('chat-form');
+    const chatInput = document.getElementById('chat-input');
+
+    // Muat pesan tiap 3 detik
+    function loadMessages() {
+        fetch("{{ route('chat.get') }}")
+            .then(res => res.json())
+            .then(data => {
+                chatBox.innerHTML = data.messages.map(msg => `
+                    <p class="mb-2">
+                        <span class="font-semibold">${msg.sender_name}:</span>
+                        ${msg.content}
+                    </p>
+                `).join('');
+                chatBox.scrollTop = chatBox.scrollHeight;
+            });
+    }
+
+    loadMessages();
+    setInterval(loadMessages, 3000);
+
+    // Kirim pesan
+    chatForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(chatForm);
+
+        fetch("{{ route('chat.send') }}", {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            body: formData
+        })
+        .then(res => res.json())
+        .then(() => {
+            chatInput.value = '';
+            loadMessages();
+        });
+    });
 </script>
 @endsection
