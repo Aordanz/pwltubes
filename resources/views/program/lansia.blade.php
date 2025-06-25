@@ -207,7 +207,7 @@
                   class="cursor-pointer bg-white/10 rounded-2xl shadow-lg hover:shadow-xl transition hover:scale-105 p-5 text-center">
                   <div class="w-24 h-24 mx-auto overflow-hidden rounded-full border-4 border-white mb-4">
                       {{-- Idealnya, gambar dokter juga dinamis --}}
-                      <img src="{{ asset('images/dokter.jpg') }}" alt="Mentor" class="object-cover w-full h-full" />
+                      <img src="{{ asset('images/dokter1.jpg') }}" alt="Mentor" class="object-cover w-full h-full" />
                   </div>
                   <h4 class="text-lg font-semibold text-white">{{ $doctor->name }}</h4>
                   <p class="text-teal-200 text-sm">Ahli Gaya Hidup Sehat</p>
